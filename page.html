@@ -4,24 +4,44 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coming Soon — ChainX</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        /* Circular Std - Medium (500) */
+        @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd-Book.ttf') format('truetype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        /* Circular Std - Bold (700) */
+        @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd-Bold.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --navy:  #040e1f;
     --cyan:  #1199fa;
     --white: #ffffff;
-    --dim:   rgba(255,255,255,0.55);
+    --dim:   rgba(255, 255, 255, 0.799);
     --dimmer:rgba(255,255,255,0.2);
   }
 
   html, body {
     width: 100%; height: 100%;
     overflow: hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Circular Std', sans-serif;
     background: var(--navy);
     color: var(--white);
   }
@@ -40,15 +60,6 @@
     background:
       radial-gradient(ellipse 80% 60% at 50% 100%, rgba(4,14,31,0.2) 0%, rgba(4,14,31,0.96) 70%),
       linear-gradient(180deg, rgba(4,14,31,0.7) 0%, rgba(4,14,31,0.3) 40%, rgba(4,14,31,0.85) 100%);
-  }
-  .bg::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(17,153,250,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(17,153,250,0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 30%, transparent 100%);
   }
 
   /* ── NOISE GRAIN ── */
@@ -122,11 +133,11 @@
 
   /* Headline */
   .headline {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(3rem, 10vw, 7.5rem);
-    font-weight: 800;
+    font-family: 'Circular Std', sans-serif;
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 500;
     line-height: 0.95;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.02em;
     color: var(--white);
     margin-bottom: 1.4rem;
     opacity: 0;
@@ -137,7 +148,7 @@
   /* Subtext */
   .subtext {
     font-size: clamp(0.9rem, 2vw, 1.05rem);
-    font-weight: 400;
+    font-weight: 500;
     color: var(--dim);
     max-width: 480px;
     line-height: 1.7;
@@ -146,64 +157,12 @@
     animation: fadeUp 0.9s ease forwards 0.55s;
   }
 
-  /* Notify form */
-  .notify-wrap {
-    display: flex; gap: 0;
-    max-width: 400px; width: 100%;
-    opacity: 0;
-    animation: fadeUp 0.9s ease forwards 0.7s;
-  }
-  .notify-input {
-    flex: 1; min-width: 0;
-    padding: 13px 16px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(17,153,250,0.3);
-    border-right: none;
-    border-radius: 8px 0 0 8px;
-    color: var(--white);
-    font-family: 'Inter', sans-serif; font-size: 0.88rem;
-    outline: none;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .notify-input::placeholder { color: rgba(255,255,255,0.28); }
-  .notify-input:focus {
-    border-color: rgba(17,153,250,0.7);
-    background: rgba(17,153,250,0.08);
-  }
-  .notify-btn {
-    padding: 13px 20px;
-    background: var(--cyan); color: #000;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem; font-weight: 700;
-    border: none; border-radius: 0 8px 8px 0;
-    cursor: pointer; white-space: nowrap;
-    transition: opacity 0.2s, transform 0.15s;
-    letter-spacing: 0.01em;
-  }
-  .notify-btn:hover { opacity: 0.88; transform: translateX(1px); }
-  .notify-btn:active { transform: none; }
-  .notify-confirm {
-    font-size: 0.82rem; color: #34C759;
-    margin-top: 10px; display: none;
-    animation: fadeUp 0.4s ease forwards;
-  }
-
-  /* Decorative divider */
-  .divider {
-    width: 40px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    margin: 3rem auto 1.5rem;
-    opacity: 0;
-    animation: fadeIn 1s ease forwards 0.85s;
-  }
-
   /* Back link */
   .back-link {
     font-size: 0.78rem; font-weight: 500;
     color: var(--dimmer); text-decoration: none;
     letter-spacing: 0.04em;
     transition: color 0.2s;
-    opacity: 0;
     animation: fadeIn 1s ease forwards 0.95s;
   }
   .back-link:hover { color: var(--white); }
@@ -249,21 +208,8 @@
 
 <main class="page">
 
-  <a href="index.html" class="logo">
-    <svg class="logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="17,2 30,9.5 30,24.5 17,32 4,24.5 4,9.5" fill="none" stroke="#1199fa" stroke-width="1.5" opacity="0.4"/>
-      <polygon points="17,8 25,17 17,26 9,17" fill="none" stroke="#1199fa" stroke-width="1.5"/>
-      <circle cx="17" cy="17" r="2.5" fill="#1199fa"/>
-      <line x1="17" y1="2" x2="17" y2="8" stroke="#1199fa" stroke-width="1.5"/>
-      <line x1="17" y1="26" x2="17" y2="32" stroke="#1199fa" stroke-width="1.5" opacity="0.5"/>
-    </svg>
-    <div class="logo-text">CHAIN<span>X</span></div>
+  <a href="index.html" class="logo"><img src="logo.png" style="height: 25px;"/>
   </a>
-
-  <div class="eyebrow">
-    <span class="eyebrow-dot"></span>
-    Under Construction
-  </div>
 
   <h1 class="headline">
     Coming<br>
@@ -271,16 +217,8 @@
   </h1>
 
   <p class="subtext">
-    We're building something great here. This page is currently in development — check back shortly or drop your email to be notified the moment it goes live.
+    We're building something great here. This page is currently in development — check back soon.
   </p>
-
-  <div class="notify-wrap" id="notifyWrap">
-    <input class="notify-input" id="notifyEmail" type="email" placeholder="Enter your email address" autocomplete="off">
-    <button class="notify-btn" id="notifyBtn">Notify me</button>
-  </div>
-  <div class="notify-confirm" id="notifyConfirm">✓ You're on the list — we'll let you know.</div>
-
-  <div class="divider"></div>
 
   <a href="javascript:history.back()" class="back-link">
     <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
