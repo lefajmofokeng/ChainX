@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — ChainX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:  #040e1f;
+    --cyan:  #1199fa;
+    --white: #ffffff;
+    --dim:   rgba(255,255,255,0.55);
+    --dimmer:rgba(255,255,255,0.2);
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  /* ── BACKGROUND ── */
+  .bg {
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=2232&auto=format&fit=crop')
+      center center / cover no-repeat;
+  }
+  /* layered overlays: deep navy tint + radial vignette + grid */
+  .bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 100%, rgba(4,14,31,0.2) 0%, rgba(4,14,31,0.96) 70%),
+      linear-gradient(180deg, rgba(4,14,31,0.7) 0%, rgba(4,14,31,0.3) 40%, rgba(4,14,31,0.85) 100%);
+  }
+  .bg::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(17,153,250,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(17,153,250,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  /* ── NOISE GRAIN ── */
+  .grain {
+    position: fixed; inset: 0; z-index: 1;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  /* ── GLOWING ORB ── */
+  .orb {
+    position: fixed;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(17,153,250,0.18) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: pulse 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.12); }
+  }
+
+  /* ── MAIN CONTENT ── */
+  .page {
+    position: relative; z-index: 2;
+    width: 100%; height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.1s;
+  }
+  .logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
+  .logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem; font-weight: 800;
+    color: var(--white); letter-spacing: -0.03em;
+  }
+  .logo-text span { color: var(--cyan); }
+
+  /* Eyebrow label */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--cyan);
+    margin-bottom: 1.4rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.25s;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px rgba(17,153,250,0.8);
+    animation: blink 1.8s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:0.2; } }
+
+  /* Headline */
+  .headline {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 10vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--white);
+    margin-bottom: 1.4rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.4s;
+  }
+  .headline .line-cyan { color: var(--cyan); display: block; }
+
+  /* Subtext */
+  .subtext {
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    font-weight: 400;
+    color: var(--dim);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.55s;
+  }
+
+  /* Notify form */
+  .notify-wrap {
+    display: flex; gap: 0;
+    max-width: 400px; width: 100%;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.7s;
+  }
+  .notify-input {
+    flex: 1; min-width: 0;
+    padding: 13px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(17,153,250,0.3);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    color: var(--white);
+    font-family: 'Inter', sans-serif; font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .notify-input::placeholder { color: rgba(255,255,255,0.28); }
+  .notify-input:focus {
+    border-color: rgba(17,153,250,0.7);
+    background: rgba(17,153,250,0.08);
+  }
+  .notify-btn {
+    padding: 13px 20px;
+    background: var(--cyan); color: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    border: none; border-radius: 0 8px 8px 0;
+    cursor: pointer; white-space: nowrap;
+    transition: opacity 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .notify-btn:hover { opacity: 0.88; transform: translateX(1px); }
+  .notify-btn:active { transform: none; }
+  .notify-confirm {
+    font-size: 0.82rem; color: #34C759;
+    margin-top: 10px; display: none;
+    animation: fadeUp 0.4s ease forwards;
+  }
+
+  /* Decorative divider */
+  .divider {
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    margin: 3rem auto 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.85s;
+  }
+
+  /* Back link */
+  .back-link {
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--dimmer); text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.95s;
+  }
+  .back-link:hover { color: var(--white); }
+  .back-link svg { display: inline; vertical-align: middle; margin-right: 5px; }
+
+  /* Corner decoration */
+  .corner-tl, .corner-br {
+    position: fixed; z-index: 2;
+    width: 60px; height: 60px;
+    opacity: 0.2; pointer-events: none;
+  }
+  .corner-tl { top: 24px; left: 24px; border-top: 1px solid var(--cyan); border-left: 1px solid var(--cyan); }
+  .corner-br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--cyan); border-right: 1px solid var(--cyan); }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .notify-wrap { flex-direction: column; gap: 8px; }
+    .notify-input { border-right: 1px solid rgba(17,153,250,0.3); border-radius: 8px; }
+    .notify-btn { border-radius: 8px; padding: 13px; }
+    .corner-tl, .corner-br { width: 36px; height: 36px; top: 16px; left: 16px; }
+    .corner-br { bottom: 16px; right: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="grain"></div>
+<div class="orb"></div>
+
+<div class="corner-tl"></div>
+<div class="corner-br"></div>
+
+<main class="page">
+
+  <a href="index.html" class="logo">
+    <svg class="logo-icon" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="17,2 30,9.5 30,24.5 17,32 4,24.5 4,9.5" fill="none" stroke="#1199fa" stroke-width="1.5" opacity="0.4"/>
+      <polygon points="17,8 25,17 17,26 9,17" fill="none" stroke="#1199fa" stroke-width="1.5"/>
+      <circle cx="17" cy="17" r="2.5" fill="#1199fa"/>
+      <line x1="17" y1="2" x2="17" y2="8" stroke="#1199fa" stroke-width="1.5"/>
+      <line x1="17" y1="26" x2="17" y2="32" stroke="#1199fa" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+    <div class="logo-text">CHAIN<span>X</span></div>
+  </a>
+
+  <div class="eyebrow">
+    <span class="eyebrow-dot"></span>
+    Under Construction
+  </div>
+
+  <h1 class="headline">
+    Coming<br>
+    <span class="line-cyan">Soon.</span>
+  </h1>
+
+  <p class="subtext">
+    We're building something great here. This page is currently in development — check back shortly or drop your email to be notified the moment it goes live.
+  </p>
+
+  <div class="notify-wrap" id="notifyWrap">
+    <input class="notify-input" id="notifyEmail" type="email" placeholder="Enter your email address" autocomplete="off">
+    <button class="notify-btn" id="notifyBtn">Notify me</button>
+  </div>
+  <div class="notify-confirm" id="notifyConfirm">✓ You're on the list — we'll let you know.</div>
+
+  <div class="divider"></div>
+
+  <a href="javascript:history.back()" class="back-link">
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+    Go back
+  </a>
+
+</main>
+
+<script>
+  const btn   = document.getElementById('notifyBtn');
+  const input = document.getElementById('notifyEmail');
+  const wrap  = document.getElementById('notifyWrap');
+  const conf  = document.getElementById('notifyConfirm');
+
+  btn.addEventListener('click', () => {
+    if (!input.value.trim() || !input.value.includes('@')) {
+      input.style.borderColor = 'rgba(255,80,80,0.6)';
+      input.focus();
+      setTimeout(() => input.style.borderColor = '', 1200);
+      return;
+    }
+    wrap.style.opacity = '0';
+    wrap.style.transition = 'opacity 0.3s';
+    setTimeout(() => {
+      wrap.style.display = 'none';
+      conf.style.display = 'block';
+    }, 300);
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') btn.click();
+  });
+</script>
+
+</body>
+</html>
