@@ -1,0 +1,248 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --crEcosystem-bg-dark: #000000;
+            --crEcosystem-text-main: #FFFFFF;
+            --crEcosystem-logo-border: rgba(255, 255, 255, 0.1);
+            --crEcosystem-logo-size: 100px; 
+            --crEcosystem-logo-gap: 12px; /* Tighter gap for a more unified look */
+            --crEcosystem-anim-speed: 25s; /* Faster for smoother feel */
+        }
+
+        .crEcosystem-wrapper {
+            background-color: var(--crEcosystem-bg-dark);
+            font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--crEcosystem-text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .crEcosystem-main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px; /* Reduced gap between text and logos */
+            max-width: 1200px; /* As per your requirement */
+            width: 100%;
+            align-items: center;
+        }
+
+        /* Left Content */
+        .crEcosystem-content-col {
+            padding-right: 20px;
+            z-index: 2;
+        }
+
+        .crEcosystem-main-title {
+            font-size: 72px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .crEcosystem-sub-title {
+            font-size: 72px;
+            font-weight: 400;
+            margin: 0 0 40px 0;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .crEcosystem-primary-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            background: transparent;
+            color: #FFFFFF;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .crEcosystem-primary-btn:hover {
+            border-color: #FFFFFF;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Right Logo Section */
+        .crEcosystem-logos-col {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--crEcosystem-logo-gap);
+            width: 100%;
+            height: 650px; 
+            position: relative;
+            /* Creates the fade effect at top and bottom */
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        }
+
+        .crEcosystem-ticker-column {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .crEcosystem-logo-ticker-track {
+            display: flex;
+            flex-direction: column;
+            gap: var(--crEcosystem-logo-gap);
+            height: fit-content;
+        }
+
+        .crEcosystem-logo-tile {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #0a0a0a;
+            border: 1px solid var(--crEcosystem-logo-border);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 22%;
+            box-sizing: border-box;
+        }
+
+        .crEcosystem-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.5); /* Unified look */
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+
+        .crEcosystem-logo-tile:hover .crEcosystem-logo-img {
+            filter: grayscale(0) brightness(1);
+            opacity: 1;
+        }
+
+        /* Seamless Loop Logic: 
+           The track contains 5 unique logos + 5 duplicates.
+           We animate exactly the height of the first 5 logos + their gaps.
+        */
+        @keyframes ticker-up {
+            from { transform: translateY(0); }
+            to { transform: translateY(calc(-50% - (var(--crEcosystem-logo-gap) / 2))); }
+        }
+
+        @keyframes ticker-down {
+            from { transform: translateY(calc(-50% - (var(--crEcosystem-logo-gap) / 2))); }
+            to { transform: translateY(0); }
+        }
+
+        .crEcosystem-col-move-up {
+            animation: ticker-up var(--crEcosystem-anim-speed) linear infinite;
+        }
+
+        .crEcosystem-col-move-down {
+            animation: ticker-down var(--crEcosystem-anim-speed) linear infinite;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 900px) {
+            .crEcosystem-main-layout { grid-template-columns: 1fr; text-align: center; }
+            .crEcosystem-content-col { padding-right: 0; order: 2; }
+            .crEcosystem-logos-col { height: 400px; order: 1; }
+            .crEcosystem-main-title, .crEcosystem-sub-title { font-size: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="crEcosystem-wrapper">
+    <div class="crEcosystem-main-layout">
+        
+        <div class="crEcosystem-content-col">
+            <h1 class="crEcosystem-main-title">Explore</h1>
+            <h2 class="crEcosystem-sub-title">Our Ecosystem</h2>
+            <a href="#" class="crEcosystem-primary-btn">
+                Discover IT Infrastructure <span style="margin-left:8px">↗</span>
+            </a>
+        </div>
+
+        <div class="crEcosystem-logos-col">
+            
+            <div class="crEcosystem-ticker-column">
+                <div class="crEcosystem-logo-ticker-track crEcosystem-col-move-up">
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/intel/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/nvidia/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/amd/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/cisco/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/ibm/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/intel/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/nvidia/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/amd/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/cisco/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/ibm/white" class="crEcosystem-logo-img"></div>
+                </div>
+            </div>
+
+            <div class="crEcosystem-ticker-column">
+                <div class="crEcosystem-logo-ticker-track crEcosystem-col-move-down">
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/googlecloud/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/amazonaws/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/microsoftazure/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/digitalocean/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/oracle/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/googlecloud/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/amazonaws/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/microsoftazure/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/digitalocean/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/oracle/white" class="crEcosystem-logo-img"></div>
+                </div>
+            </div>
+
+            <div class="crEcosystem-ticker-column">
+                <div class="crEcosystem-logo-ticker-track crEcosystem-col-move-up">
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/docker/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/kubernetes/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/linux/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/python/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/javascript/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/docker/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/kubernetes/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/linux/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/python/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/javascript/white" class="crEcosystem-logo-img"></div>
+                </div>
+            </div>
+
+            <div class="crEcosystem-ticker-column">
+                <div class="crEcosystem-logo-ticker-track crEcosystem-col-move-down">
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/mongodb/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/postgresql/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/redis/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/cloudfare/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/nginx/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/mongodb/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/postgresql/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/redis/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/cloudfare/white" class="crEcosystem-logo-img"></div>
+                    <div class="crEcosystem-logo-tile"><img src="https://cdn.simpleicons.org/nginx/white" class="crEcosystem-logo-img"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+

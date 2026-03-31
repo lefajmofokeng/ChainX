@@ -4,32 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ChainX — Crypto Affiliate Network</title>
-<script src="main.js"></script>
+
 <style>
-  /* Circular Std — add your font files to a /fonts/ folder beside this HTML file.
-     Inter loads automatically as the fallback via Google Fonts. */
-  @font-face {
-            font-family: 'Circular Std';
-            src: url('fonts/CircularStd.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        /* Circular Std - Medium (500) */
-        @font-face {
-            font-family: 'Circular Std';
-            src: url('fonts/CircularStd-Book.ttf') format('truetype');
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        /* Circular Std - Bold (700) */
-        @font-face {
-            font-family: 'Circular Std';
-            src: url('fonts/CircularStd-Bold.ttf') format('truetype');
-            font-weight: 600;
-            font-style: normal;
-        }</style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -37,7 +22,7 @@
     width: 100%;
   }
   body {
-    background: #040e1f;
+    background: #000;
     padding-top: 55px;
     font-family: 'Circular Std', 'Inter', sans-serif;
   }
@@ -68,7 +53,7 @@
     <span class="defcon-crypto-text">Discover the Blueprint</span>
     <span class="defcon-crypto-icon">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </span>
   </button>
@@ -78,22 +63,22 @@
 <style>
   
 .highlight-cron {
-    color: #0091ff;
+    color: #CCFF00;
 }
 
-    * { font-family: 'Circular Std', 'Inter', sans-serif; }
+* { font-family: 'Circular Std', 'Inter', sans-serif; }
 /* Base Styles */
 .defcon-premium-showcase {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 50vh;
   padding: 60px 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient( rgba(6, 39, 62, 0.648), rgba(6, 39, 62, 0.297)), url('https://images.unsplash.com/photo-1686848429284-d108e021a74c?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(17, 17, 17, 0.6)), url('https://images.unsplash.com/photo-1651527567593-32c04202ed85?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
   box-sizing: border-box;
   font-family: 'Circular Std', 'Inter', sans-serif; 
 }
@@ -109,7 +94,7 @@
 /* Main Heading */
 .defcon-main-heading-hd {
   font-size: 74px;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: none;
   max-width: 800px; 
   letter-spacing: -0.04em;
@@ -133,7 +118,7 @@
 
 .defcon-subheading-hd {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   color: #ffffff;
   text-align: center;
   line-height: 1.5;
@@ -161,8 +146,8 @@
 .defcon-crypto-cta {
   display: inline-flex;
   align-items: center;
-  background: #dedede;
-  color: #06273e;
+  background: #111111;
+  color: #FFF;
   border: none;
   padding: 5px 6px 5px 25px;
   font-size: 17px;
@@ -188,7 +173,7 @@
 .defcon-crypto-icon {
   width: 40px;
   height: 40px;
-  background: #006cbf;
+  background: #CCFF00;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -302,38 +287,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-<!-- ═══════════════════════════════════
-     LIVE CRYPTO CAROUSEL
-═══════════════════════════════════ -->
 <div id="it-crypto-affiliate-widget-container">
   <style>
     #it-crypto-affiliate-widget-container {
-      background: linear-gradient(180deg, #0A0F1D 0%, #0A0F1D 60%, #959eb3a2 100%);
+      background: linear-gradient(180deg, #000 0%, #000 60%, #EAEAEA 100%);
       color: #fff; padding: 10px 20px 90px;
       width: 100%; overflow: hidden; position: relative;
       font-family: 'Circular Std', 'Inter', sans-serif;
     }
     #it-crypto-affiliate-widget-container * { box-sizing: border-box; }
     .icaw-header { text-align: center; margin-bottom: 32px; margin-top: 150px; }
-    .icaw-title { font-size: clamp(38px,3vw,26px); font-weight: 500; line-height: 1.3; margin-bottom: 20px; }
+    .icaw-title { font-size: clamp(38px,3vw,26px); font-weight: 400; line-height: 1.3; margin-bottom: 20px; }
     .icaw-link-btn {
-      color: #0091ff; text-decoration: none; font-weight: 400; font-size: 18px;
+      color: #CCFF00; text-decoration: none; font-weight: 400; font-size: 18px;
       display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
     }
-    .icaw-link-btn:hover { color: #3385ff; }
+    .icaw-link-btn:hover { color: #aacc00; }
     .icaw-link-btn svg { width: 15px; height: 15px; }
     .icaw-controls-bar {
       display: flex; justify-content: space-between; align-items: center;
       margin: 2rem auto 20px; max-width: 1200px; padding-top: 4rem;
     }
-    .icaw-tabs { display: flex; gap: 10px; background: #131A2A; padding: 4px; border-radius: 24px;}
+    .icaw-tabs { display: flex; gap: 10px; background: #111111; padding: 4px; border-radius: 24px;}
     .icaw-tab {
-      padding: 7px 14px; border-radius: 20px; font-size: 14px; font-weight: 600;
+      padding: 7px 14px; border-radius: 20px; font-size: 14px; font-weight: 500;
       cursor: pointer; display: flex; align-items: center; gap: 5px; color: #8A94A6;
       transition: all 0.2s; user-select: none; font-family: 'Circular Std', 'Inter', sans-serif;
     }
     .icaw-tab:hover { color: #fff; }
-    .icaw-tab.icaw-active { background: #1C283E; color: #0091ff; }
+    .icaw-tab.icaw-active { background: #1a1a1a; color: #CCFF00; }
     .icaw-tab svg { width: 13px; height: 13px; }
     .icaw-nav-arrows { display: flex; gap: 14px; }
     .icaw-arrow { cursor: pointer; color: #8A94A6; transition: color 0.2s; user-select: none; }
@@ -346,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .icaw-carousel-viewport::-webkit-scrollbar { display: none; }
     .icaw-carousel-track { display: flex; gap: 14px; padding: 0 2px; }
     .icaw-card {
-      background: #131A2A; border-radius: 14px; padding: 20px;
+      background: #111111; border: 1px solid #1a1a1a; border-radius: 14px; padding: 20px;
       min-width: 390px; max-width: 400px; height: 420px; flex: 0 0 auto;
       scroll-snap-align: start; display: flex; flex-direction: column; overflow: hidden;
     }
@@ -362,17 +344,17 @@ document.addEventListener("DOMContentLoaded", function() {
     .icaw-price { font-size: 21px; font-weight: 500; }
     .icaw-currency { font-size: 17px; color: #8A94A6; font-weight: 500; }
     .icaw-change { font-size: 21px; font-weight: 500; margin-top: 3px; }
-    .icaw-change.icaw-down { color: #FF3B30; } .icaw-change.icaw-up { color: #34C759; }
+    .icaw-change.icaw-down { color: #FF3B30; } .icaw-change.icaw-up { color: #CCFF00; }
     .icaw-buy-btn {
-      background: #1C283E; color: #0099fa; border: none; padding: 8px 16px;
+      background: #1a1a1a; color: #CCFF00; border: none; padding: 8px 16px;
       border-radius: 8px; font-weight: 500; font-size: 16px; cursor: pointer;
       text-decoration: none; transition: background 0.2s; font-family: 'Circular Std', 'Inter', sans-serif;
       flex-shrink: 0;
     }
-    .icaw-buy-btn:hover { background: #25334d; }
+    .icaw-buy-btn:hover { background: #CCFF00; color: #000; }
     .icaw-pagination { display: flex; justify-content: center; gap: 7px; margin-top: 20px; }
-    .icaw-dot { width: 20px; height: 3px; background: #1C283E; border-radius: 2px; transition: background 0.2s; }
-    .icaw-dot.icaw-active { background: #0091FF; }
+    .icaw-dot { width: 20px; height: 3px; background: #1a1a1a; border-radius: 2px; transition: background 0.2s; }
+    .icaw-dot.icaw-active { background: #CCFF00; }
     .icaw-loading-placeholder { text-align: center; color: #8A94A6; padding: 40px; width: 100%; }
     @media (max-width: 600px) {
       .icaw-controls-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
@@ -456,7 +438,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const W=300,H=100,mn=Math.min(...prices),mx=Math.max(...prices),rng=mx-mn||0.0001,sX=W/(prices.length-1);
     let p=`M 0 ${H-((prices[0]-mn)/rng*H)}`;
     for(let i=1;i<prices.length;i++) p+=` L ${(i*sX).toFixed(1)} ${(H-((prices[i]-mn)/rng*H)).toFixed(1)}`;
-    const c=neg?'#FF3B30':'#34C759';
+    const c=neg?'#FF3B30':'#CCFF00';
     return `<svg class="icaw-sparkline" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><defs><linearGradient id="g${neg?'d':'u'}" x1="0%"y1="0%"x2="0%"y2="100%"><stop offset="0%"style="stop-color:${c};stop-opacity:0.2"/><stop offset="100%"style="stop-color:${c};stop-opacity:0"/></linearGradient></defs><path d="${p} L ${W} ${H} L 0 ${H} Z" fill="url(#g${neg?'d':'u'})"stroke="none"/><path d="${p}"fill="none"stroke="${c}"stroke-width="2"vector-effect="non-scaling-stroke"stroke-linecap="round"stroke-linejoin="round"/></svg>`;
   }
 
@@ -478,31 +460,28 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-<!-- ═══════════════════════════════════
-     FEATURES SECTION
-═══════════════════════════════════ -->
 <div id="cms-premium-v3">
   <style>
     #cms-premium-v3 { font-family:'Circular Std','Inter',sans-serif; color:#fff; width:100%; overflow-x:hidden; }
     #cms-premium-v3 *,#cms-premium-v3 *::before,#cms-premium-v3 *::after{box-sizing:border-box;}
     .cms-inner{width:100%;max-width:1200px;margin:0 auto;padding:0 1.5rem;}
-    .cms-hero{background:linear-gradient(180deg,#050C1F 60%,#fff 100%);padding:90px 1.5rem 240px;text-align:center;position:relative;z-index:1;}
-    .cms-hero h1{font-size:clamp(1.3rem,2.8vw,1.9rem);font-weight:500;line-height:1.35;max-width:680px;margin:0 auto 36px;}
-    .cms-hero a{color:#00A3FF;text-decoration:none;font-weight:500;font-size:clamp(0.9rem,2vw,1.05rem);display:inline-block;margin-bottom:46px;transition:opacity .2s;}
+    .cms-hero{background:linear-gradient(180deg,#000 60%,#EAEAEA 100%);padding:90px 1.5rem 240px;text-align:center;position:relative;z-index:1;}
+    .cms-hero h1{font-size:clamp(1.3rem,2.8vw,2.5rem);font-weight:400;line-height:1.35;max-width:750px;margin:0 auto 36px;}
+    .cms-hero a{color:#CCFF00;text-decoration:none;font-weight:400;font-size:clamp(0.9rem,2vw,1.05rem);display:inline-block;margin-bottom:46px;transition:opacity .2s;}
     .cms-hero a:hover{opacity:.8;}
     .cms-video-wrap{width:100%;max-width:1100px;margin:0 auto;border-radius:18px;overflow:hidden;position:relative;padding-bottom:56.25%;height:0;background:#000;border:1px solid rgba(255,255,255,.1);}
     .cms-video-wrap video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
-    .cms-feats{background:#060B13;border-radius:56px 56px 0 0;position:relative;z-index:2;margin-top:-140px;padding:140px 1.5rem 90px;text-align:center;}
-    .cms-feats h2{font-size:clamp(1.7rem,5vw,3rem);font-weight:500;letter-spacing:-0.03em;margin-bottom:24px;}
-    .cms-feats-cta{background:#0099fa; color:#f7f9fa;padding:12px 26px;border-radius:30px;font-weight:400;text-decoration:none;display:inline-block;margin-bottom:52px;font-size:clamp(.85rem,2vw,.95rem);letter-spacing:-.01em;transition:background .2s;}
-    .cms-feats-cta:hover{background:#0099fa;}
+    .cms-feats{background:#111111;border-radius:56px 56px 0 0;position:relative;z-index:2;margin-top:-140px;padding:140px 1.5rem 90px;text-align:center;}
+    .cms-feats h2{font-size:clamp(1.7rem,5vw,3rem);font-weight:400;letter-spacing:-0.03em;margin-bottom:24px;}
+    .cms-feats-cta{background:#CCFF00; color:#000;padding:12px 26px;border-radius:30px;font-weight:500;text-decoration:none;display:inline-block;margin-bottom:52px;font-size:clamp(.85rem,2vw,.95rem);letter-spacing:-.01em;transition:background .2s;}
+    .cms-feats-cta:hover{background:#aacc00;}
     .cms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-    .cms-card{position:relative;height:460px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background-size:cover;background-position:center;background-color:#111827;border:1px solid rgba(255,255,255,.05);}
+    .cms-card{position:relative;height:460px;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background-size:cover;background-position:center;background-color:#000;border:1px solid rgba(255,255,255,.05);}
     .cms-card::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1)0%,rgba(0,0,0,.3)50%,rgb(0,0,0)100%);z-index:1;}
     .cms-card-inner{position:relative;z-index:2;}
     .cms-card-icon{position:absolute;top:24px;left:24px;width:36px;height:36px;background:rgba(255,255,255,.1);backdrop-filter:blur(5px);border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;}
     .cms-card-badge{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.1);backdrop-filter:blur(5px);padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:400;color:rgba(255,255,255,.8);z-index:2;}
-    .cms-card h3{font-size:1.25rem;font-weight:500;letter-spacing:-.02em;margin-bottom:5px;}
+    .cms-card h3{font-size:1.25rem;font-weight:400;letter-spacing:-.02em;margin-bottom:5px;}
     .cms-card p{font-size:.9rem;color:rgba(255,255,255,.65);margin-bottom:18px;line-height:1.45;}
     .cms-card a{display:inline-flex;align-items:center;background:rgba(255,255,255,.1);backdrop-filter:blur(10px);color:#fff;text-decoration:none;padding:8px 16px;border-radius:20px;font-size:.85rem;font-weight:500;transition:background .3s;}
     .cms-card a:hover{background:rgba(255,255,255,.2);}
@@ -546,11 +525,364 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 
 
-<!-- ═══════════════════════════════════
-     FAQ
-═══════════════════════════════════ -->
+
+
+
+
+
+
+
+
+
+
+
 <style>
-  .faq-section{background:#080d1b;padding:72px 0 90px;font-family:'Circular Std','Inter',sans-serif;}
+
+
+  .it-global-section {
+    --max-width: 1200px;
+    --accent-color: #1a1a1a;
+    --text-muted: #757575;
+    --card-bg: #f5f5f5;
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    background-color: #EAEAEA;
+    padding: 100px 0;
+    font-family: 'Circular Std', 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevents horizontal scroll on the body */
+  }
+
+  /* Headline Layout - Centered 1200px */
+  .it-global-header {
+    max-width: var(--max-width);
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+  }
+
+  .it-global-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .it-global-h1 {
+    font-size: clamp(40px, 6vw, 60px);
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    margin: 0;
+  }
+
+  .it-global-h1 span {
+    display: block;
+    color: var(--text-muted);
+  }
+
+  .it-global-h1 strong {
+    display: block;
+    color: var(--accent-color);
+  }
+
+  /* Card Slider - Bleeds to Right */
+  .it-global-slider-container {
+    /* Aligns start of cards with the 1200px margin */
+    padding-left: calc((100vw - var(--max-width)) / 2 + 20px);
+  }
+
+  /* Fallback for very wide screens */
+  @media (max-width: 1200px) {
+    .it-global-slider-container { padding-left: 20px; }
+  }
+
+  .it-global-track {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    padding-right: 100px; /* Space at the end */
+  }
+
+  .it-global-track::-webkit-scrollbar { display: none; }
+
+  /* Card Design */
+  .it-global-card {
+    flex: 0 0 420px;
+    height: 420px;
+    background-color: var(--card-bg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+    transition: var(--transition);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Background Image Layer (Hover) */
+  .it-global-card-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.05);
+    transition: var(--transition);
+    z-index: 1;
+  }
+
+  .it-global-card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 2;
+  }
+
+  .it-global-card-content {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+  }
+
+  .it-global-card:hover {
+    color: #ffffff;
+  }
+
+  .it-global-card:hover .it-global-card-img {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .it-global-card:hover .it-global-card-overlay {
+    opacity: 1;
+  }
+
+  .it-global-card:hover .it-global-meta {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .it-global-tag {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .it-global-card-title {
+    font-size: 32px;
+    line-height: 1.2;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .it-global-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+
+  .it-global-meta {
+    color: var(--text-muted);
+    transition: var(--transition);
+  }
+
+  /* Navigation */
+  .it-global-nav {
+    max-width: var(--max-width);
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .it-global-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent;
+  }
+
+  .it-global-btn-prev { background: #dcdcdc; }
+  .it-global-btn-next { background: #1a1a1a; color: white; }
+
+  .it-global-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+  }
+
+  /* Mobile Fixes */
+  @media (max-width: 768px) {
+    .it-global-card { flex: 0 0 85vw; height: 450px; }
+    .it-global-h1 { font-size: 36px; }
+  }
+</style>
+
+<section class="it-global-section">
+  <header class="it-global-header">
+    <div class="it-global-label">+ Newsroom</div>
+    <h1 class="it-global-h1">
+      <span style="color: #000;">Updates that move</span>
+      <span>the world forward</span>
+    </h1>
+  </header>
+
+  <div class="it-global-slider-container">
+    <div class="it-global-track" id="itTrack">
+      
+      <div class="it-global-card">
+        <div class="it-global-card-img" style="background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="it-global-card-overlay"></div>
+        <div class="it-global-card-content">
+          <div>
+            <span class="it-global-tag">NEWS</span>
+            <h3 class="it-global-card-title">Global IT infrastructure expands across South Africa</h3>
+          </div>
+          <div class="it-global-footer">
+            <span class="it-global-meta">February 13, 2026</span>
+            <span class="it-global-meta">4 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="it-global-card">
+        <div class="it-global-card-img" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="it-global-card-overlay"></div>
+        <div class="it-global-card-content">
+          <div>
+            <span class="it-global-tag">NEWS</span>
+            <h3 class="it-global-card-title">Hybrid cloud solutions reaching 100+ active enterprise clients</h3>
+          </div>
+          <div class="it-global-footer">
+            <span class="it-global-meta">February 10, 2026</span>
+            <span class="it-global-meta">6 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="it-global-card">
+        <div class="it-global-card-img" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="it-global-card-overlay"></div>
+        <div class="it-global-card-content">
+          <div>
+            <span class="it-global-tag">TECH</span>
+            <h3 class="it-global-card-title">Next-gen cybersecurity corridor connects London & Johannesburg</h3>
+          </div>
+          <div class="it-global-footer">
+            <span class="it-global-meta">February 05, 2026</span>
+            <span class="it-global-meta">5 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="it-global-card">
+        <div class="it-global-card-img" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');"></div>
+        <div class="it-global-card-overlay"></div>
+        <div class="it-global-card-content">
+          <div>
+            <span class="it-global-tag">AI</span>
+            <h3 class="it-global-card-title">Automating multipurpose IT workflows for global scale</h3>
+          </div>
+          <div class="it-global-footer">
+            <span class="it-global-meta">January 28, 2026</span>
+            <span class="it-global-meta">8 min read</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="it-global-nav">
+    <button class="it-global-btn it-global-btn-prev" onclick="scrollSlider(-444)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+    </button>
+    <button class="it-global-btn it-global-btn-next" onclick="scrollSlider(444)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </button>
+  </div>
+</section>
+
+<script>
+  function scrollSlider(amount) {
+    const track = document.getElementById('itTrack');
+    track.scrollBy({ left: amount, behavior: 'smooth' });
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .faq-section{background:#000;padding:72px 0 90px;font-family:'Circular Std','Inter',sans-serif;}
   .faq-inner{max-width:1230px;margin:0 auto;padding:0 1.5rem;}
   .faq-heading{font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:400;color:#fff;letter-spacing:-.02em;margin-bottom:36px;text-align:left;}
   .faq-item{border-top:1px solid rgba(255,255,255,.09);}
@@ -567,10 +899,10 @@ document.addEventListener("DOMContentLoaded", function() {
   .faq-answer{overflow:hidden;max-height:0;transition:max-height .4s ease;}
   .faq-item.open .faq-answer{max-height:500px;}
   .faq-answer-inner{padding:0 0 20px;font-size:.92rem;font-weight:500;color:#c9cfdd;line-height:1.75;}
-  .faq-answer-inner a{color:#0099fa;text-decoration:none;}
+  .faq-answer-inner a{color:#CCFF00;text-decoration:none;}
   .faq-answer-inner a:hover{text-decoration:underline;}
   .faq-contact{margin-top:36px;font-size:.95rem;color:rgba(255,255,255,.55); font-weight: 400;}
-  .faq-contact a{color:#0099fa;font-weight:500;text-decoration:none;}
+  .faq-contact a{color:#CCFF00;font-weight:500;text-decoration:none;}
   .faq-contact a:hover{text-decoration:underline;}
 </style>
 <section class="faq-section">
@@ -615,10 +947,6 @@ document.querySelectorAll('.faq-question').forEach(q => {
 });
 </script>
 
-
-<!-- ═══════════════════════════════════
-     SHADOW DOM — FOOTER
-═══════════════════════════════════ -->
 
 <cronos-footer></cronos-footer>
 </body>

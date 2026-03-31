@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crpto Market Updates</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+</head>
+<body>
+
+    <cx-header></cx-header>>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+        /* CSS Variables for theme management and prefixed colors to avoid conflicts */
+        :root {
+            --nftCollections-bg-dark: #000000;
+            --nftCollections-text-main: #FFFFFF;
+            --nftCollections-border-color: rgba(255, 255, 255, 0.1);
+            --nftCollections-tile-bg: rgba(255, 255, 255, 0.05);
+            --nftCollections-green-plus: #2ECC71; /* Brighter green for contrast */
+            --nftCollections-badge-text: #FFFFFF;
+            --nftCollections-badge-bg: rgba(255, 255, 255, 0.08); /* Faint badge bg */
+        }
+
+        * {
+            margin: 0;
+            padding: 0; font-family: 'Circular Std', sans-serif;
+        }
+        
+        /* CRITICAL: Prefix all classes and IDs with 'nftCollections-' to prevent 
+          CSS collisions when this is integrated into another project.
+        */
+        .nftCollections-wrapper {
+            background-color: var(--nftCollections-bg-dark);
+            font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+            color: var(--nftCollections-text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-sizing: border-box;
+            line-height: 1.2;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .nftCollections-main-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .nftCollections-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 40px 0;
+            letter-spacing: -2px;
+        }
+
+        /* The main grid layout */
+        .nftCollections-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            width: 100%;
+        }
+
+        /* The collection card tile */
+        .nftCollections-card-tile {
+            background: var(--nftCollections-tile-bg);
+            border: 1px solid var(--nftCollections-border-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            text-decoration: none; /* No underline on link */
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .nftCollections-card-tile:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Left side content group */
+        .nftCollections-item-group-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Logo images on left */
+        .nftCollections-item-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: contain; /* Don't stretch */
+        }
+
+        /* Text details column */
+        .nftCollections-details-col {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .nftCollections-details-title-row {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .nftCollections-details-title {
+            font-weight: 600;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .nftCollections-details-separator {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+        }
+
+        .nftCollections-details-creator {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .nftCollections-values-row {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .nftCollections-values-col-1 {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .nftCollections-values-plus {
+            color: var(--nftCollections-green-plus);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .nftCollections-values-primary {
+            font-size: 16px;
+        }
+
+        .nftCollections-values-primary-prefix {
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 2px;
+        }
+
+        .nftCollections-values-secondary {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* Right side badge and optional icon group */
+        .nftCollections-item-group-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Faint gray text with white text badge on right */
+        .nftCollections-stats-badge {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            background-color: var(--nftCollections-badge-bg);
+            border-radius: 6px;
+            padding: 4px 10px;
+            font-weight: 700;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .nftCollections-stats-prefix {
+            font-size: 13px;
+            opacity: 0.7;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .nftCollections-stats-suffix {
+            line-height: 1;
+        }
+
+        /* Optional chevron/action icon */
+        .nftCollections-action-icon {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.4);
+            margin-left: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .nftCollections-card-tile:hover .nftCollections-action-icon {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mobile Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .nftCollections-title { font-size: 38px; }
+            .nftCollections-grid-layout { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nftCollections-main-container { padding-left: 20px; padding-right: 20px; }
+            .nftCollections-grid-layout { gap: 16px; }
+            .nftCollections-card-tile { flex-direction: column; align-items: flex-start; gap: 16px; padding: 16px; }
+            .nftCollections-item-group-left { gap: 12px; }
+            .nftCollections-item-logo { width: 60px; height: 60px; }
+            .nftCollections-details-title { font-size: 16px; }
+            .nftCollections-details-creator { font-size: 14px; }
+            .nftCollections-values-row { flex-direction: column; gap: 4px; }
+            .nftCollections-values-col-1 { align-items: flex-start; }
+            .nftCollections-values-plus { font-size: 14px; }
+            .nftCollections-values-primary { font-size: 14px; }
+            .nftCollections-values-secondary { font-size: 12px; }
+            .nftCollections-item-group-right { align-self: flex-end; }
+            .nftCollections-action-icon { margin-left: auto; order: 1; }
+        }
+
+        @media (max-width: 480px) {
+            .nftCollections-title { font-size: 30px; margin-bottom: 30px;}
+            .nftCollections-details-title-row { flex-direction: column; align-items: flex-start; gap: 2px;}
+            .nftCollections-details-separator { display: none; }
+            .nftCollections-details-title { font-size: 15px; }
+            .nftCollections-values-plus { font-size: 13px; }
+            .nftCollections-values-primary { font-size: 13px; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="nftCollections-unique-id" class="nftCollections-wrapper">
+    <div class="nftCollections-main-container">
+        
+        <h1 class="nftCollections-title">Top collections<br>over last week</h1>
+
+        <div class="nftCollections-grid-layout">
+            
+            <a href="#" class="nftCollections-card-tile">
+                <div class="nftCollections-item-group-left">
+                    <img src="https://via.placeholder.com/80/000000/FFFFFF?text=P" alt="Planet Logo" class="nftCollections-item-logo">
+                    <div class="nftCollections-details-col">
+                        <div class="nftCollections-details-title-row">
+                            <h2 class="nftCollections-details-title">Planet</h2>
+                            <span class="nftCollections-details-separator">|</span>
+                            <h3 class="nftCollections-details-creator">by James Artur</h3>
+                        </div>
+                        <div class="nftCollections-values-row">
+                            <div class="nftCollections-values-col-1">
+                                <span class="nftCollections-values-plus">+</span>
+                                <span class="nftCollections-values-primary"><span class="nftCollections-values-primary-prefix">$</span>7,200.50</span>
+                            </div>
+                            <span class="nftCollections-values-secondary">$18,997</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nftCollections-item-group-right">
+                    <div class="nftCollections-stats-badge">
+                        <span class="nftCollections-stats-prefix">+</span>
+                        <span class="nftCollections-stats-suffix">1563</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="nftCollections-card-tile">
+                <div class="nftCollections-item-group-left">
+                    <img src="thumbnails/colored-logo1.png" alt="Moar Logo" class="nftCollections-item-logo">
+                    <div class="nftCollections-details-col">
+                        <div class="nftCollections-details-title-row">
+                            <h2 class="nftCollections-details-title">Moar</h2>
+                            <span class="nftCollections-details-separator">|</span>
+                            <h3 class="nftCollections-details-creator">by John Loren</h3>
+                        </div>
+                        <div class="nftCollections-values-row">
+                            <div class="nftCollections-values-col-1">
+                                <span class="nftCollections-values-plus">+</span>
+                                <span class="nftCollections-values-primary"><span class="nftCollections-values-primary-prefix">$</span>7,200.50</span>
+                            </div>
+                            <span class="nftCollections-values-secondary">$18,997</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nftCollections-item-group-right">
+                    <div class="nftCollections-stats-badge">
+                        <span class="nftCollections-stats-prefix">+</span>
+                        <span class="nftCollections-stats-suffix">1936</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="nftCollections-card-tile">
+                <div class="nftCollections-item-group-left">
+                    <img src="https://via.placeholder.com/80/3333CC/FFFFFF?text=D" alt="David Logo" class="nftCollections-item-logo">
+                    <div class="nftCollections-details-col">
+                        <div class="nftCollections-details-title-row">
+                            <h2 class="nftCollections-details-title">David</h2>
+                            <span class="nftCollections-details-separator">|</span>
+                            <h3 class="nftCollections-details-creator">by Locesco</h3>
+                        </div>
+                        <div class="nftCollections-values-row">
+                            <div class="nftCollections-values-col-1">
+                                <span class="nftCollections-values-plus">+</span>
+                                <span class="nftCollections-values-primary"><span class="nftCollections-values-primary-prefix">$</span>7,200.50</span>
+                            </div>
+                            <span class="nftCollections-values-secondary">$18,997</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nftCollections-item-group-right">
+                    <div class="nftCollections-stats-badge">
+                        <span class="nftCollections-stats-prefix">+</span>
+                        <span class="nftCollections-stats-suffix">2953</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="nftCollections-card-tile">
+                <div class="nftCollections-item-group-left">
+                    <img src="https://via.placeholder.com/80/CCCCCC/000000?text=C" alt="BW Cubes Logo" class="nftCollections-item-logo">
+                    <div class="nftCollections-details-col">
+                        <div class="nftCollections-details-title-row">
+                            <h2 class="nftCollections-details-title">BW Cubes</h2>
+                            <h3 class="nftCollections-details-creator"></h3> </div>
+                        <div class="nftCollections-values-row">
+                            <div class="nftCollections-values-col-1">
+                                <span class="nftCollections-values-plus">+</span>
+                                <span class="nftCollections-values-primary"><span class="nftCollections-values-primary-prefix">$</span>8,200.50</span>
+                            </div>
+                            <span class="nftCollections-values-secondary">$18,997</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="nftCollections-item-group-right">
+                    <div class="nftCollections-stats-badge">
+                        <span class="nftCollections-stats-prefix">+</span>
+                        <span class="nftCollections-stats-suffix">1674</span>
+                    </div>
+                    <span class="nftCollections-action-icon">›</span>
+                </div>
+            </a>
+
+        </div> </div> </div> </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <cronos-footer></cronos-footer>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programs</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+</head>
+<body>
+
+    <cx-header></cx-header>>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="cryptHero-mobile-perfect-unique" class="cryptHero-root">
+    <style>
+        #cryptHero-mobile-perfect-unique {
+            --ch-bg: #000000;
+            --ch-font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            background-color: var(--ch-bg);
+            color: #ffffff;
+            font-family: var(--ch-font);
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Padding reduces on mobile to maximize text space */
+            padding: 5vw; 
+            box-sizing: border-box;
+            /* Prevents the 'CRYPTO' offset from breaking the page width */
+            overflow-x: hidden; 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .cryptHero-content-box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; 
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        /* Typography & Gradient */
+        .cryptHero-text-line {
+            /* Perfectly scales: 40px min, 18vw preferred, 220px max */
+            font-size: clamp(40px, 16vw, 150px); 
+            font-weight: 200;
+            line-height: 0.85;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            margin: 0;
+            white-space: nowrap;
+            text-align: right;
+            
+            background: linear-gradient(
+                to right,
+                #f4f4f4 0%,
+                #cdcdcd 40%,
+                #666666 75%,
+                #1a1a1a 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* The Offset: Using translateX for smoother sub-pixel rendering */
+        .cryptHero-crypto-offset {
+            transform: translateX(35%);
+            z-index: 2;
+        }
+
+        /* Description Block */
+        .cryptHero-description-wrap {
+            margin-top: 40px;
+            text-align: right;
+            /* Scales width for mobile */
+            width: 100%;
+            max-width: 300px; 
+        }
+
+        .cryptHero-p-text {
+            font-size: clamp(10px, 2vw, 14px);
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Mobile-Specific Tweaks */
+        @media (max-width: 600px) {
+            .cryptHero-text-line {
+                letter-spacing: -0.03em;
+                line-height: 0.9;
+            }
+            .cryptHero-crypto-offset {
+                /* Reduced offset on mobile to prevent clipping important letters */
+                transform: translateX(5%);
+            }
+            .cryptHero-description-wrap {
+                margin-top: 25px;
+                max-width: 200px;
+            }
+        }
+    </style>
+
+    <div class="cryptHero-content-box">
+        <h1 class="cryptHero-text-line">ULTIMATE</h1>
+        
+        <h1 class="cryptHero-text-line cryptHero-crypto-offset">CRYPTO</h1>
+        
+        <h1 class="cryptHero-text-line">SOLUTION</h1>
+
+        <div class="cryptHero-description-wrap">
+            <p class="cryptHero-p-text">
+                CRYPTURE EMPOWERS YOU<br>
+                TO MANAGE YOUR DIGITAL<br>
+                ASSETS EFFORTLESSLY.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<cronos-footer></cronos-footer>

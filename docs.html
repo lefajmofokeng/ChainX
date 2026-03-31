@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Aurora — Whitepaper</title>
+<link href="https://fonts.cdnfonts.com/css/circular-std" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0a0b0f;--bg2:#0f1117;--bg3:#13161f;
+  --bd:rgba(255,255,255,.07);--bdh:rgba(255,255,255,.14);
+  --tx:#e8eaf0;--txd:#9ca3af;--txm:#6b7280;
+  --ac:#ccff00;--ac2:#7c5cfc;
+  --acs:rgba(79,142,255,.08);--acg:rgba(79,142,255,.15);
+  --hh:55px;--nw:240px;--tw:196px;
+}
+body{font-family:'Circular Std',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;min-height:100vh}
+.hdr{position:fixed;top:0;left:0;right:0;height:var(--hh);background:rgba(10,11,15,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:100}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:var(--tx);text-decoration:none}
+.logo-i{width:27px;height:27px;background:linear-gradient(135deg,var(--ac),var(--ac2));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;flex-shrink:0}
+.hdr-r{display:flex;align-items:center;gap:7px}
+.bdg{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--txm);background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:3px 9px}
+.vbdg{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;color:var(--ac);background:var(--acs);border:1px solid rgba(79,142,255,.22);border-radius:5px;padding:3px 9px}
+.hmb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:3px}
+.hmb span{display:block;width:21px;height:2px;background:var(--txd);border-radius:2px;transition:.3s}
+.lay{display:flex;padding-top:var(--hh);min-height:100vh}
+.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:40;backdrop-filter:blur(3px)}
+.ov.on{display:block}
+.lnav{position:fixed;top:var(--hh);left:0;width:var(--nw);height:calc(100vh - var(--hh));overflow-y:auto;border-right:1px solid var(--bd);padding:22px 0;background:var(--bg);z-index:50;transition:transform .3s ease}
+.lnav::-webkit-scrollbar{width:3px}
+.lnav::-webkit-scrollbar-thumb{background:var(--bd);border-radius:3px}
+.nlbl{display:block;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txm);padding:0 18px 7px;margin-top:14px}
+.nlbl:first-child{margin-top:0}
+.nl{display:flex;align-items:center;gap:7px;padding:7px 18px;font-size:13.5px;color:var(--txd);border-left:2px solid transparent;transition:.18s;cursor:pointer;user-select:none}
+.nl:hover{color:var(--tx);background:var(--acs)}
+.nl.act{color:var(--ac);border-left-color:var(--ac);background:var(--acs);font-weight:500}
+.nd{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.38;flex-shrink:0}
+.nl.act .nd{opacity:1}
+.chv{margin-left:auto;font-size:10px;opacity:.45;transition:transform .2s}
+.nl.open .chv{transform:rotate(180deg)}
+.sub{overflow:hidden;max-height:0;transition:max-height .28s ease}
+.sub.on{max-height:260px}
+.sub .nl{padding-left:34px;font-size:13px}
+.main{flex:1;margin-left:var(--nw);margin-right:var(--tw);padding:0 48px;min-height:100vh}
+.hero{margin:38px 0 46px;border-radius:13px;overflow:hidden;position:relative;min-height:158px;background:linear-gradient(135deg,#0d1829,#0f1a2e 45%,#0a0f1e);border:1px solid rgba(79,142,255,.14);display:flex;align-items:flex-end;padding:30px}
+.hero::before{content:'';position:absolute;top:0;right:0;width:58%;height:100%;background:linear-gradient(135deg,transparent 25%,rgba(79,142,255,.07) 60%,rgba(124,92,252,.11))}
+.hgeo{position:absolute;top:0;right:0;width:55%;height:100%;overflow:hidden;pointer-events:none}
+.hgeo::before{content:'';position:absolute;top:-18px;right:-18px;width:190px;height:190px;background:linear-gradient(135deg,rgba(79,142,255,.18),rgba(124,92,252,.13));clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.hgeo::after{content:'';position:absolute;top:22px;right:58px;width:110px;height:110px;background:linear-gradient(135deg,rgba(124,92,252,.13),rgba(79,142,255,.09));clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%)}
+.hc{position:relative;z-index:1}
+.hc h1{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:#fff;letter-spacing:-.01em;line-height:1.1;margin-bottom:9px}
+.hc p{font-size:13px;color:rgba(255,255,255,.5);max-width:370px;line-height:1.65;margin:0}
+.sec{padding:46px 0;border-bottom:1px solid var(--bd)}
+.sec:last-of-type{border-bottom:none}
+.stag{display:block;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);margin-bottom:11px}
+.sec h2{font-family:'Syne',sans-serif;font-size:21px;font-weight:700;color:var(--tx);margin-bottom:14px;letter-spacing:-.01em;scroll-margin-top:76px}
+.sec h3{font-family:'Syne',sans-serif;font-size:14.5px;font-weight:600;color:var(--tx);margin:26px 0 9px;scroll-margin-top:76px}
+.sec p{font-size:14px;line-height:1.8;color:var(--txd);margin-bottom:13px}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:18px 0}
+.card{background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:17px;transition:border-color .18s,background .18s}
+.card:hover{border-color:var(--bdh);background:rgba(79,142,255,.04)}
+.ci{display:block;font-size:18px;margin-bottom:9px}
+.card h4{font-family:'Syne',sans-serif;font-size:12.5px;font-weight:600;color:var(--tx);margin-bottom:5px}
+.card p{font-size:12px;line-height:1.58;margin:0;color:var(--txm)}
+.ibox,.wbox{display:flex;gap:11px;border-radius:9px;padding:14px 17px;margin:18px 0}
+.ibox{background:rgba(79,142,255,.05);border:1px solid rgba(79,142,255,.14)}
+.wbox{background:rgba(251,191,36,.05);border:1px solid rgba(251,191,36,.14)}
+.iic{font-size:15px;flex-shrink:0;margin-top:1px}
+.ibox p{font-size:12.5px;line-height:1.6;color:rgba(79,142,255,.82);margin:0}
+.wbox p{font-size:12.5px;line-height:1.6;color:rgba(251,191,36,.82);margin:0}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:18px 0}
+.sc{background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:17px;text-align:center}
+.sv{display:block;font-family:'Syne',sans-serif;font-size:21px;font-weight:800;margin-bottom:4px;background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sl{font-size:11.5px;color:var(--txm)}
+.plist{margin:18px 0}
+.pi{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--bd)}
+.pi:last-child{border-bottom:none}
+.pn{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--ac);background:var(--acs);border:1px solid rgba(79,142,255,.2);border-radius:6px;width:31px;height:31px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.pc h4{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px}
+.pc p{font-size:12.5px;margin:0;line-height:1.6}
+.tw{overflow-x:auto;margin:18px 0;border-radius:9px;border:1px solid var(--bd)}
+.ttbl{width:100%;font-size:13px}
+.ttbl th{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--txm);text-align:left;padding:9px 13px;border-bottom:1px solid var(--bd);background:var(--bg3);white-space:nowrap}
+.ttbl td{padding:11px 13px;border-bottom:1px solid var(--bd);color:var(--txd);vertical-align:middle}
+.ttbl tbody tr:last-child td{border-bottom:none}
+.ttbl tbody tr:hover td{background:var(--acs)}
+.tn{display:flex;align-items:center;gap:7px;font-weight:500;color:var(--tx);white-space:nowrap}
+.tdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500;font-family:'Syne',sans-serif}
+.pb{background:rgba(79,142,255,.1);color:var(--ac)}
+.pp{background:rgba(124,92,252,.1);color:var(--ac2)}
+.pg{background:rgba(52,211,153,.1);color:#34d399}
+.nnav{display:flex;justify-content:flex-end;padding:18px 0 46px}
+.nbtn{display:flex;align-items:center;gap:9px;background:var(--bg3);border:1px solid var(--bd);border-radius:9px;padding:11px 16px;color:var(--txd);font-size:13px;transition:.18s;cursor:pointer;text-align:left}
+.nbtn:hover{border-color:var(--ac);color:var(--ac);background:var(--acs)}
+.nbl{display:block;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--txm);margin-bottom:2px}
+.nbt{font-weight:500;color:inherit}
+.ft{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-top:1px solid var(--bd);font-size:12px;color:var(--txm);margin-bottom:22px}
+.ftl{color:var(--txm);text-decoration:none;transition:color .18s}
+.ftl:hover{color:var(--ac)}
+.rtoc{position:fixed;top:var(--hh);right:0;width:var(--tw);height:calc(100vh - var(--hh));overflow-y:auto;padding:28px 18px;border-left:1px solid var(--bd);background:var(--bg)}
+.ttl{display:block;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txm);margin-bottom:11px}
+.tl{display:block;font-size:12px;color:var(--txm);padding:5px 0 5px 11px;border-left:2px solid transparent;transition:.18s;line-height:1.4;cursor:pointer}
+.tl:hover{color:var(--tx)}
+.tl.act{color:var(--ac);border-left-color:var(--ac);font-weight:500}
+@media(max-width:1080px){.rtoc{display:none}.main{margin-right:0}}
+@media(max-width:768px){
+  .hmb{display:flex}
+  .lnav{transform:translateX(-100%);z-index:60;box-shadow:4px 0 40px rgba(0,0,0,.5)}
+  .lnav.on{transform:translateX(0)}
+  .main{margin-left:0;padding:0 18px}
+  .cgrid{grid-template-columns:1fr}
+  .sgrid{grid-template-columns:1fr 1fr}
+  .nnav{justify-content:stretch}
+  .nbtn{width:100%}
+  .ft{flex-direction:column;gap:7px;text-align:center}
+}
+@media(max-width:460px){
+  .sgrid{grid-template-columns:1fr}
+  .hc h1{font-size:20px}
+  .bdg{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <a class="logo" href="#">
+    <div class="logo-i">◈</div>Aurora
+  </a>
+  <div class="hdr-r">
+    <span class="bdg">Whitepaper</span>
+    <span class="vbdg">V1.0</span>
+    <button class="hmb" id="hmb" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="ov" id="ov"></div>
+
+<div class="lay">
+
+  <nav class="lnav" id="lnav">
+    <span class="nlbl">Getting Started</span>
+    <a class="nl act" data-sec="introduction"><span class="nd"></span>Introduction</a>
+    <span class="nlbl">Core Concepts</span>
+    <a class="nl" data-sec="team"><span class="nd"></span>Team &amp; Mission</a>
+    <a class="nl" id="eco-par" data-sub="eco-sub"><span class="nd"></span>Game Ecosystem<span class="chv">▾</span></a>
+    <div class="sub" id="eco-sub">
+      <a class="nl" data-sec="gameplay"><span class="nd"></span>Gameplay</a>
+      <a class="nl" data-sec="nft"><span class="nd"></span>NFT Assets</a>
+      <a class="nl" data-sec="governance"><span class="nd"></span>Governance</a>
+    </div>
+    <span class="nlbl">Financials</span>
+    <a class="nl" data-sec="tokenomics"><span class="nd"></span>Tokenomics</a>
+    <span class="nlbl">Final</span>
+    <a class="nl" data-sec="conclusion"><span class="nd"></span>Conclusion</a>
+  </nav>
+
+  <main class="main" id="main">
+
+    <div class="hero">
+      <div class="hgeo"></div>
+      <div class="hc">
+        <h1>AURORA<br>WHITEPAPER</h1>
+        <p>AURORA's whitepaper presents an innovative vision for Web3 gaming, using blockchain and DeFi for a sustainable ecosystem.</p>
+      </div>
+    </div>
+
+    <section class="sec" id="introduction">
+      <span class="stag">Overview</span>
+      <h2>Introduction</h2>
+      <p>This whitepaper outlines the technical architecture, economic models, and governance mechanisms that underpin the AURORA platform, inviting stakeholders to join in shaping the next evolution of virtual realms.</p>
+      <h3 id="prelude">Prelude</h3>
+      <p>In the ever-evolving landscape of digital entertainment, traditional gaming paradigms find themselves on the brink of a revolution. The convergence of blockchain technology and decentralised finance principles heralds a new era where players emerge not just as consumers but as active participants in shaping virtual realms.</p>
+      <p>This introduction sets the stage for a journey into the heart of the Web3 gaming landscape, where innovation and decentralisation converge to redefine the boundaries of digital play.</p>
+      <h3 id="paradigm">Paradigm Shift</h3>
+      <p>Gone are the days when gaming was confined to closed ecosystems controlled by centralised entities. The rise of Web3 gaming signifies a paradigm shift, empowering players with true ownership of in-game assets and experiences. By leveraging blockchain's immutable ledger and decentralised governance models, Web3 gaming platforms offer unprecedented levels of transparency, security, and interoperability.</p>
+      <div class="cgrid">
+        <div class="card"><span class="ci">◎</span><h4>Inclusivity</h4><p>Accessible to gamers of all backgrounds, fostering a diverse and welcoming community.</p></div>
+        <div class="card"><span class="ci">⚡</span><h4>Innovation</h4><p>Committed to pushing the boundaries of technology and gameplay in Web3 gaming.</p></div>
+        <div class="card"><span class="ci">♻</span><h4>Sustainability</h4><p>Prioritising environmental sustainability through eco-friendly blockchain solutions.</p></div>
+        <div class="card"><span class="ci">⬡</span><h4>Decentralisation</h4><p>Every participant has a voice in shaping the platform's future through governance.</p></div>
+      </div>
+      <h3 id="navigating">Navigating the Whitepaper</h3>
+      <p>This whitepaper serves as a comprehensive guide for adventurers seeking to delve into the realms of AURORA. Each section offers detailed insights into the platform's architecture, mechanics, and vision.</p>
+      <div class="ibox"><span class="iic">ℹ</span><p>The information presented in this whitepaper is for informational purposes only and does not constitute financial or investment advice.</p></div>
+      <h3 id="joining">Joining the Movement</h3>
+      <p>As the Web3 gaming revolution gathers momentum, there has never been a better time to join the movement. Whether you are a developer, investor, or gamer, your participation is crucial to shaping the future of digital entertainment.</p>
+    </section>
+
+    <section class="sec" id="team">
+      <span class="stag">People</span>
+      <h2>Team &amp; Mission</h2>
+      <p>AURORA is built by a team of seasoned professionals with deep expertise in blockchain engineering, game development, and decentralised finance. Our mission is singular: to build the most player-centric Web3 gaming ecosystem on the planet.</p>
+      <div class="sgrid">
+        <div class="sc"><span class="sv">40+</span><span class="sl">Core Contributors</span></div>
+        <div class="sc"><span class="sv">12</span><span class="sl">Countries</span></div>
+        <div class="sc"><span class="sv">8yr</span><span class="sl">Avg. Experience</span></div>
+      </div>
+      <div class="wbox"><span class="iic">⚠</span><p>Team token allocations are subject to a 24-month vesting schedule with a 6-month cliff to ensure long-term alignment with the protocol's success.</p></div>
+    </section>
+
+    <section class="sec" id="gameplay">
+      <span class="stag">Ecosystem</span>
+      <h2>Game Ecosystem</h2>
+      <p>The AURORA game ecosystem is a living, breathing digital world where every interaction has real economic weight. Players, developers, and investors co-exist within a self-sustaining loop of value creation and distribution.</p>
+      <h3 id="nft">NFT Assets</h3>
+      <p>Every in-game asset in AURORA is a true NFT — minted on-chain, owned entirely by the player, and tradeable on any compatible marketplace. Characters, weapons, land parcels, and cosmetics all exist as verifiable digital property.</p>
+      <h3 id="governance">Governance</h3>
+      <p>AURORA operates as a DAO. Token holders vote on protocol upgrades, treasury allocations, game mechanics updates, and ecosystem partnerships. No centralised entity can unilaterally change the rules.</p>
+      <div class="plist">
+        <div class="pi"><div class="pn">01</div><div class="pc"><h4>Genesis Launch</h4><p>Initial game world deployment, founding NFT collection mint, and community governance activation.</p></div></div>
+        <div class="pi"><div class="pn">02</div><div class="pc"><h4>Ecosystem Expansion</h4><p>Cross-chain bridge deployment, third-party developer SDK release, and guild infrastructure rollout.</p></div></div>
+        <div class="pi"><div class="pn">03</div><div class="pc"><h4>Full Decentralisation</h4><p>Complete transfer of protocol governance to the DAO, treasury self-management, and open world expansion.</p></div></div>
+      </div>
+    </section>
+
+    <section class="sec" id="tokenomics">
+      <span class="stag">Economics</span>
+      <h2>Tokenomics</h2>
+      <p>The AURORA token economy is designed with long-term sustainability at its core. A fixed total supply, structured emissions schedule, and multi-mechanism burn system ensure the token maintains real utility and value accrual over time.</p>
+      <div class="tw">
+        <table class="ttbl">
+          <thead><tr><th>Allocation</th><th>%</th><th>Vesting</th><th>Type</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tn"><span class="tdot" style="background:#4f8eff"></span>Community Treasury</span></td><td>35%</td><td>4 years</td><td><span class="pill pb">DAO</span></td></tr>
+            <tr><td><span class="tn"><span class="tdot" style="background:#7c5cfc"></span>Play-to-Earn Rewards</span></td><td>25%</td><td>Emissions</td><td><span class="pill pp">Rewards</span></td></tr>
+            <tr><td><span class="tn"><span class="tdot" style="background:#34d399"></span>Ecosystem Fund</span></td><td>20%</td><td>3 years</td><td><span class="pill pg">Growth</span></td></tr>
+            <tr><td><span class="tn"><span class="tdot" style="background:#f59e0b"></span>Team &amp; Advisors</span></td><td>12%</td><td>2yr + cliff</td><td><span class="pill pb">Locked</span></td></tr>
+            <tr><td><span class="tn"><span class="tdot" style="background:#ec4899"></span>Public Sale</span></td><td>8%</td><td>6 months</td><td><span class="pill pp">Public</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ibox"><span class="iic">◈</span><p>Total supply is fixed at 1,000,000,000 AURORA tokens. No additional minting is possible after genesis. All burned tokens are permanently removed from circulation.</p></div>
+    </section>
+
+    <section class="sec" id="conclusion">
+      <span class="stag">Final</span>
+      <h2>Conclusion</h2>
+      <p>AURORA represents more than a game. It is a foundational shift in how digital worlds are owned, governed, and experienced. By placing true ownership and decision-making power in the hands of players, we are building something the industry has never seen at this scale.</p>
+      <p>The road ahead is long. The opportunity is generational. And every participant who joins now becomes a founding member of something that will outlast any single team, company, or cycle.</p>
+      <div class="ibox"><span class="iic">◎</span><p>Stay updated with the latest AURORA developments by joining our official community channels. Governance proposals, protocol upgrades, and ecosystem news are announced there first.</p></div>
+    </section>
+
+    <div class="nnav">
+      <button class="nbtn" id="nxtbtn">
+        <div><span class="nbl">Next</span><span class="nbt">Team &amp; Mission →</span></div>
+      </button>
+    </div>
+
+    <footer class="ft">
+      <span>Last Modified: March 2025</span>
+      <a class="ftl" href="#">Licenses</a>
+    </footer>
+  </main>
+
+  <aside class="rtoc" id="rtoc">
+    <span class="ttl">On This Page</span>
+  </aside>
+
+</div>
+
+<script>
+(function(){
+  const SECS=['introduction','team','gameplay','tokenomics','conclusion'];
+  const TOC={
+    introduction:[{id:'prelude',label:'Prelude'},{id:'paradigm',label:'Paradigm Shift'},{id:'navigating',label:'Navigating the Whitepaper'},{id:'joining',label:'Joining the Movement'}],
+    team:[{id:'team',label:'Mission & Team'}],
+    gameplay:[{id:'gameplay',label:'Overview'},{id:'nft',label:'NFT Assets'},{id:'governance',label:'Governance'}],
+    tokenomics:[{id:'tokenomics',label:'Token Distribution'}],
+    conclusion:[{id:'conclusion',label:'Final Thoughts'}],
+  };
+  const NEXT={
+    introduction:{sec:'team',label:'Team & Mission'},
+    team:{sec:'gameplay',label:'Game Ecosystem'},
+    gameplay:{sec:'tokenomics',label:'Tokenomics'},
+    tokenomics:{sec:'conclusion',label:'Conclusion'},
+    conclusion:null,
+  };
+  const hmb=document.getElementById('hmb'),lnav=document.getElementById('lnav'),ov=document.getElementById('ov'),rtoc=document.getElementById('rtoc'),nxtbtn=document.getElementById('nxtbtn');
+  function scrollTo(id){const el=document.getElementById(id);if(!el)return;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-76,behavior:'smooth'});}
+  function closeNav(){lnav.classList.remove('on');ov.classList.remove('on');}
+  hmb.addEventListener('click',()=>{lnav.classList.toggle('on');ov.classList.toggle('on');});
+  ov.addEventListener('click',closeNav);
+  const ecoPar=document.getElementById('eco-par'),ecoSub=document.getElementById('eco-sub');
+  ecoPar.addEventListener('click',()=>{ecoPar.classList.toggle('open');ecoSub.classList.toggle('on');});
+  document.querySelectorAll('.nl[data-sec]').forEach(l=>{l.addEventListener('click',()=>{scrollTo(l.dataset.sec);closeNav();});});
+  let lastSec=null;
+  function renderToc(sec){
+    if(sec===lastSec)return;lastSec=sec;
+    const title=rtoc.querySelector('.ttl');rtoc.innerHTML='';rtoc.appendChild(title);
+    (TOC[sec]||[]).forEach(item=>{const a=document.createElement('a');a.className='tl';a.textContent=item.label;a.dataset.id=item.id;a.addEventListener('click',()=>scrollTo(item.id));rtoc.appendChild(a);});
+    const nx=NEXT[sec];
+    if(nx){nxtbtn.style.display='';nxtbtn.querySelector('.nbt').textContent=nx.label+' →';nxtbtn.onclick=()=>scrollTo(nx.sec);}
+    else{nxtbtn.style.display='none';}
+  }
+  function setActiveToc(id){rtoc.querySelectorAll('.tl').forEach(l=>l.classList.toggle('act',l.dataset.id===id));}
+  function setActiveNav(sec){
+    document.querySelectorAll('.nl[data-sec]').forEach(l=>l.classList.toggle('act',l.dataset.sec===sec));
+    if(['gameplay','nft','governance'].includes(sec)){ecoPar.classList.add('open');ecoSub.classList.add('on');}
+  }
+  function getActive(ids){let a=ids[0];const sy=window.scrollY+76;ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top+window.scrollY<=sy)a=id;});return a;}
+  function onScroll(){
+    const s=getActive(SECS);setActiveNav(s);renderToc(s);
+    const tids=(TOC[s]||[]).map(i=>i.id);if(tids.length)setActiveToc(getActive(tids));
+  }
+  let tick=false;
+  window.addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(()=>{onScroll();tick=false;});tick=true;}},{passive:true});
+  onScroll();
+})();
+</script>
+</body>
+</html>
