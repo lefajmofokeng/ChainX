@@ -16,20 +16,20 @@ class CryptoHeader extends HTMLElement {
         label: 'Programs',
         href:  'programs.html',
         items: [
-          { label: 'Affiliate Program',  href: 'affiliate.html',  desc: 'Earn commissions promoting crypto products' },
-          { label: 'Referral Rewards',   href: 'referral.html',   desc: 'Get paid when friends sign up' },
+          { label: 'Affiliate Program',  href: 'affiliate-program.html',  desc: 'Earn commissions promoting crypto products' },
+          { label: 'Referral Rewards',   href: 'referral-rewards.html',   desc: 'Get paid when friends sign up' },
           { label: 'Partner Network',    href: 'partners.html',   desc: 'Join our network of verified partners' },
-          { label: 'Ambassador Program', href: 'ambassador.html', desc: 'Represent us and earn monthly bonuses' },
+          { label: 'Ambassador Program', href: 'ambassador-program.html', desc: 'Represent us and earn monthly bonuses' },
         ],
       },
       {
         label: 'Top Offers',
         href:  'top-offers.html',
         items: [
-          { label: 'Staking Yields',   href: 'staking.html', desc: 'Earn passive income by staking your crypto' },
-          { label: 'Yield Farming',    href: 'yield.html',   desc: 'Provide liquidity and earn protocol rewards' },
-          { label: 'Savings Accounts', href: 'savings.html', desc: 'High-interest crypto savings, no trading needed' },
-          { label: 'Bonus Promotions', href: 'promos.html',  desc: 'Limited-time offers with boosted rates' },
+          { label: 'Staking Yields',   href: 'staking-yield.html', desc: 'Earn passive income by staking your crypto' },
+          { label: 'Yield Farming',    href: 'yield-farming.html',   desc: 'Provide liquidity and earn protocol rewards' },
+          { label: 'Savings Accounts', href: 'savings-accounts.html', desc: 'High-interest crypto savings, no trading needed' },
+          { label: 'Bonus Promotions', href: 'bonus-promotions.html',  desc: 'Limited-time offers with boosted rates' },
         ],
       },
       {
@@ -47,9 +47,9 @@ class CryptoHeader extends HTMLElement {
         href:  'page.html',
         items: [
           { label: 'Newsletter',       href: 'newsletter.html', desc: 'Weekly alpha, market moves and insights' },
-          { label: 'Premium Reports',  href: 'reports.html',    desc: 'In-depth research reports you can sell or use' },
-          { label: 'Crypto Courses',   href: 'courses.html',    desc: 'Beginner to advanced crypto education' },
-          { label: 'Community Access', href: 'community.html',  desc: 'Private group with signals and discussion' },
+          { label: 'Premium Reports',  href: 'premium-reports.html',    desc: 'In-depth research reports you can sell or use' },
+          { label: 'Crypto Courses',   href: 'crypto-courses.html',    desc: 'Beginner to advanced crypto education' },
+          { label: 'Community Access', href: 'community-access.html',  desc: 'Private group with signals and discussion' },
         ],
       },
     ];
@@ -219,7 +219,6 @@ class CryptoHeader extends HTMLElement {
           flex-direction: row;
           gap: 0;
           padding: 2rem 3rem;
-          border-top: 1px solid rgba(204,255,0,0.08);
         }
 
         .mega-col {
@@ -229,8 +228,7 @@ class CryptoHeader extends HTMLElement {
           min-width: 220px;
           flex: 0 0 220px;
           padding-right: 1rem;
-          border-right: 1px solid rgba(255,255,255,0.05);
-          margin-right: 1rem;
+          margin-right: 3rem;
         }
         .mega-col:last-child {
           border-right: none;
@@ -414,7 +412,7 @@ class CryptoHeader extends HTMLElement {
 
         .search-toggle {
           background: transparent;
-          border: 1px solid rgba(255,255,255,0.1);
+          border: 2px solid rgba(255, 255, 255, 0.28);
           border-radius: 60px;
           width: 34px; height: 34px;
           display: flex; align-items: center; justify-content: center;
@@ -439,8 +437,8 @@ class CryptoHeader extends HTMLElement {
         .search-input {
           width: 100%;
           padding: 7px 12px 7px 36px;
-          background: #0d1b2e;
-          border: 1px solid rgba(17,153,250,0.4);
+          background: #202020;
+          border: 2px solid rgba(255, 255, 255, 0.4);
           border-radius: 60px;
           color: #fff;
           font-family: var(--f);
@@ -450,7 +448,7 @@ class CryptoHeader extends HTMLElement {
           transition: border-color 0.2s;
         }
         .search-input::placeholder { color: rgba(255,255,255,0.3); }
-        .search-input:focus { border-color: transparent; }
+        .search-input:focus { border-color: rgba(255, 255, 255, 0.4); }
 
         .search-input-icon {
           position: absolute;
@@ -630,7 +628,7 @@ class CryptoHeader extends HTMLElement {
     dropdown.id = 'cx-search-dropdown';
     dropdown.style.cssText = `
       position: fixed;
-      background: #0d1624;
+      background: #0e0e0e;
       border-radius: 10px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.7);
       z-index: 99999;
@@ -649,7 +647,7 @@ class CryptoHeader extends HTMLElement {
         #cx-search-dropdown .sr-scroll {
           overflow-y: auto; max-height: 320px;
           scrollbar-width: thin;
-          scrollbar-color: rgba(17,153,250,0.3) transparent;
+          scrollbar-color: rgba(255, 255, 255, 0.05) transparent;
         }
         #cx-search-dropdown .sr-scroll::-webkit-scrollbar { width: 4px; }
         #cx-search-dropdown .sr-scroll::-webkit-scrollbar-thumb { background: rgba(17,153,250,0.3); border-radius: 4px; }

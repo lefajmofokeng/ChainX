@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* 1. Reset and Font */
+  .croloft-feature-wrapper {
+    font-family: 'Circular Std', -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 100px 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. Constrained Container (1200px) */
+  .croloft-feature-container {
+    width: 1200px;
+    max-width: 95%; /* For mobile padding */
+  }
+
+  /* 3. Image Display Area */
+  .croloft-feature-visuals {
+    position: relative;
+    width: 100%;
+    height: 580px; /* Adjust height to match your specific photos */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .croloft-feature-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+  }
+
+  .croloft-feature-img.active {
+    opacity: 1;
+  }
+
+  /* 4. Progress Navigation */
+  .croloft-feature-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .croloft-feature-item {
+    position: relative;
+    padding-top: 25px;
+    cursor: pointer;
+    border-top: 2px solid #e5e5e5; /* The grey background line */
+  }
+
+  /* The Black Progress Line Overlay */
+  .croloft-feature-progress-line {
+    position: absolute;
+    top: -2px; /* Align exactly over the grey border */
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #000000;
+  }
+
+  /* Animation class triggered by JS */
+  .croloft-feature-item.animating .croloft-feature-progress-line {
+    width: 100%;
+    transition: width 5000ms linear; /* 5 second duration */
+  }
+
+  /* 5. Typography */
+  .croloft-feature-label {
+    display: block;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #9b9b9b; /* Faded when inactive */
+    transition: color 0.3s;
+  }
+
+  .croloft-feature-item.active .croloft-feature-label {
+    color: #000000;
+  }
+
+  .croloft-feature-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #6d6d6d;
+    margin: 0;
+  }
+
+  /* 6. Mobile Responsiveness */
+  @media (max-width: 900px) {
+    .croloft-feature-nav {
+      grid-template-columns: 1fr;
+    }
+    .croloft-feature-visuals {
+      height: 300px;
+    }
+  }
+</style>
+
+<div class="croloft-feature-wrapper">
+  <div class="croloft-feature-container">
+    
+    <div class="croloft-feature-visuals">
+      <div class="croloft-feature-img active" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200');"></div>
+      <div class="croloft-feature-img" style="background-image: url('https://images.pexels.com/photos/3862627/pexels-photo-3862627.jpeg');"></div>
+      <div class="croloft-feature-img" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200');"></div>
+    </div>
+
+    <div class="croloft-feature-nav">
+      
+      <div class="croloft-feature-item" data-index="0">
+        <div class="croloft-feature-progress-line"></div>
+        <span class="croloft-feature-label">Build</span>
+        <p class="croloft-feature-desc">Build a new site from the ground up — including its entire design system — modify its structure and design with ease.</p>
+      </div>
+
+      <div class="croloft-feature-item" data-index="1">
+        <div class="croloft-feature-progress-line"></div>
+        <span class="croloft-feature-label">Manage</span>
+        <p class="croloft-feature-desc">Manage the content of your site with the ability to generate copy and CMS collection items individually or in bulk.</p>
+      </div>
+
+      <div class="croloft-feature-item" data-index="2">
+        <div class="croloft-feature-progress-line"></div>
+        <span class="croloft-feature-label">Optimize</span>
+        <p class="croloft-feature-desc">Optimize your site for all audiences by auditing and improving SEO and AEO — based on CRO best practices.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  const featureItems = document.querySelectorAll('.croloft-feature-item');
+  const featureImages = document.querySelectorAll('.croloft-feature-img');
+  let currentIdx = 0;
+  const duration = 5000;
+  let slideTimer;
+
+  function runSlide(index) {
+    // 1. Clear existing timer and animation states
+    clearTimeout(slideTimer);
+    featureItems.forEach(item => {
+      item.classList.remove('active', 'animating');
+    });
+    featureImages.forEach(img => img.classList.remove('active'));
+
+    // 2. Set Active Image and Label
+    featureItems[index].classList.add('active');
+    featureImages[index].classList.add('active');
+
+    // 3. Trigger Progress Animation (using setTimeout to ensure browser registers the class removal first)
+    setTimeout(() => {
+      featureItems[index].classList.add('animating');
+    }, 10);
+
+    // 4. Queue next slide
+    currentIdx = index;
+    slideTimer = setTimeout(() => {
+      let next = (currentIdx + 1) % featureItems.length;
+      runSlide(next);
+    }, duration);
+  }
+
+  // Initial Start
+  runSlide(0);
+
+  // Manual Click Override
+  featureItems.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      runSlide(i);
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="cl-precision-showcase">
+  <div class="cl-precision-container">
+    
+    <div class="cl-precision-visual">
+      <div class="cl-phone-frame">
+        <div class="cl-phone-screen">
+          <img src="thumbnails/cell.png" alt="Catalog Management" class="cl-app-img active">
+          <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=800" alt="Order Processing" class="cl-app-img">
+          <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=800" alt="Sales Tracking" class="cl-app-img">
+        </div>
+      </div>
+    </div>
+
+    <div class="cl-precision-content">
+      <h2 class="cl-precision-title">Get started in three steps</h2>
+      
+      <div class="cl-steps-wrapper">
+        
+        <div class="cl-step-node active" onclick="manualTune(0)">
+          <div class="cl-step-text">
+            <h3 class="cl-step-header">1. Create an account</h3>
+            <p class="cl-step-body">Set up your Croloft store profile and sync your existing product inventory instantly.</p>
+          </div>
+          <div class="cl-progress-area">
+            <div class="cl-progress-track">
+              <div class="cl-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cl-step-node" onclick="manualTune(1)">
+          <div class="cl-step-text">
+            <h3 class="cl-step-header">2. Trade contracts</h3>
+            <p class="cl-step-body">Manage wholesale orders and customer biddings through our secure mobile interface.</p>
+          </div>
+          <div class="cl-progress-area">
+            <div class="cl-progress-track">
+              <div class="cl-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cl-step-node" onclick="manualTune(2)">
+          <div class="cl-step-text">
+            <h3 class="cl-step-header">3. Receive payment</h3>
+            <p class="cl-step-body">Automated payouts to your business account the moment a customer confirms delivery.</p>
+          </div>
+          <div class="cl-progress-area">
+            <div class="cl-progress-track">
+              <div class="cl-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .cl-precision-showcase {
+    --cl-blue: #007aff;
+    --cl-black: #000000;
+    --cl-dark-grey: #1c1c1e;
+    --cl-muted: #636366;
+    background-color: var(--cl-black);
+    color: #ffffff;
+    font-family: 'Circular Std', -apple-system, sans-serif;
+    padding: 150px 5%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cl-precision-container {
+    width: 1100px; /* Slightly reduced width for better focus */
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Adjusted ratio */
+    gap: 40px; /* Reduced middle spacing as requested */
+    align-items: center;
+  }
+
+  @media (max-width: 900px) {
+    .cl-precision-container {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .cl-precision-visual { order: 1; }
+    .cl-precision-content { order: 2; width: 100%; }
+    .cl-precision-title { font-size: 32px !important; text-align: left; }
+  }
+
+  /* Visual / Phone */
+  .cl-precision-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cl-phone-frame {
+    width: 330px;
+    height: 630px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 40px;
+    padding: 8px;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+  }
+
+  .cl-phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #000;
+    position: relative;
+  }
+
+  .cl-app-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.4s ease;
+  }
+
+  .cl-app-img.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Content / Steps */
+  .cl-precision-title {
+    font-size: 45px;
+    font-weight: 500;
+    margin-bottom: 50px;
+  }
+
+  .cl-step-node {
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+
+  .cl-step-text {
+    margin-bottom: 18px;
+  }
+
+  .cl-step-header {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    transition: color 0.3s;
+  }
+
+  .cl-step-node:not(.active) .cl-step-header {
+    color: #444;
+  }
+
+  .cl-step-body {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--cl-muted);
+    margin: 0;
+    max-width: 420px;
+    display: none;
+  }
+
+  .cl-step-node.active .cl-step-body {
+    display: block;
+  }
+
+  /* Progress Bar - Reduced width as requested */
+  .cl-progress-area {
+    width: 70%; /* Reduced progress bar width */
+    height: 2px;
+    position: relative;
+  }
+
+  .cl-progress-track {
+    width: 100%;
+    height: 2px;
+    background: #222;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .cl-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--cl-blue);
+  }
+
+  .cl-step-node.active .cl-progress-fill {
+    animation: clRunProgress 5000ms linear forwards;
+  }
+
+  @keyframes clRunProgress {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+</style>
+
+<script>
+  let clCurrentIdx = 0;
+  let clTimer;
+  const clNodes = document.querySelectorAll('.cl-step-node');
+  const clImages = document.querySelectorAll('.cl-app-img');
+
+  function clActivate(index) {
+    clNodes.forEach(n => n.classList.remove('active'));
+    clImages.forEach(img => img.classList.remove('active'));
+    clearTimeout(clTimer);
+
+    clNodes[index].classList.add('active');
+    clImages[index].classList.add('active');
+    clCurrentIdx = index;
+
+    clTimer = setTimeout(() => {
+      let next = (clCurrentIdx + 1) % clNodes.length;
+      clActivate(next);
+    }, 5000);
+  }
+
+  function manualTune(index) {
+    clActivate(index);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    clActivate(0);
+  });
+</script>
+

@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Feature Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* -------------------------------------------
+        BASE STYLES - DESKTOP FIRST
+        ------------------------------------------- */
+        .hero-section-dv {
+            position: relative;
+            min-height: 100vh;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 100px 0; /* Adjusted padding */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            overflow: hidden;
+            line-height: 1.7;
+        }
+
+        .container-dv {
+            max-width: 1200px;
+            width: 90%; /* Use 90% width for better margins */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .content-left {
+            flex: 1;
+            max-width: 500px; /* Reduced max width to give more space to image */
+            z-index: 2;
+        }
+
+        .main-heading {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #06273e;
+            margin-bottom: 30px;
+            letter-spacing: -0.03em;
+        }
+
+        .description {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #4B5563;
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        /* Image Container & Decorations */
+        .image-container {
+            position: relative;
+            flex: 1;
+            max-width: 600px;
+            height: 400px;
+            margin-right: -50px; /* Pull image slightly to the right edge */
+            z-index: 2;
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -40px;
+            width: 50%;
+            height: 50%;
+            background-image: radial-gradient(circle at 1.5px 1.5px, #0066ff 1.5px, transparent 0);
+            background-size: 20px 20px;
+            opacity: 0.4;
+            z-index: 1;
+        }
+
+        .main-image {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            z-index: 2;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stats-card {
+            position: absolute;
+            bottom: -50px;
+            left: -40px;
+            background: #ffd700;
+            padding: 25px 30px;
+            border-radius: 6px;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+            z-index: 3;
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #06273e;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stats-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.2;
+        }
+
+        /* Underline Scribble */
+        .highlight-word {
+            position: relative;
+            color: #0091ff;
+        }
+
+        .underline-svg {
+            position: absolute;
+            bottom: -15px;
+            left: -5%;
+            width: 110%;
+            height: 25px;
+            overflow: visible;
+        }
+
+        .underline-svg path {
+            stroke: #0091ff;
+            stroke-width: 5;
+            stroke-linecap: round;
+            fill: none;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: draw 1.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Animated Button Styles */
+        .animated-button {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 16px 36px;
+            border: 4px solid;
+            border-color: #06273e;
+            font-size: 16px;
+            background-color: #06273e;
+            border-radius: 100px;
+            font-weight: 600;
+            box-shadow: 0 0 0 2px #06273e;
+            color: white;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .animated-button svg {
+            position: absolute;
+            width: 24px;
+            fill: white;
+            z-index: 9;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .animated-button .arr-1 { right: 16px; }
+        .animated-button .arr-2 { left: -25%; }
+
+        .animated-button .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background-color: #0091ff; /* Changed circle color for contrast */
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .animated-button .text {
+            position: relative;
+            z-index: 1;
+            transform: translateX(-12px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .animated-button:hover {
+            box-shadow: 0 0 0 12px transparent;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .animated-button:hover .arr-1 { right: -25%; }
+        .animated-button:hover .arr-2 { left: 16px; }
+        .animated-button:hover .text { transform: translateX(12px); }
+        .animated-button:hover svg { fill: white; }
+
+        .animated-button:active {
+            scale: 0.95;
+            box-shadow: 0 0 0 4px #0091ff;
+        }
+
+        .animated-button:hover .circle {
+            width: 220px;
+            height: 220px;
+            opacity: 1;
+        }
+        
+        /* -------------------------------------------
+        RESPONSIVENESS
+        ------------------------------------------- */
+
+        /* Tablet Landscape/Small Desktop (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .hero-section-dv {
+                min-height: auto;
+                padding: 80px 0;
+            }
+
+            .container-dv {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+                width: 95%;
+            }
+
+            .content-left {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .content-left > p, .description {
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .main-heading {
+                font-size: 48px;
+            }
+            
+            /* Center the button */
+            .content-left > div:last-child {
+                display: flex;
+                justify-content: center;
+            }
+            
+            /* Image stack/center adjustments */
+            .image-container {
+                max-width: 90%;
+                height: 350px;
+                margin: 0 auto;
+            }
+
+            /* Remove decorative offsets and position stats card below the image */
+            .image-container::after {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: 15px 15px; /* Smaller dots */
+                opacity: 0.15;
+            }
+            
+            .stats-card {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: 30px;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            }
+        }
+
+        /* Tablet Portrait / Large Phone (max-width: 768px) */
+        @media (max-width: 768px) {
+            .hero-section-dv {
+                padding: 60px 0;
+            }
+            
+            .main-heading {
+                font-size: 38px;
+                margin-bottom: 20px;
+            }
+
+            .description {
+                font-size: 15px;
+                margin-bottom: 30px;
+            }
+
+            .image-container {
+                height: 300px;
+                max-width: 95%;
+            }
+            
+            .stats-card {
+                padding: 20px 25px;
+            }
+            
+            .stats-number {
+                font-size: 2rem;
+            }
+            
+            .stats-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Small Phones (max-width: 480px) */
+        @media (max-width: 480px) {
+            .hero-section-dv {
+                padding: 40px 0;
+            }
+            
+            .main-heading {
+                font-size: 30px;
+                line-height: 1.3;
+            }
+            
+            /* Adjust underline width for smaller screen */
+            .underline-svg {
+                bottom: -10px;
+                height: 20px;
+            }
+
+            .underline-svg path {
+                stroke-width: 4;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+            
+            .animated-button {
+                padding: 14px 30px;
+                font-size: 15px;
+            }
+            
+            .image-container {
+                height: 250px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section-dv rb-fade-in">
+        <div class="container-dv">
+            <div class="content-left">
+                <p style="text-transform: uppercase; color: #06273e; font-size: 14px; font-weight: 600; margin-bottom: 1rem; letter-spacing: 1px;">Future of Infrastructure</p>
+                <h1 class="main-heading">
+                    Innovate, Integrate <br> and 
+                    <span class="highlight-word">
+                        Elevate.
+                        <svg class="underline-svg" viewBox="0 0 196 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 16.9998C30.4988 9.39999 91.2223 -6.38075 193 11.0002"/>
+                        </svg>
+                    </span>
+                </h1>
+                
+                <div class="description">
+                <p>
+                We're more than just developers – we're your trusted digital partner. From smart design to solid delivery, every detail is handled with care, precision, and a commitment to excellence. 
+                </p>
+                </div>
+
+                <div style="position: relative; display: flex;"> <button class="animated-button">
+                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                        ></path>
+                    </svg>
+                    <span class="text">Explore</span>
+                    <span class="circle"></span>
+                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                        ></path>
+                    </svg>
+                </button>
+              </div>
+            </div>
+            
+            <div class="image-container">
+                <div class="main-image">
+                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Happy team celebrating together" />
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-number">53%</div>
+                    <div class="stats-text">High Conversions<br>Everything</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Feature Highlight Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- General Reset & Fonts --- */
+        .it-feat-body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #1f2937;
+            overflow-x: hidden;
+            padding: 4rem 0;
+        }
+
+        /* --- Layout Container --- */
+        .it-feat-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* --- Main Heading --- */
+        .it-feat-main-heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .it-feat-main-heading {
+                font-size: 3.5rem;
+                margin-bottom: 4rem;
+            }
+        }
+
+        /* --- Feature Grid --- */
+        .it-feat-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .it-feat-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        /* --- Feature Card Styling --- */
+        .it-feat-card {
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .it-feat-image-wrapper {
+            background-color: #008080; /* Teal/Cyan background to match the style */
+            padding: 1rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .it-feat-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        /* --- Card Headline and Description --- */
+        .it-feat-card-headline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .it-feat-card-description {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* --- Responsive Adjustments for Images --- */
+        @media (max-width: 767px) {
+            .it-feat-image-wrapper {
+                height: 250px;
+            }
+        }
+        @media (min-width: 768px) {
+            .it-feat-image-wrapper {
+                height: 350px;
+            }
+        }
+
+        /* Optional: Add a subtle geometric background pattern to mimic the original image's texture */
+        .it-feat-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+            z-index: 0;
+            pointer-events: none;
+            /* Placeholder for geometric pattern */
+            background-image: radial-gradient(#d1d5db 1px, transparent 1px), radial-gradient(#d1d5db 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+    </style>
+</head>
+<body class="it-feat-body">
+
+    <!-- Feature Section Wrapper -->
+    <div class="it-feat-container">
+
+        <!-- Main Headline -->
+        <h1 class="it-feat-main-heading">
+            Connect to everything important in your digital life
+        </h1>
+
+        <!-- Two-Column Feature Grid -->
+        <div class="it-feat-grid">
+
+            <!-- Feature Card 1: Cloud Infrastructure -->
+            <div class="it-feat-card">
+                <div class="it-feat-image-wrapper">
+                    <img
+                        src="thumbnails/pexels-altabena-10142683.jpg"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/008080/FFFFFF?text=Cloud+Infrastructure';"
+                        alt="A close-up of a server or network device, symbolizing cloud infrastructure."
+                    >
+                </div>
+                <h2 class="it-feat-card-headline">An untethered cloud for an agile infrastructure.</h2>
+                <p class="it-feat-card-description">
+                    Our resilient hybrid cloud solutions connect your legacy systems with modern, scalable resources via secure VPN and dedicated fiber lines, so you can access, scale, and run your data from anywhere.
+                </p>
+            </div>
+
+            <!-- Feature Card 2: Cybersecurity -->
+            <div class="it-feat-card">
+                <div class="it-feat-image-wrapper">
+                    <img
+                        src="thumbnails/pexels-altabena-10142683.jpg"
+                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/FACC15/1F2937?text=Threat+Management';"
+                        alt="A person checking their phone/wallet, symbolizing secure payments and data protection."
+                    >
+                </div>
+                <h2 class="it-feat-card-headline">Turn your data into your fortress.</h2>
+                <p class="it-feat-card-description">
+                    Forgot about security gaps? No problem—with 24/7 Managed Threat Detection right on your network, you're always ready to secure your sensitive assets and prevent breaches instantly.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Marketing Page</title>
+    <style>
+        /* Base styles for the IT marketing section */
+        .it-marketing-section-container {
+            font-family: Arial, sans-serif;
+            padding: 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Main heading for the section */
+        .it-marketing-main-heading {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Grid layout for the content */
+        .it-marketing-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Box styling for content areas */
+        .it-marketing-content-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Specific styling for the top right image box */
+        .it-marketing-image-box-top-right {
+            background-color: #6a0dad; /* A vibrant purple for IT */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: hidden; /* Ensure image fits */
+        }
+
+        /* Specific styling for the bottom left image box */
+        .it-marketing-image-box-bottom-left {
+            background-color: #fdd835; /* A bright yellow for IT */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: hidden; /* Ensure image fits */
+        }
+
+        /* Numbering for text sections */
+        .it-marketing-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Paragraph text styles */
+        .it-marketing-paragraph {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .it-marketing-content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="it-marketing-section-container">
+        <h1 class="it-marketing-main-heading">IT Solutions</h1>
+
+        <div class="it-marketing-content-grid">
+            <div class="it-marketing-content-box">
+                <div class="it-marketing-number">1</div>
+                <p class="it-marketing-paragraph">
+                    As a leader in innovative IT solutions, our philosophy is to stay ahead of technological curves. We meticulously understand client needs, continuously expanding our services across various sectors. From robust cloud infrastructure to cutting-edge cybersecurity, we provide tailored solutions that drive business success and digital transformation.
+                </p>
+            </div>
+
+            <div class="it-marketing-image-box-top-right">
+                </div>
+
+            <div class="it-marketing-image-box-bottom-left">
+                </div>
+
+            <div class="it-marketing-content-box">
+                <div class="it-marketing-number">2</div>
+                <p class="it-marketing-paragraph">
+                    Our expertise ensures seamless integration and optimization of your IT landscape. We focus on delivering secure, scalable, and efficient systems, empowering your team with the tools they need to excel. Partner with us to navigate the complexities of the digital world and unlock your full potential.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

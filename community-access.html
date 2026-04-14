@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Technology Layout</title>
+    
+
+    <style>
+        /* Namespace Prefix: .spec-tech- */
+        
+        .spec-tech-wrapper {
+            box-sizing: border-box;
+            font-family: 'Circular Std', sans-serif;
+            background-color: #F8F9FB; /* Light neutral background */
+            width: 100%;
+            margin: 0;
+            padding: 160px 0; /* Vertical padding only */
+            overflow-x: hidden; /* Prevents scrollbars from the offset screen */
+            color: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .spec-tech-wrapper * {
+            box-sizing: border-box;
+        }
+
+        /* Top Header - Stays centered or adapts to container */
+        .spec-tech-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
+        }
+
+        .spec-tech-eyebrow {
+            color: #0066FF;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .spec-tech-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .spec-tech-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Split Section: Image Left, Text Right */
+        .spec-tech-split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+        }
+
+        /* Left Side: The Screen */
+        .spec-tech-screen-box {
+            position: relative;
+            width: 100%;
+            /* This makes the image container stick to the left edge 
+               and creates the "half-screen" look */
+            margin-left: -50px; 
+        }
+
+        .spec-tech-screen-image {
+            width: 100%; height: 600px;
+            display: block;
+            border-radius: 0 16px 16px 0; /* Rounded only on the right side */
+            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.15);
+            background-color: #1a1a1a;
+            border: 1px solid rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        /* Right Side: Footer Content */
+        .spec-tech-footer-content {
+            padding-right: 10%;
+            max-width: 500px;
+        }
+
+        .spec-tech-footer-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .spec-tech-footer-desc {
+            font-size: 18px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* Animations */
+        .spec-tech-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .spec-tech-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .spec-tech-split-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .spec-tech-screen-box {
+                margin-left: 0;
+                padding-right: 40px;
+            }
+            .spec-tech-footer-content {
+                padding: 0 20px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="spec-tech-wrapper">
+        
+        <header class="spec-tech-header spec-tech-reveal">
+            <span class="spec-tech-eyebrow">Browser Extension</span>
+            <h1 class="spec-tech-title">Two ways to access, yours to choose</h1>
+            <p class="spec-tech-subtitle">
+                Apart from the IT Hub console, you can manage cloud infrastructure 
+                directly via our Chrome® extension — the choice is yours.
+            </p>
+        </header>
+
+        <section class="spec-tech-split-container">
+            
+            <div class="spec-tech-screen-box spec-tech-reveal">
+                <img 
+                    src="Screenshot 2025-11-14 162240.png" 
+                    alt="IT Technology Dashboard" 
+                    class="spec-tech-screen-image"
+                >
+            </div>
+
+            <div class="spec-tech-footer-content spec-tech-reveal">
+                <h2 class="spec-tech-footer-title">Connect seamlessly</h2>
+                <p class="spec-tech-footer-desc">
+                    Easily connect your local environment or hardware security modules 
+                    to access global IT projects, DevOps protocols, and secure APIs instantly.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('spec-tech-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.spec-tech-reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
+
+
+<cronos-footer></cronos-footer>

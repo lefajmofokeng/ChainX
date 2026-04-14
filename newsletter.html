@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="it-corp-display-section">
+    <div class="it-corp-display-wrapper">
+        
+        <p class="it-corp-display-kicker">All in the family</p>
+        <h1 class="it-corp-display-headline">All the must-haves.<br>All on Mobile.</h1>
+
+        <div class="it-corp-display-frame-container">
+            <div class="it-corp-display-image-layer"></div>
+            
+        </div>
+
+        <div class="it-corp-display-footer">
+            <p>
+                The latest iPhone models come packed with advanced capabilities. Helpful 
+                <strong>Apple Intelligence</strong> features such as visual intelligence and 
+                <strong>Writing Tools</strong> to make your everyday easier. Fast, secure 
+                connections with <strong>Wi-Fi 7, Bluetooth 6, 5G connectivity, and eSIM.</strong> 
+                And safety features like Messages via satellite designed to give you peace of mind.
+            </p>
+        </div>
+        
+    </div>
+</div>
+
+<style>
+/* 1. FONT & BASE CONFIG */
+/* Circular Std fallback provided. Ensure your local 'Circular Std' files are linked in your global CSS. */
+.it-corp-display-section {
+    --brand-orange: #ff6600;
+    --text-muted: #86868b;
+    --bg-black: #000000;
+
+
+    background-color: var(--bg-black);
+    color: #ffffff;
+    font-family: "Circular Std", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 150px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.it-corp-display-wrapper {
+    width: 100%;
+    max-width: 1000px; /* Precise width as requested */
+    text-align: center;
+}
+
+/* 2. TEXT STYLING */
+.it-corp-display-kicker {
+    color: var(--brand-orange);
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.it-corp-display-headline {
+    font-size: clamp(32px, 6vw, 56px);
+    line-height: 1.05;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin-bottom: 60px;
+}
+
+/* 3. THE UNIFIED FRAME (THE MASK) */
+.it-corp-display-frame-container {
+    position: relative;
+    width: 100%;
+    height: 720px; /* Height of the center tall segment */
+    margin: 0 auto 50px auto;
+    
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+}
+
+.it-corp-display-image-layer {
+    width: 100%;
+    height: 100%;
+    /* PLACEHOLDER: Replace this URL with your 1000px image */
+    background-image: url('thumbnails/phone.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 4. OVERLAY (Subtle Depth Frames) */
+.it-corp-display-overlay-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px; /* Spacing between segments */
+    pointer-events: none;
+}
+
+.it-corp-display-segment {
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+}
+
+.it-corp-display-segment.side {
+    width: 185px;
+    height: 370px;
+    border-radius: 35px;
+    margin-top: 10px; /* Visual alignment for side frames */
+}
+
+.it-corp-display-segment.center {
+    width: 250px;
+    height: 510px;
+    border-radius: 45px;
+}
+
+/* 5. FOOTER TEXT */
+.it-corp-display-footer {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.it-corp-display-footer p {
+    font-size: 21px;
+    line-height: 1.5;
+    color: var(--text-muted);
+}
+
+.it-corp-display-footer strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* 6. MOBILE ADAPTIVITY */
+@media (max-width: 768px) {
+    .it-corp-display-frame-container {
+        height: 400px; 
+        width: 100%;
+        /* Adjusted height for mobile */
+    }
+    .it-corp-display-segment.side {
+        display: none;
+    }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<cronos-footer></cronos-footer>

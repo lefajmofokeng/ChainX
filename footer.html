@@ -1,0 +1,836 @@
+<style>
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow Us Bar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Circular Std', sans-serif;
+        }
+
+        .follow-container {
+            background-color: #ffffff;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .follow-bar {
+            padding: 30px 0;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .follow-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .follow-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #06273e;
+            white-space: nowrap;
+            line-height: 1;
+            
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #0071ff;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons:hover {
+          background-color: #ececec;
+        }
+
+        .social-icons i {
+            font-size: 1.2rem;
+            z-index: 2;
+            position: relative;
+        }
+
+        .social-icons::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0091ff;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            border-radius: 50%;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .follow-bar {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+               
+            }
+            
+            .follow-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .social-icons-container {
+                gap: 8px;
+            }
+            
+            .social-icons {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<div class="follow-container">
+    <div class="follow-bar">
+        <div class="follow-content">
+            <h3 class="follow-title">Join Our Community</h3>
+            <div class="social-icons-container">
+                <a href="#" class="social-icons twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <a href="#" class="social-icons" aria-label="Twitter">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+                <a href="#" class="social-icons" aria-label="Twitter">
+                    <i class="fab fa-youtube"></i>
+                </a>
+
+                <a href="#" class="social-icons linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-icons github" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+  </div>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =============================================
+     *** FOOTER ***
+     ============================================= -->
+<style>
+  /* =============================================
+     *** FOOTER STYLES ***
+     ============================================= */
+  
+  /* Main container for the footer */
+  .pc-footer-container {
+    font-family: 'Circular Std', sans-serif;
+    background-color: #000;
+    color: #a8b2d1;
+    width: 100%;
+    padding: 5rem 0;
+    box-sizing: border-box;
+  }
+
+  .pc-footer-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    
+  }
+
+  /* Top section: logo, line, and icons */
+  .pc-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .image-logo {
+    height: 50px;
+    align-items: center;
+    align-self: center;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .pc-footer-logo span {
+    font-size: 25px;
+    font-weight: 600;
+    align-items: center;
+    align-self: center;
+    vertical-align: middle;
+    color: white;
+  }
+
+  /* The decorative line between logo and icons */
+  .pc-footer-line {
+    flex-grow: 1;
+    height: 1.2px;
+    background-color: #303c55;
+    min-width: 50px;
+    border: none;
+    margin: 0;
+  }
+
+  /* Social Icons */ 
+  .social-icons-container {
+    display: flex;
+    column-gap: 18px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    text-decoration: none;
+    font-size: 12px;
+    background-color: #a4aaae38;
+    border-radius: 50%;
+    transition-property: outline-offset, outline-color, background-color;
+    transition-duration: 0.25s;
+    color: #fff;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-icon:hover {
+    outline-offset: 4px;
+    color: #f4f4f4;
+    background-color: #cdcdcd7d;
+  }
+
+  .social-icon img {
+    display: block;
+    width: 19px;
+    height: 19px;
+  }
+
+  .social-icon svg {
+    margin: auto;
+    width: 19px;
+  }
+
+  .social-icon:hover svg,
+  .social-icon:hover img {
+    animation: shake 0.25s;
+  }
+
+  @keyframes shake {
+    10% {
+      transform: rotate(15deg);
+    }
+    20% {
+      transform: rotate(-15deg);
+    }
+    30% {
+      transform: rotate(15deg);
+    }
+    40% {
+      transform: rotate(-15deg);
+    }
+    50%, 100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  /* Footer content with columns */
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 60px;
+    margin-bottom: 30px;
+    padding-top: 3.5rem;
+  }
+
+  .footer-column h3 {
+    color: #a0a9be;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-transform: none;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-column h3::after {
+    content: '+';
+    font-size: 18px;
+    display: none;
+  }
+
+  .footer-column.active h3::after {
+    content: '‒';
+    font-size: 18px;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 12px;
+  }
+
+  .footer-column ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400; width: fit-content;
+  }
+
+  .footer-column ul li a:hover {
+    color: #62b8fa;
+  }
+
+  /* QR Code Section */
+  .defcon-footer-qr-section {
+    text-align: center;
+    color: #fff;
+  }
+
+  .defcon-qr-code {
+    background-color: #ffffff;
+    height: 98px;
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .defcon-qr-image {
+    width: 78px;
+    height: 78px;
+    display: block;
+  }
+
+  .defcon-qr-caption {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  /* Middle content section with paragraphs */
+  .pc-footer-content {
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #a0a9be;
+  }
+
+  .pc-footer-content p {
+    margin-bottom: 1rem;
+  }
+
+  .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    flex-basis: 100%;
+  }
+
+  /* Bottom section with copyright */
+.pc-footer-bottom {
+    margin-top: 15px;
+    padding-top: 0;
+    margin-bottom: 2rem;
+    display: flex;
+    text-align: right;
+    align-items: center;
+    justify-content: flex-end; /* This is the key change */
+    gap: 1.5rem;
+    font-size: 0.826rem;
+    font-weight: 400;
+    color: #a0a9be;
+    flex-wrap: wrap;
+}
+
+.pc-footer-bottom span {
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pc-footer-bottom {
+        justify-content: center; /* Center on mobile */
+        text-align: center;
+        border-top: 1px solid #303c55;
+        padding: 1rem 0;
+    }
+}
+
+  /* =============================================
+     *** RESPONSIVE STYLES ***
+     ============================================= */
+  @media (max-width: 1024px) {
+    .footer-content {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .pc-footer-wrapper {
+      padding: 0 20px;
+    }
+
+    .footer-columns {
+      flex-direction: column;
+    }
+
+    .footer-left, .footer-right {
+      flex-basis: 100%;
+    }
+
+    .footer-right {
+      text-align: left;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pc-footer-container {
+      padding: 3rem 0;
+    }
+
+    .pc-footer-top {
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    .pc-footer-line {
+      display: none;
+    }
+    
+    .pc-footer-bottom {
+      justify-content: center;
+      text-align: center;
+      border-top: 1px solid #303c55;
+      padding: 1rem 0;
+    }
+    
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-top: 2rem;
+    }
+    
+    .footer-column {
+      border-bottom: 1px solid #303c55;
+      padding: 15px 0;
+    }
+
+    .footer-column:last-child {
+      border-bottom: none;
+    }
+    
+    .footer-column h3 {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .footer-column h3::after {
+      display: block;
+    }
+    
+    .footer-column ul {
+      display: none;
+      margin-top: 10px;
+      padding-left: 10px;
+    }
+    
+    .footer-column.active ul {
+      display: block;
+    }
+    
+    .footer-columns {
+      flex-direction: column;
+    }
+    
+    .footer-left {
+      flex-basis: 100%;
+      border-top: 1px solid #303c55;
+      padding-top: 2rem;
+    }
+    
+    .footer-right {
+      text-align: left;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
+    .social-icons-container {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .pc-footer-container {
+      padding: 2rem 0;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .social-icons-container {
+      column-gap: 12px;
+    }
+
+    .social-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .social-icon img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .footer-right {
+      gap: 10px;
+    }
+
+    .footer-image {
+      height: 40px;
+    }
+
+    .defcon-qr-code {
+      height: 88px;
+      padding: 8px;
+    }
+
+    .defcon-qr-image {
+      width: 70px;
+      height: 70px;
+    }
+
+    .defcon-footer-qr-section {
+      margin-top: 40px;
+    }
+  }
+
+
+
+
+  /* Add top padding for nested columns on desktop */
+@media (min-width: 769px) {
+    .footer-content > div > .footer-column:not(:first-child) {
+        padding-top: 2rem; /* Adjust this value as needed */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .footer-content > div > .footer-column {
+        border-bottom: 1px solid #303c55;
+        padding: 15px 0;
+    }
+    
+    .footer-content > div > .footer-column:last-child {
+        border-bottom: 1px solid #303c55;
+    }
+}
+</style>
+
+<div style="background-color: #000000; margin: 0; padding: 2rem 0;">
+  <primecapital-footer class="pc-footer-container">
+    <div class="pc-footer-wrapper">
+      <!-- *** TOP SECTION: LOGO AND SOCIAL ICONS *** -->
+      <div class="pc-footer-top">
+        <div class="pc-footer-logo">
+          <a href="index.html">
+            <img src="logo.png" class="image-logo" alt="Logo">
+          </a>
+        </div>
+
+        
+
+        <hr class="pc-footer-line">
+
+        <div class="social-icons-container">
+                <a href="#" class="social-icons twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <a href="#" class="social-icons" aria-label="Twitter">
+                    <i class="fab fa-facebook"></i>
+                </a>
+
+                <a href="#" class="social-icons" aria-label="Twitter">
+                    <i class="fab fa-youtube"></i>
+                </a>
+
+                <a href="#" class="social-icons linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-icons github" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+      </div>
+
+      <!-- *** FOOTER CONTENT WITH COLUMNS *** -->
+      <div class="footer-content">
+        <!-- Resources Column -->
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Free eBooks</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">YouTube Playlists</a></li>
+            <li><a href="#">Recommendations</a></li>
+            <li><a href="#">Guides & Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <!-- Services Column -->
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Software Development</a></li>
+              <li><a href="#">IT Infrastructure</a></li>
+              <li><a href="#">Marketing & Creative Studio</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Learn</h3>
+            <ul>
+              <li><a href="#">Research & Analysis</a></li>
+              <li><a href="#">Cloud Computing</a></li>
+              <li><a href="#">LLMs</a></li>
+              <li><a href="#">AI Technology</a></li>
+              <li><a href="#">Zero Trust Architecture</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Help Column -->
+        <div class="footer-column">
+          <h3>Help</h3>
+          <ul>
+            <li><a href="#">Customer Support</a></li>
+            <li><a href="#">Plan Comparison</a></li>
+            <li><a href="#">Troubleshooting</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Community Forum</a></li>
+            <li><a href="#">Beta Program</a></li>
+            <li><a href="#">Feedback</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Roadmap</a></li>
+            <li><a href="#">Innovations</a></li>
+            <li><a href="#">Affiliate & Partners</a></li>
+            <li><a href="#">Licenses & Registrations</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="#">Legal</a></li>
+          </ul>
+        </div>
+
+        
+        <div>
+          <!-- Updates Column -->
+          <div class="footer-column">
+            <h3>Updates</h3>
+            <ul>
+              <li><a href="#">Company News</a></li>
+              <li><a href="#">Product Updates</a></li>
+              <li><a href="#">What's Trending</a></li>
+              <li><a href="#">Events</a></li>
+            </ul>
+          </div>
+                
+          <div class="footer-column">
+            <h3>Connect</h3>
+            <ul>
+              <li><a href="#">X/Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Youtube</a></li>
+              <li><a href="#">LinkedIn</a></li>
+              <li><a href="#">Github</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <div class="defcon-footer-qr-section">
+          <p style="font-size: 18px; font-weight: 600; margin-bottom: 14px;">Get Started<br>With Defcon</p>
+          <div class="defcon-qr-code">
+            <img src="frame.jpg" alt="Scan to Get Started" class="defcon-qr-image">
+          </div>
+          <p class="defcon-qr-caption">Scan to request<br>a consultation</p>
+        </div>
+      </div>
+
+      <hr class="pc-footer-line">
+
+      <!-- *** MIDDLE CONTENT SECTION *** -->
+      <div class="pc-footer-content">
+        <div class="footer-columns">
+          <div class="footer-left">
+            <p>
+              We operate as a digitally-native technology enterprise, delivering comprehensive solutions across the entire information technology spectrum through our advanced digital infrastructure and methodologies. Our systems are optimized for virtual engagement, allowing us to deliver efficient, responsive service without the need for constant on-site presence.
+            </p>
+
+            <p>
+              Please note that our expert IT specialists are deployed to client locations exclusively when on-site intervention becomes absolutely necessary for project completion or when remote capabilities prove insufficient for the technical requirements at hand.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      
+      
+      
+      <hr class="pc-footer-line">
+      
+      <!-- *** COPYRIGHT SECTION *** -->
+      <div class="pc-footer-bottom">
+        <span>Copyright &copy; Defcon <script>document.write(new Date().getFullYear())</script>. All rights reserved.</span>
+      </div>
+    </div>
+  </primecapital-footer>
+</div>
+
+<script>
+  // Mobile accordion functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const footerColumns = document.querySelectorAll('.footer-column');
+    
+    footerColumns.forEach(column => {
+      const header = column.querySelector('h3');
+      if (header) {
+        header.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            column.classList.toggle('active');
+          }
+        });
+      }
+    });
+
+    // Close accordion on resize to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        footerColumns.forEach(column => {
+          column.classList.remove('active');
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

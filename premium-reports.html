@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+        :root {
+            --inter: 'Circular Std', sans-serif;
+            --brand-blue: #0047FF;
+            --brand-yellow: #ccff00;
+            
+            /* --- PRECISION VARIABLES --- */
+            /* We use a larger height to ensure letters like 'g' don't get cut off */
+            --item-height: 100px; 
+            /* This ensures the visual baseline of "LINK" matches the scrolling words */
+            --baseline-offset: 0; 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--inter);
+            background-color: var(--brand-blue);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #000000 0%, #000000 100%);
+        }
+
+        .hero-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px; /* Space between LINK and the words */
+        }
+
+        .static-link {
+            font-size: 80px;
+            font-weight: 400;
+            letter-spacing: -2px;
+            
+            /* Geometry enforcement for alignment */
+            height: var(--item-height);
+            line-height: var(--item-height);
+            display: flex;
+            align-items: center;
+            padding-bottom: var(--baseline-offset); /* Slight lift to match optical baseline */
+        }
+
+        .window {
+            /* We show exactly 3 items: top (faded), center (active), bottom (faded) */
+            height: calc(var(--item-height) * 3); 
+            overflow: hidden;
+            display: block;
+            position: relative;
+            
+            /* Gradient mask for the fade effect */
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 30%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 65%, transparent 100%);
+        }
+
+        .track {
+            display: flex;
+            flex-direction: column;
+            /* 15s total for 5 steps = 3s per word */
+            animation: slideItems 10s cubic-bezier(0.85, 0, 0.15, 1) infinite;
+        }
+
+        .word {
+            height: var(--item-height);
+            font-size: 80px;
+            font-weight: 400;
+            letter-spacing: -2px;
+            display: flex;
+            align-items: center; /* Vertically centers text in the box */
+            padding-bottom: var(--baseline-offset);
+            
+            /* Default State: Faded Blue-ish White */
+            color: rgba(255, 255, 255, 0.3);
+            
+            /* Smooth transition for the color snap */
+            transition: color 0.3s ease-out;
+            white-space: nowrap;
+        }
+
+        /* The class Javascript will add */
+        .word.active-word {
+            color: var(--brand-yellow) !important;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3); /* Subtle glow */
+        }
+
+        /* --- ANIMATION LOGIC --- */
+        /* Moves the strip up one unit at a time */
+        @keyframes slideItems {
+            0%, 16%   { transform: translateY(calc(var(--item-height) * -1)); } /* Item 1 Center */
+            20%, 36%  { transform: translateY(calc(var(--item-height) * -2)); } /* Item 2 Center */
+            40%, 56%  { transform: translateY(calc(var(--item-height) * -3)); } /* Item 3 Center */
+            60%, 76%  { transform: translateY(calc(var(--item-height) * -4)); } /* Item 4 Center */
+            80%, 96%  { transform: translateY(calc(var(--item-height) * -5)); } /* Item 5 Center */
+            100%      { transform: translateY(calc(var(--item-height) * -6)); } /* Reset Loop */
+        }
+        
+        /* The loop reset logic requires cloning the first items to the end.
+           0% starts at index 1 because index 0 is a buffer for the top fade. 
+        */
+
+        @media (max-width: 768px) {
+            .static-link, .word { font-size: 40px; }
+            .hero-wrap { flex-direction: column; gap: 0; }
+            .window { height: calc(var(--item-height) * 3); }
+            :root { --item-height: 60px; }
+            .header { padding: 0 20px; }
+            .nav-links, .search-container { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-wrap">
+            <div class="static-link">LINK</div>
+
+            <div class="window" id="scrollWindow">
+                <div class="track">
+                    <div class="word">Blockchains</div>
+                    
+                    <div class="word">Everything</div>
+                    <div class="word">Stocks</div>
+                    <div class="word">Treasuries</div>
+                    <div class="word">Banks</div>
+                    <div class="word">Blockchains</div>
+
+                    <div class="word">Everything</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer configuration
+            // This creates a "trigger line" exactly in the middle of the window
+            const observerOptions = {
+                root: document.querySelector('#scrollWindow'),
+                rootMargin: "-50% 0px -50% 0px", // Slices off top 50% and bottom 50% so only the exact center pixel triggers
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // When it hits the center line, make it yellow
+                        entry.target.classList.add('active-word');
+                    } else {
+                        // When it leaves the center line, make it grey
+                        entry.target.classList.remove('active-word');
+                    }
+                });
+            }, observerOptions);
+
+            // Start observing all words
+            document.querySelectorAll('.word').forEach(word => {
+                observer.observe(word);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="custom-layout-container custom-flex custom-justify-center custom-align-center custom-min-height-full custom-background-light-gray custom-padding-y-large">
+    <div class="custom-section-wrapper custom-flex custom-flex-column custom-md-flex-row custom-gap-medium custom-max-width-extra-large custom-margin-auto custom-align-center">
+
+        <div class="custom-mobile-frame custom-relative custom-width-small custom-height-large custom-background-dark custom-border-radius-extra-large custom-shadow-strong custom-overflow-hidden custom-flex-shrink-zero">
+            <div class="custom-mobile-screen custom-absolute custom-inset-small custom-border-radius-extra-large custom-overflow-hidden custom-background-purple custom-display-flex custom-flex-column custom-justify-between custom-padding-large">
+                <div class="custom-phone-image-placeholder custom-width-full custom-height-full custom-display-flex custom-justify-center custom-align-center custom-text-white custom-font-bold custom-font-size-large custom-background-medium-purple">
+                    <img src="thumbnails/pexels-dominick-davis.jpg">
+                </div>
+            </div>
+            <div class="custom-phone-notch custom-absolute custom-top-zero custom-left-half custom-transform-x-negative-half custom-width-medium custom-height-small custom-background-dark custom-border-radius-bottom-large"></div>
+        </div>
+
+        <div class="custom-content-block custom-flex-grow-one custom-max-width-medium custom-text-dark-gray custom-padding-x-small custom-md-padding-x-zero">
+            <h1 class="custom-main-title custom-font-size-extra-large custom-font-weight-bolder custom-margin-bottom-medium custom-line-height-tight">Seamless Digital <br> Experience Design</h1>
+            <p class="custom-description-paragraph custom-font-size-medium custom-text-gray-medium custom-margin-bottom-extra-large">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+            <div class="custom-cards-grid custom-display-grid custom-grid-template-columns-one custom-md-grid-template-columns-two custom-gap-medium">
+                <div class="custom-feature-card custom-background-white custom-padding-extra-large custom-border-radius-large custom-shadow-mild custom-display-flex custom-flex-column custom-align-start custom-border-top-thick custom-border-orange">
+                    <div class="custom-icon-background custom-background-light-orange custom-padding-medium custom-border-radius-small custom-margin-bottom-medium">
+                        <span class="custom-card-icon custom-text-orange custom-font-size-large">🔒</span>
+                    </div>
+                    <h3 class="custom-card-title custom-font-size-large custom-font-weight-bold custom-margin-bottom-small">Data Encryption</h3>
+                    <p class="custom-card-description custom-text-gray-medium">Protect user data with strong encryption methods to prevent unauthorized access.</p>
+                </div>
+
+                <div class="custom-feature-card custom-background-white custom-padding-extra-large custom-border-radius-large custom-shadow-mild custom-display-flex custom-flex-column custom-align-start custom-border-top-thick custom-border-orange">
+                    <div class="custom-icon-background custom-background-light-orange custom-padding-medium custom-border-radius-small custom-margin-bottom-medium">
+                        <span class="custom-card-icon custom-text-orange custom-font-size-large">🔑</span>
+                    </div>
+                    <h3 class="custom-card-title custom-font-size-large custom-font-weight-bold custom-margin-bottom-small">Secure Authentication</h3>
+                    <p class="custom-card-description custom-text-gray-medium">Implement multi-factor authentication (MFA) and strong password policies to enhance security.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom Styles */
+    .custom-layout-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f7fafc; /* light-gray */
+        padding: 40px 0; /* padding-y-large */
+        font-family: sans-serif;
+    }
+
+    .custom-section-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 32px; /* gap-medium */
+        max-width: 1280px; /* max-width-extra-large */
+        margin: auto;
+        align-items: center;
+    }
+
+    .custom-mobile-frame {
+        position: relative;
+        width: 320px; /* width-small */
+        height: 600px; /* height-large */
+        background-color: #000; /* dark */
+        border-radius: 48px; /* border-radius-extra-large */
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-strong */
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .custom-mobile-screen {
+        position: absolute;
+        inset: 8px; /* inset-small */
+        border-radius: 40px; /* border-radius-extra-large - slightly smaller than frame */
+        overflow: hidden;
+        background-color: #8b5cf6; /* purple */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px; /* padding-large */
+    }
+
+    .custom-phone-image-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        font-size: 24px; /* font-size-large */
+        background-color: #9370db; /* medium-purple */
+        border-radius: 30px; /* To match inner screen curve */
+    }
+
+    .custom-phone-notch {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 112px; /* width-medium */
+        height: 24px; /* height-small */
+        background-color: #000; /* dark */
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+    }
+
+    .custom-content-block {
+        flex-grow: 1;
+        max-width: 768px; /* max-width-medium */
+        color: #1a202c; /* dark-gray */
+        padding: 0 16px; /* padding-x-small */
+    }
+
+    .custom-main-title {
+        font-size: 48px; /* font-size-extra-large */
+        font-weight: 800; /* font-weight-bolder */
+        margin-bottom: 24px; /* margin-bottom-medium */
+        line-height: 1.25; /* line-height-tight */
+    }
+
+    .custom-description-paragraph {
+        font-size: 18px; /* font-size-medium */
+        color: #4a5568; /* gray-medium */
+        margin-bottom: 40px; /* margin-bottom-extra-large */
+    }
+
+    .custom-cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px; /* gap-medium */
+    }
+
+    .custom-feature-card {
+        background-color: #e2e2e2; /* white */
+        padding: 32px; /* padding-extra-large */
+        border-radius: 20px; /* border-radius-large */
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* shadow-mild */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+       
+    }
+
+    .custom-icon-background {
+        background-color: #fff7ed; /* light-orange */
+        padding: 16px; /* padding-medium */
+        border-radius: 8px; /* border-radius-small */
+        margin-bottom: 16px; /* margin-bottom-medium */
+    }
+
+    .custom-card-icon {
+        color: #f97316; /* orange */
+        font-size: 30px; /* font-size-large */
+    }
+
+    .custom-card-title {
+        font-size: 24px; /* font-size-large */
+        font-weight: 700; /* font-weight-bold */
+        margin-bottom: 8px; /* margin-bottom-small */
+    }
+
+    .custom-card-description {
+        color: #4a5568; /* gray-medium */
+    }
+
+    /* Responsive Adjustments */
+    @media (min-width: 768px) { /* md breakpoint */
+        .custom-section-wrapper {
+            flex-direction: row;
+        }
+        .custom-content-block {
+            padding: 0;
+        }
+        .custom-cards-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<cronos-footer></cronos-footer>

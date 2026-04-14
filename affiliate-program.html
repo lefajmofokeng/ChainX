@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Service Section</title>
+    <style>
+        /* * SCOPED CSS - "st-mkt" prefix used to prevent conflicts 
+         * Font: Circular Std (Mocked stack)
+         */
+        
+        /* Font Face Declaration - If you have the local files */
+        @font-face {
+            font-family: 'Circular Std';
+            src: local('Circular Std Medium'), local('CircularStd-Medium'),
+                 url('https://fonts.cdnfonts.com/s/15049/CircularStd-Medium.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Circular Std';
+            src: local('Circular Std Book'), local('CircularStd-Book'),
+                 url('https://fonts.cdnfonts.com/s/15049/CircularStd-Book.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Circular Std';
+            src: local('Circular Std Bold'), local('CircularStd-Bold'),
+                 url('https://fonts.cdnfonts.com/s/15049/CircularStd-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        /* Variables for easy color management */
+        :root {
+            --st-mkt-bg: #f5f6fa;       /* Light grey/blue background */
+            --st-mkt-charcoal: #1d1d1f; /* Dark text */
+            --st-mkt-grey: #6e6e73;     /* Body text */
+            --st-mkt-accent: #6366f1;   /* The "What We Do" purple/blue */
+            --st-mkt-icon: #4b4b4b;     /* Icon color */
+        }
+
+        /* Main Section Wrapper */
+        .st-mkt-section-wrapper {
+            background-color: var(--st-mkt-bg);
+            font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 170px 20px;
+            box-sizing: border-box;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Content Container - 1200px limit */
+        .st-mkt-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: row;
+            gap: 60px;
+        }
+
+        /* Left Column: Label */
+        .st-mkt-label-col {
+            flex: 0 0 200px; /* Fixed width for the label column */
+            padding-top: 10px;
+        }
+
+        .st-mkt-label {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: var(--st-mkt-accent);
+            text-transform: uppercase;
+        }
+
+        /* Right Column: Main Content */
+        .st-mkt-content-col {
+            flex: 1;
+        }
+
+        /* Typography */
+        .st-mkt-heading {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 500;
+            color: var(--st-mkt-charcoal);
+            margin: 0 0 30px 0;
+            letter-spacing: -1px;
+        }
+
+        .st-mkt-subtext {
+            font-size: 19px;
+            line-height: 1.6;
+            color: var(--st-mkt-grey);
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
+        /* 3-Column Grid for Features */
+        .st-mkt-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.05); /* Subtle separator line */
+        }
+
+        .st-mkt-feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Icons */
+        .st-mkt-icon-wrapper {
+            margin-bottom: 20px;
+            color: var(--st-mkt-icon);
+        }
+        
+        .st-mkt-icon-svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        .st-mkt-feature-title {
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--st-mkt-charcoal);
+            margin: 0 0 15px 0;
+        }
+
+        .st-mkt-feature-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--st-mkt-grey);
+            margin: 0;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .st-mkt-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .st-mkt-label-col {
+                flex: auto;
+                padding-top: 0;
+                margin-bottom: 10px;
+            }
+            .st-mkt-heading {
+                font-size: 42px;
+            }
+            .st-mkt-features-grid {
+                grid-template-columns: 1fr; /* Stack vertically on mobile */
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="st-mkt-section-wrapper">
+        <div class="st-mkt-container">
+            
+            <div class="st-mkt-label-col">
+                <span class="st-mkt-label">What We Do</span>
+            </div>
+
+            <div class="st-mkt-content-col">
+                <h2 class="st-mkt-heading">Marketing That Actually Moves the Needle</h2>
+                <p class="st-mkt-subtext">
+                    We don't believe in guesswork. Our approach combines creativity, technology, and analytics to build sustainable growth for your business across every digital touchpoint.
+                </p>
+
+                <div class="st-mkt-features-grid">
+                    
+                    <div class="st-mkt-feature-item">
+                        <div class="st-mkt-icon-wrapper">
+                            <svg class="st-mkt-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#5A5A5A"/>
+                            </svg>
+                        </div>
+                        <h3 class="st-mkt-feature-title">The Strategy First</h3>
+                        <p class="st-mkt-feature-desc">
+                            Every successful campaign starts with a clear plan. We analyze your market, audience, and competitors to create a roadmap built for growth.
+                        </p>
+                    </div>
+
+                    <div class="st-mkt-feature-item">
+                        <div class="st-mkt-icon-wrapper">
+                            <svg class="st-mkt-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.5s-4 2.8-6 9c0 0-2 1.5-2 3.5 0 2.2 1.8 4 4 4h8c2.2 0 4-1.8 4-4 0-2-2-3.5-2-3.5-2-6.2-6-9-6-9z" fill="#5A5A5A"/>
+                                <path d="M12 14c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#fff"/>
+                            </svg>
+                        </div>
+                        <h3 class="st-mkt-feature-title">Precise Execution</h3>
+                        <p class="st-mkt-feature-desc">
+                            From ads to content, we launch campaigns that are optimized, tested, and continuously improved to maximize performance.
+                        </p>
+                    </div>
+
+                    <div class="st-mkt-feature-item">
+                        <div class="st-mkt-icon-wrapper">
+                            <svg class="st-mkt-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v2h12v-2l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z" fill="#5A5A5A"/>
+                            </svg>
+                        </div>
+                        <h3 class="st-mkt-feature-title">Measure & Scale</h3>
+                        <p class="st-mkt-feature-desc">
+                            We track what matters—leads, conversions, and revenue—then double down on what works to scale your results.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Tech Independent Slide</title>
+
+    <style>
+        /* Namespace: 'it-sep-' to avoid conflicts */
+        :root {
+            --it-sep-font: 'Circular Std', sans-serif;
+            --it-sep-bg: #FFFFFF;
+            --it-sep-text: #0B1221;
+            --it-sep-sub: #556987;
+            --it-sep-accent: #0B1221;
+            --it-sep-line: #E5E7EB;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--it-sep-font);
+        }
+
+        /* 1. Track: Controls the total scroll length */
+        .it-sep-track {
+            position: relative;
+            height: 400vh; /* 100vh per section */
+            background: var(--it-sep-bg); 
+        }
+
+        /* 2. Sticky Container: Pins the component */
+        .it-sep-sticky {
+            position: sticky;
+            top: 0;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; padding: 150px 0 150px 0;
+        }
+
+        .it-sep-header {
+            text-align: center;
+            margin-bottom: 50px;
+            z-index: 10;
+        }
+
+        .it-sep-title {
+            font-size: 42px;
+            font-weight: 500;
+            letter-spacing: -0.03em;
+            margin: 0;
+            color: var(--it-sep-text);
+        }
+
+        /* 3. The Central Layout */
+        .it-sep-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 2px 1fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1200px;
+            height: 400px;
+            align-items: center;
+        }
+
+        /* Center Progress Line */
+        .it-sep-line-container {
+            height: 100%;
+            background: var(--it-sep-line);
+            position: relative;
+        }
+
+        .it-sep-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--it-sep-accent);
+            height: 0%;
+            transition: height 0.1s ease-out;
+        }
+
+        /* 4. Content Slots (Image side and Text side) */
+        .it-sep-slot {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* This creates the "box" mask */
+            border-radius: 20px;
+        }
+
+        .it-sep-text-slot {
+            overflow: hidden;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* The Individual Layers */
+        .it-sep-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+
+        /* Active State */
+        .it-sep-layer.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Image Logic: Slides DOWN into view */
+        .it-sep-img-layer {
+            transform: translateY(-100%);
+        }
+
+        /* Text Logic: Slides UP into view */
+        .it-sep-text-layer {
+            transform: translateY(100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .it-sep-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .it-sep-h3 { font-size: 32px; font-weight: 600; margin: 0 0 15px 0; color: var(--it-sep-text); letter-spacing: -0.02em;}
+        .it-sep-p { font-size: 18px; color: var(--it-sep-sub); line-height: 1.2; margin: 0; font-weight: 200; opacity: 1;}
+
+        .it-sep-footer {
+            margin-top: 60px;
+        }
+
+        .it-sep-btn {
+            background: #0B1221;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media (max-width: 900px) {
+            .it-sep-grid { grid-template-columns: 1fr; height: auto; padding: 20px; }
+            .it-sep-line-container { display: none; }
+            .it-sep-slot { height: 300px; margin-bottom: 20px; }
+            .it-sep-layer { position: relative; opacity: 1; transform: none; margin-bottom: 40px; }
+            .it-sep-track { height: auto; }
+            .it-sep-sticky { position: relative; height: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="it-sep-track" id="itTrack">
+    <div class="it-sep-sticky">
+        
+        <div class="it-sep-header">
+            <h2 class="it-sep-title">See why 4,000+ merchants trust us</h2>
+        </div>
+
+        <div class="it-sep-grid">
+            <div class="it-sep-slot">
+                <div class="it-sep-layer it-sep-img-layer active" data-index="0">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" class="it-sep-img" alt="Tech 1">
+                </div>
+                <div class="it-sep-layer it-sep-img-layer" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800" class="it-sep-img" alt="Tech 2">
+                </div>
+                <div class="it-sep-layer it-sep-img-layer" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" class="it-sep-img" alt="Tech 3">
+                </div>
+                <div class="it-sep-layer it-sep-img-layer" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" class="it-sep-img" alt="Tech 4">
+                </div>
+            </div>
+
+            <div class="it-sep-line-container">
+                <div class="it-sep-line-fill" id="itLine"></div>
+            </div>
+
+            <div class="it-sep-slot it-sep-text-slot">
+                <div class="it-sep-layer it-sep-text-layer active" data-index="0">
+                    <h3 class="it-sep-h3">Advanced Data Security</h3>
+                    <p class="it-sep-p">Protect your infrastructure with hardware-level encryption and real-time threat monitoring.</p>
+                </div>
+                <div class="it-sep-layer it-sep-text-layer" data-index="1">
+                    <h3 class="it-sep-h3">Cloud Infrastructure</h3>
+                    <p class="it-sep-p">Scalable cloud solutions that grow with your business, ensuring 99.9% uptime across all regions.</p>
+                </div>
+                <div class="it-sep-layer it-sep-text-layer" data-index="2">
+                    <h3 class="it-sep-h3">AI Performance</h3>
+                    <p class="it-sep-p">Harness the power of neural networks to automate complex workflows and data analysis.</p>
+                </div>
+                <div class="it-sep-layer it-sep-text-layer" data-index="3">
+                    <h3 class="it-sep-h3">Smart Interfaces</h3>
+                    <p class="it-sep-p">Intuitive dashboards designed for deep technical oversight without the clutter.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="it-sep-footer">
+            <button class="it-sep-btn">Start Accepting Crypto</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+(function() {
+    const track = document.getElementById('itTrack');
+    const line = document.getElementById('itLine');
+    const imgLayers = document.querySelectorAll('.it-sep-img-layer');
+    const textLayers = document.querySelectorAll('.it-sep-text-layer');
+    const totalItems = 4;
+
+    function updateScroll() {
+        if (!track || window.innerWidth <= 900) return;
+
+        const rect = track.getBoundingClientRect();
+        const viewHeight = window.innerHeight;
+        
+        // Total scrollable distance
+        const totalDist = rect.height - viewHeight;
+        // Current progress (0 to 1)
+        let progress = -rect.top / totalDist;
+        progress = Math.max(0, Math.min(1, progress));
+
+        // Update Line
+        line.style.height = `${progress * 100}%`;
+
+        // Determine current active index based on scroll progress
+        // Dividing into 4 zones
+        const activeIndex = Math.min(Math.floor(progress * totalItems), totalItems - 1);
+
+        // Update Layers
+        imgLayers.forEach((layer, idx) => {
+            if (idx === activeIndex) {
+                layer.classList.add('active');
+                layer.style.transform = 'translateY(0)';
+            } else if (idx < activeIndex) {
+                // Already scrolled past: push it DOWN out of the box
+                layer.classList.remove('active');
+                layer.style.transform = 'translateY(100%)';
+            } else {
+                // Not reached yet: keep it UP above the box
+                layer.classList.remove('active');
+                layer.style.transform = 'translateY(-100%)';
+            }
+        });
+
+        textLayers.forEach((layer, idx) => {
+            if (idx === activeIndex) {
+                layer.classList.add('active');
+                layer.style.transform = 'translateY(0)';
+            } else if (idx < activeIndex) {
+                // Already scrolled past: push it UP out of the box
+                layer.classList.remove('active');
+                layer.style.transform = 'translateY(-100%)';
+            } else {
+                // Not reached yet: keep it DOWN below the box
+                layer.classList.remove('active');
+                layer.style.transform = 'translateY(100%)';
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    window.addEventListener('resize', updateScroll);
+    updateScroll();
+})();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<cronos-footer></cronos-footer>

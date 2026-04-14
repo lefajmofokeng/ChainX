@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Solutions</title>
+    <style>
+        .it-comparison-section-custom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90vh; /* Adjusted height for this layout */
+            background: #001023; /* Bottom color */
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            padding: 40px 190px; /* Padding for content */
+        }
+
+        .it-comparison-section-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-width: 1200px;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1680026319202-fcb822e0ab91?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880'); /* Placeholder for the background image */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9; /* Adjust opacity of the image over the solid color */
+            z-index: 1;
+        }
+
+        .it-comparison-content-custom {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding-right: 40px; /* Space between text and image */
+        }
+
+        .it-comparison-title-custom {
+            font-size: 54px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: #fff; /* White text for contrast */
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for readability */
+        }
+
+        .it-comparison-read-more-btn-custom {
+            color: #001023;
+            background: white;
+            border: 1px solid white;
+            border-radius: 50px;
+            padding: 7px 35px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .it-comparison-read-more-btn-custom:hover {
+            background-color: #f4f4f4;
+        }
+
+        .it-comparison-image-container-custom {
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0; /* Prevent the image container from shrinking */
+            width: 400px; /* Adjust as needed */
+            height: 300px; /* Adjust as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Placeholder for the actual comparison image */
+            background-image: url('thumbnails/Screenshot_2025-11-10_210915-removebg-preview.pngoo');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design Additions */
+        @media (max-width: 1400px) {
+            .it-comparison-section-custom {
+                padding: 40px 100px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 4.5em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 350px;
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .it-comparison-section-custom {
+                padding: 40px 60px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 4em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 300px;
+                height: 225px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .it-comparison-section-custom {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 40px;
+                min-height: auto;
+            }
+            
+            .it-comparison-content-custom {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 3.5em;
+                margin-bottom: 25px;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 400px;
+                height: 300px;
+                max-width: 100%;
+            }
+            
+            .it-comparison-section-custom::before {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .it-comparison-section-custom {
+                padding: 50px 30px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 3em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 350px;
+                height: 260px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .it-comparison-section-custom {
+                padding: 40px 20px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 2.5em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 300px;
+                height: 225px;
+            }
+            
+            .it-comparison-read-more-btn-custom {
+                padding: 10px 30px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .it-comparison-title-custom {
+                font-size: 2em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 250px;
+                height: 190px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 320px) {
+            .it-comparison-section-custom {
+                padding: 30px 15px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 1.8em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 200px;
+                height: 150px;
+            }
+        }
+
+        /* Landscape orientation for mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .it-comparison-section-custom {
+                min-height: 100vh;
+                padding: 20px 40px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* High-resolution displays */
+        @media (min-width: 1920px) {
+            .it-comparison-section-custom {
+                padding: 60px 240px;
+            }
+            
+            .it-comparison-title-custom {
+                font-size: 6em;
+            }
+            
+            .it-comparison-image-container-custom {
+                width: 500px;
+                height: 375px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="it-comparison-section-custom">
+        <div class="it-comparison-content-custom">
+            <h1 class="it-comparison-title-custom">Innovation, Growth, and<br>Creativity.</h1>
+            <button class="it-comparison-read-more-btn-custom">About Us</button>
+        </div>
+        <div class="it-comparison-image-container-custom">
+            </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="custom-layout-wrapper custom-flex custom-justify-center custom-align-center custom-padding-y-large custom-background-light-gray">
+    <div class="custom-card-area custom-max-width-1200 custom-margin-auto custom-display-grid custom-grid-cols-one custom-lg-grid-cols-three custom-gap-medium">
+
+        <!-- Card 1: Main Course Card (Image Background) -->
+        <div class="custom-main-card custom-background-dark custom-padding-large custom-border-radius-extra-large custom-shadow-soft custom-display-flex custom-flex-column custom-justify-end custom-grid-span-full custom-lg-grid-span-one">
+            
+            <div class="custom-bg-image-placeholder custom-absolute custom-inset-zero custom-overflow-hidden custom-border-radius-extra-large">
+                <!-- Image Placeholder for the large background image -->
+                <div class="custom-placeholder custom-placeholder-green-tint custom-width-full custom-height-full custom-text-white custom-font-size-large custom-display-flex custom-justify-center custom-align-center custom-opacity-70">
+                    <img src="thumbnails/pexels-altabena-10142683.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="custom-content-overlay custom-relative custom-z-index-ten custom-text-white">
+                <h2 class="custom-card-title custom-font-size-extra-large custom-font-weight-bold custom-line-height-tight custom-margin-bottom-small">
+                    Green office<br>management course
+                </h2>
+                <p class="custom-card-text custom-font-size-small custom-margin-bottom-large">
+                    Sample text. Click to select the Text Element.
+                </p>
+
+                <div class="custom-avatar-group custom-display-flex custom-gap-small custom-margin-bottom-extra-large">
+                    <div class="custom-avatar custom-width-medium custom-height-medium custom-border-radius-full custom-overflow-hidden custom-border-white custom-border-width-small custom-flex-shrink-zero">
+                        <div class="custom-placeholder custom-placeholder-avatar custom-width-full custom-height-full custom-display-flex custom-justify-center custom-align-center custom-text-dark">A1</div>
+                    </div>
+                    <div class="custom-avatar custom-width-medium custom-height-medium custom-border-radius-full custom-overflow-hidden custom-border-white custom-border-width-small custom-flex-shrink-zero">
+                        <div class="custom-placeholder custom-placeholder-avatar custom-width-full custom-height-full custom-display-flex custom-justify-center custom-align-center custom-text-dark">A2</div>
+                    </div>
+                    <div class="custom-avatar custom-width-medium custom-height-medium custom-border-radius-full custom-overflow-hidden custom-border-white custom-border-width-small custom-flex-shrink-zero">
+                        <div class="custom-placeholder custom-placeholder-avatar custom-width-full custom-height-full custom-display-flex custom-justify-center custom-align-center custom-text-dark">A3</div>
+                    </div>
+                </div>
+
+                <button class="custom-action-button custom-background-light custom-text-dark custom-padding-y-small custom-padding-x-medium custom-border-radius-large custom-font-weight-medium custom-border-none custom-cursor-pointer custom-transition-bg">
+                    Buy course
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Column Grid -->
+        <div class="custom-right-column custom-display-grid custom-grid-cols-one custom-gap-medium custom-lg-grid-span-two">
+            
+            <!-- Card 2: Top Image Card -->
+            <div class="custom-top-image-card custom-background-white custom-padding-zero custom-border-radius-extra-large custom-shadow-soft custom-overflow-hidden custom-display-flex custom-justify-center custom-align-center">
+                 <div class="custom-image-placeholder custom-placeholder-light-brown custom-width-full custom-height-full custom-min-height-medium custom-text-dark custom-font-size-medium custom-display-flex custom-justify-center custom-align-center">
+                    <img src="thumbnails/pexels-fauxels-3184455.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- Bottom Stats Grid -->
+            <div class="custom-stats-grid custom-display-grid custom-grid-cols-one custom-sm-grid-cols-two custom-gap-medium">
+                
+                <!-- Card 3: Blue Stat Card -->
+                <div class="custom-stat-card custom-background-blue-stat custom-padding-large custom-border-radius-extra-large custom-shadow-soft custom-text-white custom-display-flex custom-flex-column custom-justify-between">
+                    <h3 class="custom-stat-highlight custom-font-size-extra-large custom-font-weight-bold custom-margin-bottom-small">100k</h3>
+                    <p class="custom-stat-title custom-font-size-medium custom-font-weight-medium custom-margin-bottom-small">Tons of Waste Recycled</p>
+                    <p class="custom-stat-text custom-font-size-small">Sample text. Click to select the Text Element.</p>
+                </div>
+
+                <!-- Card 4: Brown Stat Card -->
+                <div class="custom-stat-card custom-background-brown-stat custom-padding-large custom-border-radius-extra-large custom-shadow-soft custom-text-white custom-display-flex custom-flex-column custom-justify-between">
+                    <h3 class="custom-stat-highlight custom-font-size-extra-large custom-font-weight-bold custom-margin-bottom-small">8.5k</h3>
+                    <p class="custom-stat-title custom-font-size-medium custom-font-weight-medium custom-margin-bottom-small">Plastic Bottles Saved</p>
+                    <p class="custom-stat-text custom-font-size-small">Sample text. Click to select the Text Element.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom CSS Variables */
+    :root {
+        --max-width: 1200px;
+        --color-light-gray: #f8f8f8;
+        --color-dark-blue-bg: #2b3a4a; /* Approximate dark background for card 1 */
+        --color-blue-stat: #6c98c0; /* Approximate blue stat color */
+        --color-brown-stat: #bfa881; /* Approximate brown stat color */
+        --color-text-dark: #333;
+        --color-text-gray: #666;
+        --radius-extra-large: 24px;
+        --shadow-color: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    /* General Layout */
+    .custom-layout-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 50px 20px; /* padding-y-large */
+        min-height: 100vh;
+        background-color: var(--color-light-gray);
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    .custom-card-area {
+        width: 100%;
+        max-width: var(--max-width); /* max-width-1200 */
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px; /* gap-medium */
+    }
+
+    /* Grid for Mobile/Tablet */
+    .custom-grid-cols-one {
+        grid-template-columns: 1fr;
+    }
+    .custom-sm-grid-cols-two {
+        grid-template-columns: 1fr; /* Default to one column on small screens */
+    }
+
+    /* Main Course Card (Card 1) */
+    .custom-main-card {
+        background-color: var(--color-dark-blue-bg);
+        padding: 40px; /* padding-large */
+        border-radius: var(--radius-extra-large);
+        box-shadow: 0 8px 20px var(--shadow-color); /* shadow-soft */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        min-height: 500px; /* Ensure height on mobile */
+        grid-column: span 1 / span 1;
+    }
+
+    .custom-bg-image-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        border-radius: var(--radius-extra-large);
+        z-index: 1;
+    }
+
+    .custom-placeholder-green-tint {
+        background: url(https://placehold.co/800x600/345b74/ffffff?text=Green+Office+Image) no-repeat center center;
+        background-size: cover;
+        /* Applying a dark overlay tint similar to the image */
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4); 
+    }
+    
+    .custom-content-overlay {
+        position: relative;
+        z-index: 10; /* custom-z-index-ten */
+        color: white;
+    }
+
+    .custom-card-title {
+        font-size: 32px; /* font-size-extra-large */
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 8px; /* margin-bottom-small */
+    }
+
+    .custom-card-text {
+        font-size: 14px; /* font-size-small */
+        margin-bottom: 30px; /* margin-bottom-large */
+    }
+
+    .custom-avatar-group {
+        display: flex;
+        gap: 10px; /* gap-small */
+        margin-bottom: 40px; /* margin-bottom-extra-large */
+    }
+
+    .custom-avatar {
+        width: 48px; /* width-medium */
+        height: 48px; /* height-medium */
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid white; /* border-white, border-width-small */
+        flex-shrink: 0;
+    }
+
+    .custom-placeholder-avatar {
+        background-color: #e0e0e0;
+        color: var(--color-text-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .custom-action-button {
+        background-color: #f5f5f5; /* light background */
+        color: var(--color-text-dark);
+        padding: 12px 24px; /* padding-y-small, padding-x-medium */
+        border-radius: 30px; /* border-radius-large */
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        border: none;
+        cursor: pointer;
+        align-self: flex-start;
+    }
+
+    .custom-action-button:hover {
+        background-color: #e0e0e0;
+    }
+
+    /* Right Column (Card 2, 3, 4) */
+    .custom-right-column {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px; /* gap-medium */
+        grid-column: span 1 / span 1;
+    }
+
+    /* Top Image Card (Card 2) */
+    .custom-top-image-card {
+        background-color: #fff;
+        padding: 0;
+        border-radius: var(--radius-extra-large);
+        box-shadow: 0 8px 20px var(--shadow-color);
+        min-height: 250px; /* min-height-medium */
+    }
+
+    .custom-placeholder-light-brown {
+        background: url(https://placehold.co/800x350/f0e0d0/555555?text=Recycling+Image) no-repeat center center;
+        background-size: cover;
+    }
+
+    /* Bottom Stats Grid (Cards 3 & 4) */
+    .custom-stats-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px; /* gap-medium */
+    }
+
+    .custom-stat-card {
+        padding: 30px; /* padding-large */
+        border-radius: var(--radius-extra-large);
+        box-shadow: 0 8px 20px var(--shadow-color);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .custom-background-blue-stat {
+        background-color: var(--color-blue-stat);
+    }
+
+    .custom-background-brown-stat {
+        background-color: var(--color-brown-stat);
+    }
+
+    .custom-stat-highlight {
+        font-size: 36px; /* font-size-extra-large */
+        font-weight: 700;
+        margin-bottom: 8px; /* margin-bottom-small */
+        line-height: 1;
+    }
+
+    .custom-stat-title {
+        font-size: 16px; /* font-size-medium */
+        font-weight: 600;
+        margin-bottom: 8px; /* margin-bottom-small */
+    }
+
+    .custom-stat-text {
+        font-size: 13px; /* font-size-small */
+    }
+
+    /* Desktop (lg) breakpoint for 3-column layout */
+    @media (min-width: 1024px) {
+        .custom-card-area {
+            grid-template-columns: 1fr 1fr 1fr; /* lg-grid-cols-three */
+        }
+
+        .custom-main-card {
+            grid-column: span 1 / span 1; /* Card 1 spans 1 column */
+        }
+        
+        .custom-right-column {
+            grid-column: span 2 / span 2; /* Right column spans 2 columns */
+            grid-template-columns: 1fr;
+        }
+
+        /* Stats grid: two columns */
+        .custom-stats-grid {
+            grid-template-columns: 1fr 1fr; /* sm-grid-cols-two */
+        }
+
+        /* Ensure proportional heights on desktop */
+        .custom-main-card, .custom-top-image-card {
+            min-height: 520px; 
+        }
+        .custom-top-image-card {
+             /* Takes up the top half of the 2-column grid space */
+             /* The image card height matches the combined height of the two stat cards */
+             min-height: 250px; 
+        }
+        .custom-stat-card {
+            min-height: 250px;
+        }
+
+    }
+
+    /* Tablet/Medium (sm) breakpoint for stats grid */
+    @media (min-width: 640px) and (max-width: 1023px) {
+        .custom-stats-grid {
+            grid-template-columns: 1fr 1fr; /* sm-grid-cols-two */
+        }
+    }
+</style>

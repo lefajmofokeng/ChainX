@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Glossary</title>
+    
+    <script src="header.js" defer></script>
+    <script src="footer.js" defer></script> 
+
+    <style>
+   @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Book.woff2') format('woff2'),url('fonts/CircularStd-Book.woff') format('woff'); font-weight:400; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-BookItalic.woff2') format('woff2'),url('fonts/CircularStd-BookItalic.woff') format('woff'); font-weight:400; font-style:italic; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Medium.woff2') format('woff2'),url('fonts/CircularStd-Medium.woff') format('woff'); font-weight:500; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:600; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Bold.woff2') format('woff2'),url('fonts/CircularStd-Bold.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:800; font-style:normal; font-display:swap; }
+      @font-face { font-family:'Circular Std'; src:url('fonts/CircularStd-Black.woff2') format('woff2'),url('fonts/CircularStd-Black.woff') format('woff'); font-weight:900; font-style:normal; font-display:swap; }
+    
+</style>
+</head>
+<body>
+
+    <cx-header></cx-header>
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Listing Page</title>
+    <style>
+        /* Embedding the font specification. Users need to host this font or use a CDN */
+        @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd-Book.woff2') format('woff2'),
+                 url('fonts/CircularStd-Book.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd-Bold.woff2') format('woff2'),
+                 url('fonts/CircularStd-Bold.woff') format('woff');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        /* Unique Top-Level Wrapper to isolate all styles */
+        .cdcl-main-wrapper {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Circular Std', sans-serif;
+            margin: 0;
+            padding: 150px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .cdcl-inner-content {
+            max-width: 650px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Typography */
+        .cdcl-main-heading {
+            font-size: 56px;
+            font-weight: 400; letter-spacing: -0.02em;
+            margin: 0 0 40px;
+            line-height: 1.1;
+        }
+
+        .cdcl-sub-heading {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 auto 60px;
+            max-width: 700px;
+            color: #ffffff;
+        }
+
+        /* Button Groups */
+        .cdcl-btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .cdcl-btn-group-title {
+            font-size: 14px;
+            margin-bottom: 15px;
+            display: block;
+            color: #c9cfdd;
+        }
+
+        /* Platform Buttons */
+        .cdcl-platform-btn {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s ease;
+        }
+
+        .cdcl-platform-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Card Section */
+        .cdcl-info-card {
+            background-color: #ffffff;
+            color: #111827;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: left;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .cdcl-alert-note {
+            color: #034481;
+            font-size: 15px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .cdcl-disclaimer {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #151d32;
+            margin-bottom: 25px;
+        }
+
+        .cdcl-list {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #151d32;
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .cdcl-list li {
+            margin-bottom: 15px;
+        }
+
+        /* CTA Button */
+        .cdcl-button-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .cdcl-listing-cta {
+            background-color: #0d1e3a;
+            color: #ffffff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s ease;
+        }
+
+        .cdcl-listing-cta:hover {
+            background-color: #1a2c4e;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .cdcl-main-wrapper {
+                padding: 40px 15px;
+            }
+
+            .cdcl-main-heading {
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+
+            .cdcl-sub-heading {
+                font-size: 14px;
+                margin-bottom: 40px;
+            }
+
+            .cdcl-btn-group {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 60px;
+            }
+
+            .cdcl-platform-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .cdcl-info-card {
+                padding: 25px;
+                border-radius: 15px;
+            }
+
+            .cdcl-alert-note {
+                font-size: 14px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0;">
+
+    <div class="cdcl-main-wrapper">
+        <div class="cdcl-inner-content">
+            <h1 class="cdcl-main-heading">Become an ambassador<br>of Crypture</h1>
+            <p class="cdcl-sub-heading">We are now accepting applications for digital assets to be listed on the platform. If you have developed a digital asset that solves a problem/address a need in the market, APPLY NOW to have your project listed!</p>
+
+            <span class="cdcl-btn-group-title">Learn more about our platforms:</span>
+            <div class="cdcl-btn-group">
+                <a href="#" class="cdcl-platform-btn">
+                    Crypto.com Exchange
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h11.5m0 0L8.5 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#" class="cdcl-platform-btn">
+                    Crypto.com Main App
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h11.5m0 0L8.5 4m4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+
+            <div class="cdcl-info-card">
+                <div class="cdcl-alert-note">
+                    <strong>Note:</strong> Your digital asset must have passed legal and security reviews. Due to the high volume of requests, our team will only reach out to shortlisted Projects.
+                </div>
+
+                <p class="cdcl-disclaimer">By clicking the "Submit" button you acknowledge having read the Crypto.com Privacy Notice and understand that we will use the information provided for the purposes of application consideration. In addition, you guarantee that any third-parties whose data is provided in the process have acknowledged and agreed for their information to be used for the purposes listed above. Please do not share more information than required in your response.</p>
+
+                <ol class="cdcl-list">
+                    <li>Please note that the Exchange may be offered under different legal entities depending on the jurisdiction of access/offer. Crypto.com group reserves its sole discretion and unfettered right to determine in which jurisdictions your token shall be listed.</li>
+                    <li>Please note that the Main App may be offered under different legal entities depending on the jurisdiction of access/offer. Crypto.com group reserves its sole discretion and unfettered right to determine in which jurisdictions your token shall be listed.</li>
+                </ol>
+
+                <div class="cdcl-button-container">
+                    <a href="#" class="cdcl-listing-cta">
+                        Fill out listing application
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H6C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V14M14 4H20M20 4V10M20 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<cronos-footer></cronos-footer>

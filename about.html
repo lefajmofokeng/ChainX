@@ -65,11 +65,11 @@
             font-style: normal;
         }
         :root {
-            --itsvc-bg: #F5F7FA;
-            --itsvc-text-dark: #0F172A; 
-            --itsvc-text-body: #475467; 
+            --itsvc-bg: #ffffff;
+            --itsvc-text-dark: #000000; 
+            --itsvc-text-body: #616161; 
             --itsvc-text-muted: #CBD5E1; 
-            --itsvc-accent: #1F61EB; 
+            --itsvc-accent: #000000; 
             --itsvc-border: #E2E8F0;
             --itsvc-font: 'Circular Std', sans-serif;
             --itsvc-anim-speed: 5s;
@@ -77,10 +77,12 @@
 
         .itsvc-wrapper * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         .itsvc-wrapper {
             font-family: var(--itsvc-font);
             background-color: var(--itsvc-bg);
-            padding: 80px 20px;
+            padding: 150px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -96,9 +98,9 @@
 
         .itsvc-eyebrow {
             color: var(--itsvc-accent);
-            font-weight: 600;
+            font-weight: 500;
             font-size: 16px;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             margin-bottom: 20px;
             display: block;
@@ -107,7 +109,7 @@
         .itsvc-h1 {
             font-size: 48px;
             line-height: 1.1;
-            font-weight: 700;
+            font-weight: 500;
             color: var(--itsvc-text-dark);
             letter-spacing: -1.5px;
             margin-bottom: 30px;
@@ -126,7 +128,7 @@
         .itsvc-image-col {
             flex: 1;
             position: relative;
-            border-radius: 12px;
+            border-radius: 4px;
             overflow: hidden;
             min-height: 500px; /* Base height for mobile/empty states */
         }
@@ -224,7 +226,7 @@
         .itsvc-btn {
             display: inline-block;
             background-color: var(--itsvc-accent);
-            color: #fff;
+            color: #ffffff;
             padding: 16px 40px;
             font-weight: 500;
             text-decoration: none;
@@ -338,6 +340,257 @@
 
     resetTimer();
 </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IT Team Component</title>
+<style>
+
+  .it-tech-team-section {
+    font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    padding: 170px 0;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    box-sizing: border-box;
+  }
+
+  /* Reset box-sizing for component elements */
+  .it-tech-team-section * {
+    box-sizing: border-box;
+  }
+
+  .it-tech-team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header Section: Title, Subtitle, and Logos */
+  .it-tech-team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .it-tech-team-title-group {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 20px;
+  }
+
+  .it-tech-team-title {
+    font-size: 36px;
+    font-weight: 500;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .it-tech-team-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    color: #666666;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .it-tech-team-logos {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* Pushing logos to the right to match the design */
+    margin-left: auto; 
+  }
+
+  /* Styling for the greyed-out logos */
+  .it-tech-team-logo {
+    height: auto;
+    max-height: 80px; /* Adjust based on actual logo aspect ratios */
+    width: auto;
+    /* Using filters to achieve the grey, muted look */
+    opacity: 0.5;
+    filter: grayscale(100%);
+  }
+
+  /* Profile Grid Section */
+  .it-tech-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px;
+  }
+
+  /* Individual Profile Card */
+  .it-tech-team-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .it-tech-team-photo {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Ensures the image is a perfect square */
+    object-fit: cover;
+    border-radius: 20px; /* Prominent rounded corners */
+    margin-bottom: 16px;
+    background-color: #e0e0e0; /* Placeholder background color */
+  }
+
+  .it-tech-team-name {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+  }
+
+  .it-tech-team-role {
+    font-size: 16px;
+    font-weight: 500;
+    color: #666666;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  /* Responsive Breakpoints */
+
+  /* Tablet: 2 columns */
+  @media (max-width: 1024px) {
+    .it-tech-team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile Landscape / Small Tablet: Stack header and logos */
+  @media (max-width: 768px) {
+    .it-tech-team-header {
+      flex-direction: column;
+    }
+    .it-tech-team-logos {
+      margin-left: 0;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+    .it-tech-team-title-group {
+      padding-right: 0;
+    }
+    .it-tech-team-title {
+      font-size: 28px;
+    }
+
+    .it-tech-team-section {
+        padding: 0 20px;
+    }
+  }
+
+  /* Mobile Portrait: 1 column grid */
+  @media (max-width: 480px) {
+    .it-tech-team-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .it-tech-team-logos {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<section class="it-tech-team-section">
+  <div class="it-tech-team-container">
+    
+    <div class="it-tech-team-header">
+      <div class="it-tech-team-title-group">
+        <h2 class="it-tech-team-title">Architected by world-class IT experts</h2>
+        <p class="it-tech-team-subtitle">Supported by the world's top technology leaders and innovators.</p>
+      </div>
+      <div class="it-tech-team-logos">
+        <img src="thumbnails/microsoft.png" alt="TechGlobal Logo" class="it-tech-team-logo">
+        <img src="images/erlang_.png" alt="Innovate Systems Logo" class="it-tech-team-logo">
+        <img src="images/helm_.png" alt="FutureNet Logo" class="it-tech-team-logo">
+      </div>
+    </div>
+
+    <div class="it-tech-team-grid">
+      
+      <div class="it-tech-team-card">
+        <img src="team/Gemini_Generated_Image_c3fhy0c3fhy0c3fh.png" alt="Alex Chen" class="it-tech-team-photo">
+        <h3 class="it-tech-team-name">Alex Chen</h3>
+        <p class="it-tech-team-role">Chief Technology Officer, Ex-Google & MIT Alum</p>
+      </div>
+      
+      <div class="it-tech-team-card">
+        <img src="team/Gemini_Generated_Image_e1cpzre1cpzre1cp.png" alt="Sarah Jenkins" class="it-tech-team-photo">
+        <h3 class="it-tech-team-name">Sarah Jenkins</h3>
+        <p class="it-tech-team-role">Principal Software Architect & Founder of CodeCraft</p>
+      </div>
+      
+      <div class="it-tech-team-card">
+        <img src="team/Gemini_Generated_Image_f28r1ef28r1ef28r.png" alt="David Lee" class="it-tech-team-photo">
+        <h3 class="it-tech-team-name">David Lee</h3>
+        <p class="it-tech-team-role">Director of Cybersecurity & Ethical Hacker</p>
+      </div>
+      
+      <div class="it-tech-team-card">
+        <img src="team/Gemini_Generated_Image_ko7b4cko7b4cko7b.png" alt="Maria Rodriguez" class="it-tech-team-photo">
+        <h3 class="it-tech-team-name">Maria Rodriguez</h3>
+        <p class="it-tech-team-role">AI Research Scientist, Stanford PhD, Best-selling Author</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
 
 </body>
 </html>

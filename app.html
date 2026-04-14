@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Croloft | Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            margin: 0; 
+            background-color: #121212; 
+            color: #eaeaea; 
+            font-family: 'Inter', sans-serif; 
+            padding: 40px; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 40px; 
+        }
+        h2 { font-weight: 500; border-bottom: 1px solid #333; padding-bottom: 10px; margin-top: 0; }
+        .panel { background: #1e1e1e; padding: 25px; border-radius: 12px; border: 1px solid #2a2a2a; }
+        
+        /* Button Styling */
+        .btn-group { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        button { 
+            background: #ffffff; color: #000000; border: none; padding: 15px; 
+            border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 600; 
+            font-size: 1rem; cursor: pointer; transition: all 0.2s ease; 
+        }
+        button:hover { background: #e0e0e0; transform: translateY(-1px); }
+        button.outline { background: transparent; color: #ffffff; border: 1px solid #ffffff; }
+        button.outline:hover { background: #2a2a2a; }
+        
+        /* Mirror View Styling */
+        video { width: 100%; border-radius: 8px; border: 1px solid #333; background: #000; aspect-ratio: 16/9; }
+        #startMirrorBtn { width: 100%; margin-top: 15px; background: #333; color: #fff; }
+        #startMirrorBtn:hover { background: #444; }
+    </style>
+</head>
+<body>
+
+    <div class="panel">
+        <h2>Presentation Controls</h2>
+        <p style="color: #888; font-size: 0.9rem;">Broadcast signals to the showcase monitor instantly.</p>
+        
+        <div class="btn-group">
+            <button onclick="sendCommand('START_VIDEO')">Play Product Video</button>
+            <button onclick="sendCommand('PAUSE_VIDEO')">Pause Video</button>
+            <button class="outline" onclick="sendCommand('RESET_VIEW')">Reset to Welcome Screen</button>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Live Feed Monitor</h2>
+        <video id="preview" autoplay playsinline muted></video>
+        <button id="startMirrorBtn">Connect to Screen 2</button>
+    </div>
+
+    <script>
+        // --- 1. Broadcast Channel Logic (The Remote) ---
+        const showcaseChannel = new BroadcastChannel('croloft_presentation');
+        
+        function sendCommand(action) {
+            // Sends the action to showcase.html
+            showcaseChannel.postMessage({ command: action });
+        }
+
+        // --- 2. Screen Mirror Logic (The Camera) ---
+        const startBtn = document.getElementById('startMirrorBtn');
+        const videoElem = document.getElementById('preview');
+
+        startBtn.addEventListener('click', async () => {
+            try {
+                const captureStream = await navigator.mediaDevices.getDisplayMedia({
+                    video: { cursor: "always" },
+                    audio: false
+                });
+                videoElem.srcObject = captureStream;
+                startBtn.innerText = "Live Feed Connected";
+                startBtn.style.pointerEvents = "none";
+                startBtn.style.opacity = "0.5";
+            } catch (err) {
+                console.error("Mirror failed: " + err);
+            }
+        });
+    </script>
+</body>
+</html>
