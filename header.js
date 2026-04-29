@@ -168,7 +168,7 @@ class CryptoHeader extends HTMLElement {
           text-decoration: none; flex-shrink: 0;
         }
         .logo-img {
-          height: 25px; width: auto; display: block;
+          height: 45px; width: auto; display: block;
         }
 
         /* ── DESKTOP NAV ── */

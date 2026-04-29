@@ -117,16 +117,15 @@
 
       .col h3 {
         font-size: 15px;
-        font-weight: 600;
-        color: #fff;
+        font-weight: 500;
+        color: #9ca3af;
         margin-bottom: 24px;
-        letter-spacing: 0.5px;
       }
 
       .col a {
         display: block;
-        color: #9ca3af;
-        font-size: 14.5px;
+        color: #ffffff;
+        font-size: 19px;
         line-height: 2.1;
         text-decoration: none;
         transition: color 0.2s ease;
