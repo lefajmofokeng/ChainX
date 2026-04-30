@@ -57,159 +57,181 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Croloft | Development Status</title>
+    <style>
+        /* ─────────────────────────────────
+           FONTS & RESET
+        ───────────────────────────────── */
+        @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd-Book.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Circular Std';
+            src: url('fonts/CircularStd-Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
 
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Development Status Popup -->
-<div id="dev-popup-overlay" class="dev-overlay">
-    <div class="dev-modal">
-        
-        <div class="dev-content">
-            <h2 class="dev-title">System Refinement in Progress</h2>
-            <p class="dev-message">
-                Welcome to the <strong>Croloft</strong> interface. We are currently optimizing our infrastructure to ensure global-scale performance. 
-            </p>
-            <p class="dev-message">
-                Please note that certain modules are undergoing active development. You may encounter minor alignment variations or structural adjustments as we finalize our high-end design standards.
-            </p>
-            <button id="btn-acknowledge" class="dev-btn">Acknowledge</button>
+        body {
+            font-family: 'Circular Std', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* ─────────────────────────────────
+           DEVELOPMENT POPUP
+        ───────────────────────────────── */
+        .dev-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .dev-modal {
+            background: #ffffff;
+            width: 100%;
+            max-width: 480px;
+            /* Border instead of box-shadow per your preference[cite: 1] */
+            border: 1px solid #000000; 
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalSlideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .dev-header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .dev-close {
+            background: none;
+            border: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: #000000;
+            line-height: 0.5;
+        }
+
+        .dev-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .dev-message {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .dev-btn {
+            width: 100%;
+            background: #000000;
+            color: #ffffff;
+            border: 1px solid #000000;
+            padding: 16px;
+            font-family: 'Circular Std', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            margin-top: 10px; border-radius: 50px;
+            transition: background 0.2s ease;
+        }
+
+        .dev-btn:hover {
+            background: #333333;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 480px) {
+            .dev-modal {
+                padding: 30px 24px;
+            }
+            .dev-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Popup Markup -->
+    <div id="dev-popup-overlay" class="dev-overlay">
+        <div class="dev-modal">
+            <div class="dev-header">
+                <button id="close-dev-popup" class="dev-close">&times;</button>
+            </div>
+            <div class="dev-content">
+                <h2 class="dev-title">System Refinement in Progress</h2>
+                <p class="dev-message">
+                    Welcome to the <strong>Crypture</strong> interface[cite: 1]. We are currently optimizing our infrastructure to ensure global-scale performance and reliability.
+                </p>
+                <p class="dev-message">
+                    Please note that certain modules are undergoing active development. You may encounter minor alignment variations or structural adjustments as we finalize our high-end design standards.
+                </p>
+                <button id="btn-acknowledge" class="dev-btn">Acknowledge</button>
+            </div>
         </div>
     </div>
-</div>
 
-<style>
-  /* ─────────────────────────────────
-   DEVELOPMENT POPUP
-   ───────────────────────────────── */
-.dev-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 20px;
-    backdrop-filter: blur(4px);
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
+    <!-- Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('dev-popup-overlay');
+            const closeBtn = document.getElementById('close-dev-popup');
+            const ackBtn = document.getElementById('btn-acknowledge');
 
-.dev-modal {
-    background: #ffffff;
-    width: 100%;
-    max-width: 480px;
-    border: 1px solid #000000; /* Border instead of shadow[cite: 1] */
-    border-radius: 20px;
-    padding: 32px;
-    position: relative;
-    animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
+            const closePopup = () => {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 300);
+            };
 
-@keyframes modalSlideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
+            closeBtn.addEventListener('click', closePopup);
+            ackBtn.addEventListener('click', closePopup);
 
-.dev-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-}
+            // Close on background click
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closePopup();
+            });
+        });
+    </script>
 
-.dev-icon {
-    width: 32px;
-    height: 32px;
-    background: #000000;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.dev-close {
-    background: none;
-    border: none; display: flex; align-items: flex-end; justify-content: flex-end;
-    font-size: 28px;
-    cursor: pointer;
-    color: #888888;
-    line-height: 1;
-}
-
-.dev-title {
-    font-family: 'Circular Std', 'Inter', sans-serif;
-    color: #000000;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
-}
-
-.dev-message {
-    color: #000000;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 16px; font-family: 'Circular Std', 'Inter', sans-serif;
-}
-
-.dev-btn {
-    width: 100%;
-    background: #000000;
-    color: #ffffff;
-    border: 1px solid #000000;
-    padding: 14px;
-    font-family: 'Circular Std', 'Inter', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    cursor: pointer;
-    margin-top: 10px; border-radius: 50px;
-    transition: all 0.2s ease;
-}
-
-.dev-btn:hover {
-    background: #333333;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
-    .dev-modal {
-        padding: 24px;
-    }
-    .dev-title {
-        font-size: 1.25rem;
-    }
-}
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.getElementById('dev-popup-overlay');
-    const closeBtn = document.getElementById('close-dev-popup');
-    const ackBtn = document.getElementById('btn-acknowledge');
-
-    const closePopup = () => {
-        overlay.style.opacity = '0';
-        setTimeout(() => {
-            overlay.style.display = 'none';
-        }, 300);
-    };
-
-    closeBtn.addEventListener('click', closePopup);
-    ackBtn.addEventListener('click', closePopup);
-
-    // Optional: Close on outside click
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closePopup();
-    });
-});
-</script>
-
-
-
-
+</body>
+</html>
 
 
 
@@ -258,83 +280,71 @@
      **** HERO SECTION SLIDER ****
      ============================================= -->
 
-<div class="defcon-hero-container">
-  <div class="defcon-hero-slides">
-    <!-- Slide 1: Web Design & Development -->
-    <div class="defcon-hero-slide defcon-hero-slide-1 active">
-      <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" ailt="Web Design" class="defcon-hero-slide-bg">
-      <div class="defcon-hero-slide-overlay"></div>
-      <div class="defcon-hero-content">
-        <h1 class="defcon-hero-title">Premium Web Design & Development</h1>
-        <p class="defcon-hero-description">Crafting digital experiences that captivate and convert. Our bespoke websites combine stunning design with cutting-edge technology.</p>
+<div class="croloft-hero-container">
+  <div class="croloft-hero-slides">
+    <!-- Slide 1: Staking -->
+    <div class="croloft-hero-slide croloft-hero-slide-1 active">
+      <img src="https://images.pexels.com/photos/11279906/pexels-photo-11279906.jpeg" alt="Crypto Staking" class="croloft-hero-slide-bg">
+      <div class="croloft-hero-slide-overlay"></div>
+      <div class="croloft-hero-content">
+        <h1 class="croloft-hero-title">Stake Crypto & Earn Up to 22% APY</h1>
+        <p class="croloft-hero-description">Put your crypto to work. Our non-custodial staking protocol lets you earn passive rewards on BTC, ETH, SOL and more — securely and effortlessly.</p>
         
         <!-- button start --> 
           <button class="animated-button-bv" style="margin-top: 3rem;">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Start Your Project Now</span>
+            <span class="text">Start Staking Now</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>
         <!-- button end -->
       </div>
     </div>
     
-    <!-- Slide 2: IT Consulting -->
-    <div class="defcon-hero-slide defcon-hero-slide-2">
-      <img src="https://images.unsplash.com/photo-1680084521806-b408d976e3e7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="IT Consulting" class="defcon-hero-slide-bg">
-      <div class="defcon-hero-slide-overlay"></div>
-      <div class="defcon-hero-content">
-        <h1 class="defcon-hero-title">Strategic IT Consulting</h1>
-        <p class="defcon-hero-description">Transform your business with our expert technology guidance. We align IT solutions with your strategic objectives.</p>
+    <!-- Slide 2: Live Markets -->
+    <div class="croloft-hero-slide croloft-hero-slide-2">
+      <img src="https://images.pexels.com/photos/8919551/pexels-photo-8919551.jpeg" alt="Crypto Markets" class="croloft-hero-slide-bg">
+      <div class="croloft-hero-slide-overlay"></div>
+      <div class="croloft-hero-content">
+        <h1 class="croloft-hero-title">Live Crypto Markets & Real-Time Data</h1>
+        <p class="croloft-hero-description">Track prices, analyse trends and make smarter trades. Access 500+ trading pairs with institutional-grade charts and on-chain analytics — 24/7.</p>
         
         <!-- button start --> 
           <button class="animated-button-bv" style="margin-top: 3rem;">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Boost Growth</span>
+            <span class="text">Explore Markets</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>
         <!-- button end -->
       </div>
     </div>
     
-    <!-- Slide 3: Digital Marketing -->
-    <div class="defcon-hero-slide defcon-hero-slide-3">
-      <img src="https://images.unsplash.com/photo-1583373834259-46cc92173cb7?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Digital Marketing" class="defcon-hero-slide-bg">
-      <div class="defcon-hero-slide-overlay"></div>
-      <div class="defcon-hero-content">
-        <h1 class="defcon-hero-title">Priority IT Support & Infrastructure</h1>
-        <p class="defcon-hero-description">Data-powered strategies that increase visibility, engagement, and conversions across all digital channels.</p>
+    <!-- Slide 3: Yield Farming & Affiliate -->
+    <div class="croloft-hero-slide croloft-hero-slide-3">
+      <img src="https://images.pexels.com/photos/8358032/pexels-photo-8358032.jpeg" alt="Yield Farming" class="croloft-hero-slide-bg">
+      <div class="croloft-hero-slide-overlay"></div>
+      <div class="croloft-hero-content">
+        <h1 class="croloft-hero-title">Yield Farming, DeFi Pools & Affiliate Rewards</h1>
+        <p class="croloft-hero-description">Provide liquidity, farm DeFi yields up to 48% APR, and earn lifetime commissions through our affiliate program — all in one platform.</p>
         
         <!-- button start --> 
           <button class="animated-button-bv" style="margin-top: 3rem;">
             <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
-            <span class="text">Get Support</span>
+            <span class="text">Get Started</span>
             <span class="circle"></span>
             <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-              ></path>
+              <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
             </svg>
           </button>
         <!-- button end -->
@@ -342,59 +352,61 @@
     </div>
   </div>
   
-  <div class="defcon-hero-controls">
-    <button class="defcon-hero-arrow defcon-hero-prev">
+  <div class="croloft-hero-controls">
+    <button class="croloft-hero-arrow croloft-hero-prev">
       <svg viewBox="0 0 24 24">
         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
       </svg>
     </button>
     
-    <div class="defcon-hero-pagination">
-      <div class="defcon-hero-dot active" data-slide="0"></div>
-      <div class="defcon-hero-dot" data-slide="1"></div>
-      <div class="defcon-hero-dot" data-slide="2"></div>
+    <div class="croloft-hero-pagination">
+      <div class="croloft-hero-dot active" data-slide="0"></div>
+      <div class="croloft-hero-dot" data-slide="1"></div>
+      <div class="croloft-hero-dot" data-slide="2"></div>
     </div>
     
-    <button class="defcon-hero-pause">❚❚</button>
+    <button class="croloft-hero-pause">❚❚</button>
     
-    <button class="defcon-hero-arrow defcon-hero-next">
+    <button class="croloft-hero-arrow croloft-hero-next">
       <svg viewBox="0 0 24 24">
         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
       </svg>
-
     </button>
   </div>
 </div>
 
 <style>
-  
-  
-  .defcon-hero-container {
-    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  .croloft-hero-container * {
+    box-sizing: border-box;
+  }
+
+  .croloft-hero-container {
+    font-family: 'Circular Std', -apple-system, BlinkMacSystemFont, sans-serif;
     width: 100%;
-    height: 90vh;
+    height: 95vh;
     min-height: 600px;
     position: relative;
     overflow: hidden;
     background-color: #e5e5e5;
   }
   
-  .defcon-hero-slides {
+  .croloft-hero-slides {
     width: 300%;
     height: 100%;
     display: flex;
     transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
   }
   
-  .defcon-hero-slide {
+  .croloft-hero-slide {
     width: 33.333%;
     height: 100%;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: center; /* Centers vertically */
+    justify-content: center;
   }
   
-  .defcon-hero-slide-bg {
+  .croloft-hero-slide-bg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -402,7 +414,7 @@
     z-index: 1;
   }
   
-  .defcon-hero-slide-overlay {
+  .croloft-hero-slide-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -410,7 +422,7 @@
     z-index: 2;
   }
   
-  .defcon-hero-content {
+  .croloft-hero-content {
     position: relative;
     z-index: 3;
     width: 100%;
@@ -418,29 +430,32 @@
     margin: 0 auto;
     padding: 0 20px;
     color: #ffffff;
+    text-align: left; /* Forces text to align to the left */
     transform: translateY(30px);
     opacity: 0;
     transition: transform 0.8s ease, opacity 0.8s ease;
     transition-delay: 0.3s;
   }
 
-  .defcon-hero-slide.active .defcon-hero-content {
+  .croloft-hero-slide.active .croloft-hero-content {
     opacity: 1;
-    transform: translateY(10%);
+    transform: translateY(0); /* Perfect true vertical center instead of a 10% offset */
   }
   
-  .defcon-hero-title {
+  .croloft-hero-title {
     font-size: 56px;
     letter-spacing: -0.03em;
     -webkit-text-fill-color: rgb(255, 255, 255);
     font-weight: 500;
     margin-bottom: 20px;
-    line-height: 1.2;
+    line-height: 1.15;
     width: 800px;
+    max-width: 100%;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-wrap: balance; 
   }
   
-  .defcon-hero-description {
+  .croloft-hero-description {
     font-size: 1.2rem;
     font-weight: 400;
     color: #ededed;
@@ -450,46 +465,7 @@
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
   
-  .defcon-hero-button {
-    display: inline-block;
-    padding: 15px 35px;
-    background-color: #CCFF00;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 145, 255, 0.3);
-  }
-  
-  .defcon-hero-button:hover {
-    background-color: #CCFF00;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 145, 255, 0.4);
-  }
-  
-  .defcon-hero-button::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transform: translateX(-100%);
-    transition: 0.5s;
-  }
-  
-  .defcon-hero-button:hover::after {
-    transform: translateX(100%);
-  }
-  
-  .defcon-hero-controls {
+  .croloft-hero-controls {
     position: absolute;
     bottom: 40px;
     left: 50%;
@@ -498,9 +474,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    width: max-content;
   }
   
-  .defcon-hero-arrow {
+  .croloft-hero-arrow {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -515,17 +492,18 @@
     font-size: 1.2rem;
   }
 
-  .defcon-hero-arrow svg {
+  .croloft-hero-arrow svg {
     width: 20px;
     height: 20px;
-    fill: #ffffff;}
+    fill: #ffffff;
+  }
   
-  .defcon-hero-arrow:hover {
+  .croloft-hero-arrow:hover {
     background-color: #0091ff;
     transform: scale(1.1);
   }
   
-  .defcon-hero-pause {
+  .croloft-hero-pause {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -541,17 +519,17 @@
     margin: 0 15px;
   }
   
-  .defcon-hero-pause:hover {
+  .croloft-hero-pause:hover {
     background-color: #ccff00;
     transform: scale(1.1);
   }
   
-  .defcon-hero-pagination {
+  .croloft-hero-pagination {
     display: flex;
     gap: 10px;
   }
   
-  .defcon-hero-dot {
+  .croloft-hero-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -560,246 +538,248 @@
     transition: all 0.3s ease;
   }
   
-  .defcon-hero-dot.active {
+  .croloft-hero-dot.active {
     background-color: #ccff00;
     transform: scale(1.2);
   }
   
   /* Slide-specific content variations */
-  .defcon-hero-slide-1 .defcon-hero-title {
-    color: #ffffff;
-  }
-  
-  .defcon-hero-slide-2 .defcon-hero-title {
-    color: #ffffff;
-  }
-  
-  .defcon-hero-slide-3 .defcon-hero-title {
+  .croloft-hero-slide-1 .croloft-hero-title,
+  .croloft-hero-slide-2 .croloft-hero-title,
+  .croloft-hero-slide-3 .croloft-hero-title {
     color: #ffffff;
   }
   
   /* Responsive adjustments */
   @media (max-width: 992px) {
-    .defcon-hero-title {
+    .croloft-hero-title {
       font-size: 2.8rem;
     }
     
-    .defcon-hero-description {
+    .croloft-hero-description {
       font-size: 1.1rem;
       max-width: 500px;
     }
   }
   
   @media (max-width: 768px) {
-    .defcon-hero-container {
-      min-height: 500px;
+    .croloft-hero-container {
+      height: 100svh;
+      min-height: 550px; 
     }
 
-    .defcon-hero-slide {
-      height: 900px;
+    .croloft-hero-slide {
+      height: 100svh;
+      min-height: 550px;
+      align-items: center; /* Forces vertical centering on mobile */
+      padding-bottom: 0; /* Removes bottom padding that was pushing it near controls */
+    }
+
+    .croloft-hero-slide-overlay {
+      background: rgba(6, 39, 62, 0.6); /* Uniform dark overlay for legibility in the middle */
+    }
+
+    .croloft-hero-slide.active .croloft-hero-content {
+      transform: translateY(0);
+    }
+
+    .croloft-hero-content {
+      padding: 0 24px;
     }
     
-    .defcon-hero-title {
-      font-size: 2.2rem;
-    }
-    
-    .defcon-hero-description {
-      font-size: 1rem;
+    .croloft-hero-title {
+      font-size: 2.25rem;
+      width: 100%;
       max-width: 100%;
     }
     
-    .defcon-hero-content {
-      padding: 0 20px;
+    .croloft-hero-description {
+      font-size: 1rem;
+      max-width: 100%;
+      margin-bottom: 30px;
     }
 
-    .defcon-hero-content h1 {
-      max-width: 300px;
+    .animated-button-bv {
+      margin-top: 1.5rem !important;
     }
     
-    .defcon-hero-button {
-      padding: 12px 25px;
+    .croloft-hero-controls {
+      bottom: 30px;
+      gap: 14px;
     }
     
-    .defcon-hero-controls {
-      bottom: 20px;
-    }
-    
-    .defcon-hero-arrow {
+    .croloft-hero-arrow {
       width: 40px;
       height: 40px;
       font-size: 1rem;
     }
     
-    .defcon-hero-pause {
+    .croloft-hero-pause {
       width: 35px;
       height: 35px;
+      margin: 0 8px;
     }
   }
   
   @media (max-width: 480px) {
-    .defcon-hero-title {
-      font-size: 1.8rem;
+    .croloft-hero-title {
+      font-size: 1.85rem; 
+      line-height: 1.25;
     }
     
-    .defcon-hero-description {
-      font-size: 0.9rem;
+    .croloft-hero-description {
+      font-size: 0.95rem;
     }
     
-    .defcon-hero-controls {
+    .croloft-hero-controls {
       gap: 10px;
+      width: 100%;
+      justify-content: center;
+      padding: 0 15px;
     }
     
-    .defcon-hero-arrow {
+    .croloft-hero-arrow {
       width: 35px;
       height: 35px;
     }
-    
-    .defcon-hero-pause {
-      width: 30px;
-      height: 30px;
-      margin: 0 10px;
+
+    .croloft-hero-arrow svg {
+      width: 16px;
+      height: 16px;
     }
     
-    .defcon-hero-dot {
+    .croloft-hero-pause {
+      width: 30px;
+      height: 30px;
+      margin: 0 6px;
+      font-size: 0.7rem;
+    }
+    
+    .croloft-hero-dot {
       width: 10px;
       height: 10px;
     }
+
+    .animated-button-bv {
+      font-size: 14px;
+      padding: 12px 24px;
+      width: 100%; 
+      justify-content: center;
+    }
   }
 
-/* From Uiverse.io by gharsh11032000 */ 
-        .animated-button-bv {
-          position: relative;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          padding: 10px 30px;
-          border: 4px solid;
-          border-color: transparent;
-          font-size: 16px;
-          background-color: inherit;
-          border-radius: 100px;
-          font-weight: 500;
-          background-color: #ccff00;
-          color: #000000;
-          box-shadow: 0 0 0 2px #ccff00;
-          cursor: pointer;
-          overflow: hidden;
-          transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); font-family: 'Circular Std', sans-serif;
-        }
+  /* From Uiverse.io by gharsh11032000 */ 
+  .animated-button-bv {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 30px;
+    border: 4px solid transparent;
+    font-size: 16px;
+    border-radius: 100px;
+    font-weight: 500;
+    background-color: #ccff00;
+    color: #000000;
+    box-shadow: 0 0 0 2px #ccff00;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    font-family: 'Circular Std', sans-serif;
+  }
 
-        .animated-button-bv svg {
-          position: absolute;
-          width: 24px;
-          fill: #000000;
-          z-index: 9;
-          transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
+  .animated-button-bv svg {
+    position: absolute;
+    width: 24px;
+    fill: #000000;
+    z-index: 9;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-        .animated-button-bv .arr-1 {
-          right: 16px;
-        }
+  .animated-button-bv .arr-1 { right: 16px; }
+  .animated-button-bv .arr-2 { left: -25%; }
 
-        .animated-button-bv .arr-2 {
-          left: -25%;
-        }
+  .animated-button-bv .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #ccff00;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-        .animated-button-bv .circle {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 20px;
-          height: 20px;
-          background-color: #ccff00;
-          border-radius: 50%;
-          opacity: 0;
-          transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
+  .animated-button-bv .text {
+    position: relative;
+    z-index: 1;
+    transform: translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  }
 
-        .animated-button-bv .text {
-          position: relative;
-          z-index: 1;
-          transform: translateX(-12px);
-          transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-        }
+  @media (hover: hover) {
+    .animated-button-bv:hover {
+      box-shadow: 0 0 0 12px transparent;
+      color: rgb(0, 0, 0);
+      border-radius: 8px;
+    }
+    .animated-button-bv:hover .arr-1 { right: -25%; }
+    .animated-button-bv:hover .arr-2 { left: 16px; }
+    .animated-button-bv:hover .text { transform: translateX(12px); }
+    .animated-button-bv:hover svg { fill: rgb(0, 0, 0); }
+    .animated-button-bv:hover .circle {
+      width: 350px;
+      height: 350px;
+      opacity: 1;
+    }
+  }
 
-        .animated-button-bv:hover {
-          box-shadow: 0 0 0 12px transparent;
-          color: rgb(0, 0, 0);
-          border-radius: 8px;
-        }
-
-        .animated-button-bv:hover .arr-1 {
-          right: -25%;
-        }
-
-        .animated-button-bv:hover .arr-2 {
-          left: 16px;
-        }
-
-        .animated-button-bv:hover .text {
-          transform: translateX(12px);
-        }
-
-        .animated-button-bv:hover svg {
-          fill: rgb(0, 0, 0);
-        }
-
-        .animated-button-bv:active {
-          scale: 0.95;
-          box-shadow: 0 0 0 4px #ccff00;
-        }
-
-        .animated-button-bv:hover .circle {
-          width: 270px;
-          height: 250px;
-          opacity: 1;
-        }
+  .animated-button-bv:active {
+    scale: 0.95;
+    box-shadow: 0 0 0 4px #ccff00;
+  }
 </style>
 
 <script>
-   // DEFCON HERO SLIDER - INTERACTIVITY
+   // CROLOFT HERO SLIDER - INTERACTIVITY
   document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.defcon-hero-slides');
-    const slides = document.querySelectorAll('.defcon-hero-slide');
-    const dots = document.querySelectorAll('.defcon-hero-dot');
-    const prevBtn = document.querySelector('.defcon-hero-prev');
-    const nextBtn = document.querySelector('.defcon-hero-next');
-    const pauseBtn = document.querySelector('.defcon-hero-pause');
+    const slider = document.querySelector('.croloft-hero-slides');
+    const slides = document.querySelectorAll('.croloft-hero-slide');
+    const dots = document.querySelectorAll('.croloft-hero-dot');
+    const prevBtn = document.querySelector('.croloft-hero-prev');
+    const nextBtn = document.querySelector('.croloft-hero-next');
+    const pauseBtn = document.querySelector('.croloft-hero-pause');
     
     let currentSlide = 0;
     let slideCount = slides.length;
     let autoSlide = true;
     let slideInterval;
-    const slideDuration = 6000; // 6 seconds
+    const slideDuration = 6000;
     
-    // Initialize slider
     function initSlider() {
       updateSlider();
       startAutoSlide();
       
-      // Set initial active states
       slides.forEach((slide, index) => {
         if (index === currentSlide) {
           slide.classList.add('active');
-          // Trigger content animation
           setTimeout(() => {
-            slide.querySelector('.defcon-hero-content').style.opacity = '1';
-            slide.querySelector('.defcon-hero-content').style.transform = 'translateY(0)';
+            slide.querySelector('.croloft-hero-content').style.opacity = '1';
+            slide.querySelector('.croloft-hero-content').style.transform = 'translateY(0)';
           }, 100);
         } else {
           slide.classList.remove('active');
-          slide.querySelector('.defcon-hero-content').style.opacity = '0';
-          slide.querySelector('.defcon-hero-content').style.transform = 'translateY(30px)';
+          slide.querySelector('.croloft-hero-content').style.opacity = '0';
+          slide.querySelector('.croloft-hero-content').style.transform = 'translateY(30px)';
         }
       });
     }
     
-    // Update slider position
     function updateSlider() {
       slider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
       
-      // Update dots
       dots.forEach((dot, index) => {
         if (index === currentSlide) {
           dot.classList.add('active');
@@ -808,46 +788,39 @@
         }
       });
       
-      // Update slide active states with animation
       slides.forEach((slide, index) => {
         if (index === currentSlide) {
           slide.classList.add('active');
-          // Animate content in
           setTimeout(() => {
-            slide.querySelector('.defcon-hero-content').style.opacity = '1';
-            slide.querySelector('.defcon-hero-content').style.transform = 'translateY(0)';
+            slide.querySelector('.croloft-hero-content').style.opacity = '1';
+            slide.querySelector('.croloft-hero-content').style.transform = 'translateY(0)';
           }, 100);
         } else {
           slide.classList.remove('active');
-          // Reset content animation
-          slide.querySelector('.defcon-hero-content').style.opacity = '0';
-          slide.querySelector('.defcon-hero-content').style.transform = 'translateY(30px)';
+          slide.querySelector('.croloft-hero-content').style.opacity = '0';
+          slide.querySelector('.croloft-hero-content').style.transform = 'translateY(30px)';
         }
       });
     }
     
-    // Go to specific slide
     function goToSlide(index) {
       currentSlide = (index + slideCount) % slideCount;
       updateSlider();
       resetAutoSlide();
     }
     
-    // Next slide
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slideCount;
       updateSlider();
       resetAutoSlide();
     }
     
-    // Previous slide
     function prevSlide() {
       currentSlide = (currentSlide - 1 + slideCount) % slideCount;
       updateSlider();
       resetAutoSlide();
     }
     
-    // Auto slide functionality
     function startAutoSlide() {
       if (autoSlide) {
         slideInterval = setInterval(nextSlide, slideDuration);
@@ -872,10 +845,8 @@
       }
     }
     
-    // Event listeners
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
-    
     pauseBtn.addEventListener('click', toggleAutoSlide);
     
     dots.forEach(dot => {
@@ -884,7 +855,6 @@
       });
     });
     
-    // Touch events for mobile
     let touchStartX = 0;
     let touchEndX = 0;
     
@@ -899,14 +869,13 @@
     
     function handleSwipe() {
       if (touchEndX < touchStartX - 50) {
-        nextSlide(); // Swipe left
+        nextSlide();
       }
       if (touchEndX > touchStartX + 50) {
-        prevSlide(); // Swipe right
+        prevSlide();
       }
     }
     
-    // Keyboard navigation
     document.addEventListener('keydown', function(e) {
       if (e.key === 'ArrowRight') {
         nextSlide();
@@ -917,30 +886,9 @@
       }
     });
     
-    // Initialize
     initSlider();
   });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
