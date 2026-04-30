@@ -59,6 +59,194 @@
 
 
 
+<!-- Development Status Popup -->
+<div id="dev-popup-overlay" class="dev-overlay">
+    <div class="dev-modal">
+        
+        <div class="dev-content">
+            <h2 class="dev-title">System Refinement in Progress</h2>
+            <p class="dev-message">
+                Welcome to the <strong>Croloft</strong> interface. We are currently optimizing our infrastructure to ensure global-scale performance. 
+            </p>
+            <p class="dev-message">
+                Please note that certain modules are undergoing active development. You may encounter minor alignment variations or structural adjustments as we finalize our high-end design standards.
+            </p>
+            <button id="btn-acknowledge" class="dev-btn">Acknowledge</button>
+        </div>
+    </div>
+</div>
+
+<style>
+  /* ─────────────────────────────────
+   DEVELOPMENT POPUP
+   ───────────────────────────────── */
+.dev-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.dev-modal {
+    background: #ffffff;
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid #000000; /* Border instead of shadow[cite: 1] */
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.dev-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.dev-icon {
+    width: 32px;
+    height: 32px;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.dev-close {
+    background: none;
+    border: none; display: flex; align-items: flex-end; justify-content: flex-end;
+    font-size: 28px;
+    cursor: pointer;
+    color: #888888;
+    line-height: 1;
+}
+
+.dev-title {
+    font-family: 'Circular Std', 'Inter', sans-serif;
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.dev-message {
+    color: #000000;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px; font-family: 'Circular Std', 'Inter', sans-serif;
+}
+
+.dev-btn {
+    width: 100%;
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    padding: 14px;
+    font-family: 'Circular Std', 'Inter', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    margin-top: 10px; border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+.dev-btn:hover {
+    background: #333333;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .dev-modal {
+        padding: 24px;
+    }
+    .dev-title {
+        font-size: 1.25rem;
+    }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.getElementById('dev-popup-overlay');
+    const closeBtn = document.getElementById('close-dev-popup');
+    const ackBtn = document.getElementById('btn-acknowledge');
+
+    const closePopup = () => {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 300);
+    };
+
+    closeBtn.addEventListener('click', closePopup);
+    ackBtn.addEventListener('click', closePopup);
+
+    // Optional: Close on outside click
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closePopup();
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -888,130 +1076,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<div id="cryptHero-mobile-perfect-unique" class="cryptHero-root">
-    <style>
-        #cryptHero-mobile-perfect-unique {
-            --ch-bg: #000000;
-            --ch-font: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--ch-bg);
-            color: #ffffff;
-            font-family: var(--ch-font);
-            min-height: 90vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Padding reduces on mobile to maximize text space */
-            padding: 5vw; 
-            box-sizing: border-box;
-            /* Prevents the 'CRYPTO' offset from breaking the page width */
-            overflow-x: hidden; 
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .cryptHero-content-box {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end; 
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-        }
-
-        /* Typography & Gradient */
-        .cryptHero-text-line {
-            /* Perfectly scales: 40px min, 18vw preferred, 220px max */
-            font-size: clamp(40px, 16vw, 150px); 
-            font-weight: 200;
-            line-height: 0.85;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-            margin: 0;
-            white-space: nowrap;
-            text-align: right;
-            
-            background: linear-gradient(
-                to right,
-                #f4f4f4 0%,
-                #cdcdcd 40%,
-                #666666 75%,
-                #1a1a1a 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* The Offset: Using translateX for smoother sub-pixel rendering */
-        .cryptHero-crypto-offset {
-            transform: translateX(35%);
-            z-index: 2;
-        }
-
-        /* Description Block */
-        .cryptHero-description-wrap {
-            margin-top: 40px;
-            text-align: right;
-            /* Scales width for mobile */
-            width: 100%;
-            max-width: 400px; 
-        }
-
-        .cryptHero-p-text {
-            font-size: clamp(10px, 2vw, 14px);
-            line-height: 1.4;
-            color: rgba(255, 255, 255, 0.4);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        /* Mobile-Specific Tweaks */
-        @media (max-width: 600px) {
-            .cryptHero-text-line {
-                letter-spacing: -0.03em;
-                line-height: 0.9;
-            }
-            .cryptHero-crypto-offset {
-                /* Reduced offset on mobile to prevent clipping important letters */
-                transform: translateX(5%);
-            }
-            .cryptHero-description-wrap {
-                margin-top: 25px;
-                max-width: 300px;
-            }
-        }
-    </style>
-
-    <div class="cryptHero-content-box">
-        <h1 class="cryptHero-text-line">ULTIMATE</h1>
-        
-        <h1 class="cryptHero-text-line cryptHero-crypto-offset">CRYPTO</h1>
-        
-        <h1 class="cryptHero-text-line">SOLUTION</h1>
-
-        <div class="cryptHero-description-wrap">
-            <p class="cryptHero-p-text">
-                CRYPTURE EMPOWERS YOU TO MANAGE <br>
-                YOUR DIGITAL ASSETS EFFORTLESSLY.
-            </p>
-        </div>
-    </div>
-</div>
 
 
 
