@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Glow Labs</title>
+    <style>
+        /* Scoped to Glow Labs to prevent interference with other styles */
+        .glow-crypto-auth-container * {
+            box-sizing: border-box;
+            font-family: "Circular Std", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .glow-crypto-auth-container {
+            min-height: 100vh;
+            width: 100%;
+            background-color: #1e2129; /* Deep slate background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        /* Branding */
+        .glow-labs-logo {
+            color: #ff00ff; /* Signature Neon Pink */
+            font-size: 48px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            text-align: center;
+            margin-bottom: 40px;
+            cursor: default;
+        }
+
+        .glow-labs-logo span {
+            display: block;
+            font-size: 32px;
+        }
+
+        .glow-auth-heading {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            color: #ffffff;
+        }
+
+        /* Buttons List */
+        .glow-auth-options {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .glow-auth-btn {
+            width: 100%;
+            padding: 14px 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .glow-auth-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .glow-auth-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Platform-specific icon coloring/styles */
+        .glow-icon-google { filter: none; }
+        .glow-icon-coinbase { color: #0052ff; }
+        .glow-icon-metamask { color: #f6851b; }
+
+        /* Divider for email (optional based on image spacing) */
+        .glow-auth-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        /* Footer Text */
+        .glow-auth-footer {
+            margin-top: 40px;
+            max-width: 380px;
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .glow-auth-footer a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glow-auth-footer a:hover {
+            border-bottom-color: #ffffff;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            .glow-labs-logo {
+                font-size: 40px;
+            }
+            .glow-auth-heading {
+                font-size: 18px;
+            }
+            .glow-auth-btn {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="glow-crypto-auth-container">
+    
+    <!-- Header Section -->
+    <div class="glow-labs-logo">
+        GLOW<br>LABS
+    </div>
+
+    <h1 class="glow-auth-heading">Login to Glow Labs</h1>
+
+    <!-- Login Options -->
+    <div class="glow-auth-options">
+        
+        <!-- Google -->
+        <button class="glow-auth-btn">
+            <div class="glow-auth-icon">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="Google">
+            </div>
+            Sign in with Google
+        </button>
+
+        <div class="glow-auth-divider"></div>
+
+        <!-- Coinbase -->
+        <button class="glow-auth-btn">
+            <div class="glow-auth-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="#0052ff"><path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM12 18.5C8.41015 18.5 5.5 15.5899 5.5 12C5.5 8.41015 8.41015 5.5 12 5.5C15.5899 5.5 18.5 8.41015 18.5 12C18.5 15.5899 15.5899 18.5 12 18.5Z"/></svg>
+            </div>
+            Sign in with Coinbase
+        </button>
+
+        <!-- MetaMask -->
+        <button class="glow-auth-btn">
+            <div class="glow-auth-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Manifest_Icon.svg" width="20" alt="MetaMask">
+            </div>
+            Sign in with MetaMask
+        </button>
+
+        <!-- Email -->
+        <button class="glow-auth-btn">
+            <div class="glow-auth-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            Sign in with e-mail
+        </button>
+
+    </div>
+
+    <!-- Legal Footer -->
+    <footer class="glow-auth-footer">
+        By connecting your wallet and using Glow Labs, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+    </footer>
+
+</div>
+
+</body>
+</html>

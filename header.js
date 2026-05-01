@@ -288,7 +288,7 @@ class CryptoHeader extends HTMLElement {
           font-family: var(--f); font-size: 0.9rem; font-weight: 500;
           color: #000000; background: #CCFF00; border: none;
           padding: 0.5rem 1rem; border-radius: 60px; cursor: pointer;
-          transition: color 0.2s, background 0.2s; white-space: nowrap;
+          transition: color 0.2s, background 0.2s; white-space: nowrap; text-decoration: none; border-bottom: none;
         }
         .btn-login:hover { color: var(--white); background: var(--cyan-dim); }
 
@@ -297,7 +297,7 @@ class CryptoHeader extends HTMLElement {
           color: #000000; background: var(--cyan); border: none;
           padding: 0.5rem 0.8rem; border-radius: 60px; cursor: pointer;
           white-space: nowrap;
-          transition: opacity 0.2s, transform 0.15s;
+          transition: opacity 0.2s, transform 0.15s; text-decoration: none; border-bottom: none;
         }
         .btn-signup:hover  { opacity: 0.88; transform: translateY(-1px); }
         .btn-signup:active { transform: none; }
@@ -506,8 +506,8 @@ class CryptoHeader extends HTMLElement {
             </div>
           </div>
 
-          <button class="btn-login">Log in</button>
-          <button class="btn-signup">Sign Up</button>
+          <a class="btn-login" href="login.html">Log in</a>
+          <a class="btn-signup" href="signup.html">Sign Up</a>
           <button class="ham" id="ham" aria-label="Open menu">
             <span></span><span></span><span></span>
           </button>
